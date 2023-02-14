@@ -50,11 +50,11 @@ export default function Album() {
               Recipe Portfolio
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              This is my personal recipe collection that I have gathered from Instagram 
+              This is my personal recipe collection that I have gathered from Instagram
               accounts, YouTube channels and the web more broadly. The recipes that
-              end up on this site have all been tested by me and I make them on a recurrent basis. 
+              end up on this site have all been tested by me and I make them on a recurrent basis.
               <br></br><br></br>
-              I built this website to make it easier for myself to keep cooking great recipes that 
+              I built this website to make it easier for myself to keep cooking great recipes that
               I have discovered and also to share them with others.
             </Typography>
           </Container>
@@ -67,23 +67,23 @@ export default function Album() {
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
-                  <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      height: 200
-                    }}
-                    image="/images/auberginecurry.jpg" //https://source.unsplash.com/random"
-                    alt="random"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {recipe.name}
-                    </Typography>
-                    <Typography>
-                      YUMMY!
-                    </Typography>
-                  </CardContent>
+                  <CardActionArea href="https://google.com">
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        height: 200
+                      }}
+                      image="/images/auberginecurry.jpg" //https://source.unsplash.com/random"
+                      alt="random"
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {recipe.name}
+                      </Typography>
+                      <Typography>
+                        YUMMY!
+                      </Typography>
+                    </CardContent>
                   </CardActionArea>
                 </Card>
               </Grid>
@@ -91,8 +91,8 @@ export default function Album() {
           </Grid>
         </Container>
       </main>
-       {/* Footer */}
-       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+      {/* Footer */}
+      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography
           variant="subtitle1"
           align="center"
