@@ -8,7 +8,7 @@ import "./styles.css";
 
 import recipeDB from "./recipes.json";
 import { useParams } from "react-router-dom";
-import { CssBaseline, ThemeProvider, Typography, createTheme } from "@mui/material";
+import { CssBaseline, ThemeProvider, Typography } from "@mui/material";
 import TopBar from "./TopBar";
 import { useThemeContext, themeLight, themeDark } from "./ThemeContext";
 
