@@ -1,7 +1,7 @@
 {
   "name": "recipe-portfolio",
   "version": "0.1.0",
-  "homepage": "https://lucharo.github.io/recipe-portfolio",
+  "homepage": "https://luischaves.xyz/recipe-portfolio",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
