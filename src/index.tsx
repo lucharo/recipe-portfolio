@@ -4,15 +4,24 @@ import './index.css';
 import App from './App';
 import Album from './Album';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Album />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Album />} />
+        <Route path="/recipe/:recipeId" element={<App />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

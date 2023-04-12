@@ -10,28 +10,26 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CardActionArea from '@mui/material/CardActionArea';
+import { Link } from 'react-router-dom';
+import { useThemeContext } from './ThemeContext';
+import TopBar from './TopBar';
 
 import recipeDB from './recipes.json'
-
-
 const recipes = recipeDB.recipes;
 
-const theme = createTheme();
-
 export default function Album() {
+  const [theme, toggleTheme] = useThemeContext(); // Add this line
+  const themeConfig = createTheme({
+    palette: {
+      mode: theme === 'dark' ? 'dark' : 'light',
+    },
+  });
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeConfig}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Recipe Portfolio
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <TopBar />
       <main>
-        {/* Hero unit */}
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -67,7 +65,7 @@ export default function Album() {
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
-                  <CardActionArea href="https://google.com">
+                  <Link to={`/recipe/${recipe.name}`}>
                     <CardMedia
                       component="img"
                       sx={{
@@ -84,7 +82,8 @@ export default function Album() {
                         YUMMY!
                       </Typography>
                     </CardContent>
-                  </CardActionArea>
+                  </Link>
+
                 </Card>
               </Grid>
             ))}
