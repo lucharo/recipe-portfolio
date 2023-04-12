@@ -1,5 +1,5 @@
 h1 {
-    color:blue
+    color: blue
 }
 
 .column {
@@ -8,19 +8,21 @@ h1 {
 
 /* Left and right column */
 .column.ingredients {
-width: 40%;
+    width: 40%;
 }
 
 /* Middle column */
 .column.methods {
-width: 60%;
+    width: 60%;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-.column.ingredients, .column.methods {
-    width: 100%;
-}
+
+    .column.ingredients,
+    .column.methods {
+        width: 100%;
+    }
 }
 
 .content {
@@ -28,4 +30,41 @@ width: 60%;
     margin: auto;
     background: white;
     padding: 10px;
+}
+
+.white-link {
+    color: white;
+    text-decoration: none;
+}
+
+
+.recipe-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.recipe-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.black-link {
+    color: black;
+    text-decoration: none;
+}
+
+.black-link:hover {
+    text-decoration: underline;
+}
+
+.white-link {
+    color: white;
+    text-decoration: none;
+}
+
+.white-link:hover {
+    text-decoration: underline;
 }

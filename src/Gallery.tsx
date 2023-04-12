@@ -9,29 +9,22 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CardActionArea from '@mui/material/CardActionArea';
+import { ThemeProvider } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+import { useThemeContext, themeDark, themeLight } from './ThemeContext';
+import TopBar from './TopBar';
 
 import recipeDB from './recipes.json'
-
-
 const recipes = recipeDB.recipes;
 
-const theme = createTheme();
+export default function Gallery() {
+  const [theme, toggleTheme] = useThemeContext(); // Add this line
 
-export default function Album() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme === 'dark' ? themeDark : themeLight}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Recipe Portfolio
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <TopBar theme={theme} toggleTheme={toggleTheme}/>
       <main>
-        {/* Hero unit */}
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -50,11 +43,11 @@ export default function Album() {
               Recipe Portfolio
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              This is my personal recipe collection that I have gathered from Instagram 
+              This is my personal recipe collection that I have gathered from Instagram
               accounts, YouTube channels and the web more broadly. The recipes that
-              end up on this site have all been tested by me and I make them on a recurrent basis. 
+              end up on this site have all been tested by me and I make them on a recurrent basis.
               <br></br><br></br>
-              I built this website to make it easier for myself to keep cooking great recipes that 
+              I built this website to make it easier for myself to keep cooking great recipes that
               I have discovered and also to share them with others.
             </Typography>
           </Container>
@@ -67,32 +60,33 @@ export default function Album() {
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
-                  <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      height: 200
-                    }}
-                    image="/images/auberginecurry.jpg" //https://source.unsplash.com/random"
-                    alt="random"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {recipe.name}
-                    </Typography>
-                    <Typography>
-                      YUMMY!
-                    </Typography>
-                  </CardContent>
-                  </CardActionArea>
+                <Link to={`/recipe/${recipe.name}`} className={theme === "dark" ? "white-link" : "black-link"}>
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        height: 200
+                      }}
+                      image="/images/auberginecurry.jpg" //https://source.unsplash.com/random"
+                      alt="random"
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom color="inherit" variant="h5" component="h2">
+                        {recipe.name}
+                      </Typography>
+                      <Typography>
+                        YUMMY!
+                      </Typography>
+                    </CardContent>
+                  </Link>
+
                 </Card>
               </Grid>
             ))}
           </Grid>
         </Container>
       </main>
-       {/* Footer */}
-       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+      {/* Footer */}
+      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography
           variant="subtitle1"
           align="center"
