@@ -5,34 +5,40 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { useThemeContext } from './ThemeContext';
+import { faMoon, faSun, faHome } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
-const TopBar: React.FC = () => {
-  const { theme, toggleTheme } = useThemeContext();
+interface TopBarProps {
+    theme: string;
+    toggleTheme: () => void;
+}
 
-  return (
-    <AppBar position="relative">
-      <Toolbar>
-        <Typography
-          variant="h6"
-          color="inherit"
-          noWrap
-          style={{ cursor: 'pointer' }}
-          onClick={() => history.push('/')}
-        >
-          Recipe Portfolio
-        </Typography>
-        <IconButton edge="end" color="inherit" onClick={toggleTheme} style={{ marginLeft: 'auto' }}>
-          {theme === 'dark' ? (
-            <FontAwesomeIcon icon={faSun} />
-          ) : (
-            <FontAwesomeIcon icon={faMoon} />
-          )}
-        </IconButton>
-      </Toolbar>
-    </AppBar>
-  );
+const TopBar: React.FC<TopBarProps> = ({ theme, toggleTheme }) => {
+    const navigate = useNavigate();
+
+    return (
+        <AppBar position="relative">
+            <Toolbar>
+                <Button
+                    key="home"
+                    variant="outlined"
+                    color="inherit"
+                    onClick={() => navigate('/')}
+                  >
+                    <FontAwesomeIcon icon={faHome} /> 
+                    <span style={{ marginLeft: '4px' }}>Recipe Portfolio</span>
+                  </Button>
+                <IconButton edge="end" color="inherit" onClick={toggleTheme} style={{ marginLeft: 'auto' }}>
+                    {theme === 'dark' ? (
+                        <FontAwesomeIcon icon={faSun} />
+                    ) : (
+                        <FontAwesomeIcon icon={faMoon} />
+                    )}
+                </IconButton>
+            </Toolbar>
+        </AppBar>
+    );
 };
 
 export default TopBar;

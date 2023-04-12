@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createTheme } from '@mui/material/styles';
 
 export const useThemeContext = () => {
   const [theme, setTheme] = useState("dark");
@@ -20,3 +21,15 @@ export const useThemeContext = () => {
 
   return [theme, toggleTheme] as const;
 };
+
+export const themeLight = createTheme({
+  palette: {
+    mode: 'light',
+  },
+});
+
+export const themeDark = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});

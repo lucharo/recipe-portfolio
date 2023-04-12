@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import Album from './Album';
+import Recipe from './Recipe';
+import Gallery from './Gallery';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -14,8 +14,8 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<Album />} />
-        <Route path="/recipe/:recipeId" element={<App />} />
+        <Route path="/" element={<Gallery />} />
+        <Route path="/recipe/:recipeId" element={<Recipe />} />
       </Routes>
     </Router>
   </React.StrictMode>

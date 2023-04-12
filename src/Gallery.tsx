@@ -9,26 +9,21 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import { useThemeContext } from './ThemeContext';
+import { useThemeContext, themeDark, themeLight } from './ThemeContext';
 import TopBar from './TopBar';
 
 import recipeDB from './recipes.json'
 const recipes = recipeDB.recipes;
 
-export default function Album() {
+export default function Gallery() {
   const [theme, toggleTheme] = useThemeContext(); // Add this line
-  const themeConfig = createTheme({
-    palette: {
-      mode: theme === 'dark' ? 'dark' : 'light',
-    },
-  });
 
   return (
-    <ThemeProvider theme={themeConfig}>
+    <ThemeProvider theme={theme === 'dark' ? themeDark : themeLight}>
       <CssBaseline />
-      <TopBar />
+      <TopBar theme={theme} toggleTheme={toggleTheme}/>
       <main>
         <Box
           sx={{
@@ -65,7 +60,7 @@ export default function Album() {
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
-                  <Link to={`/recipe/${recipe.name}`}>
+                <Link to={`/recipe/${recipe.name}`} className={theme === "dark" ? "white-link" : "black-link"}>
                     <CardMedia
                       component="img"
                       sx={{
@@ -75,7 +70,7 @@ export default function Album() {
                       alt="random"
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" component="h2">
+                      <Typography gutterBottom color="inherit" variant="h5" component="h2">
                         {recipe.name}
                       </Typography>
                       <Typography>
