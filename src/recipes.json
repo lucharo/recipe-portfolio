@@ -2,6 +2,7 @@
   "recipes": [
     {
       "name": "Aubergine Curry",
+      "image": "auberginecurry.jpg",
       "source": "https://instagram.com/p/CbX5D_BpBMO",
       "servings": 3,
       "ingredients": [
@@ -35,6 +36,7 @@
     },
     {
       "name": "Pasta with Pistachio Pesto",
+      "image": "pistachio-pesto-pasta.png",
       "source": "https://instagram.com/p/CdLgaiPK4TS",
       "servings": 3,
       "ingredients": [
@@ -59,6 +61,7 @@
     },
     {
       "name": "Lemon Cashew Pasta",
+      "image": null,
       "source": "https://instagram.com/p/CVGA96hql9X",
       "servings": 3,
       "ingredients": [
@@ -87,6 +90,7 @@
     },
     {
       "name": "Red Lentil Dahl",
+      "image": "dahl.png",
       "source": "https://avirtualvegan.com/instant-pot-lentil-dal/#recipe",
       "servings": 4,
       "ingredients": [
@@ -117,6 +121,7 @@
     },
     {
       "name": "Chana Masala",
+      "image": "chanamasala.png",
       "source": "https://www.youtube.com/watch?v=81qLj6Odfgs",
       "servings": 4,
       "ingredients": [
@@ -150,6 +155,7 @@
     },
     {
       "name": "The Smoothest Hummus",
+      "image": "hummus.jpeg",
       "source": "https://instagram.com/p/Cg9pcjSKTrC",
       "servings": 4,
       "ingredients": [
@@ -175,6 +181,7 @@
     },
     {
       "name": "Cilantro lime noodles",
+      "image": null,
       "source": "https://instagram.com/p/CcF1M-RDlg-",
       "servings": 2,
       "ingredients": [

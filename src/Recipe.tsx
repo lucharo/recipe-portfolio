@@ -8,7 +8,7 @@ import "./styles.css";
 
 import recipeDB from "./recipes.json";
 import { useParams } from "react-router-dom";
-import { CssBaseline, ThemeProvider, Typography } from "@mui/material";
+import { Container, CssBaseline, Stack, ThemeProvider, Typography } from "@mui/material";
 import TopBar from "./TopBar";
 import { useThemeContext, themeLight, themeDark } from "./ThemeContext";
 
@@ -47,8 +47,11 @@ const Recipe = () => {
       <TopBar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <div className="recipe-wrapper">
-          <div>
-            <Typography gutterBottom color="inherit" variant="h3">
+        <Container maxWidth="md">
+            <Typography 
+            gutterBottom 
+            color="inherit" 
+            variant="h3">
               {recipe.name} [modified from <a href={recipe.source}>source</a>]
             </Typography>
             <h2>
@@ -65,9 +68,10 @@ const Recipe = () => {
                 ))}
               </ButtonGroup>
             </h2>
-          </div>
+          </Container>
 
           <div className="recipe-container">
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={4}>
 
             <div className="column ingredients">
               <h3>Ingredients</h3>
@@ -86,6 +90,8 @@ const Recipe = () => {
                 ))}
               </ol>
             </div>
+            </Stack>
+
           </div>
         </div>
 

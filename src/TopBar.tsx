@@ -24,10 +24,10 @@ const TopBar: React.FC<TopBarProps> = ({ theme, toggleTheme }) => {
                     variant="outlined"
                     color="inherit"
                     onClick={() => navigate('/')}
-                  >
-                    <FontAwesomeIcon icon={faHome} /> 
+                >
+                    <FontAwesomeIcon icon={faHome} />
                     <span style={{ marginLeft: '4px' }}>Recipe Portfolio</span>
-                  </Button>
+                </Button>
                 <IconButton edge="end" color="inherit" onClick={toggleTheme} style={{ marginLeft: 'auto' }}>
                     {theme === 'dark' ? (
                         <FontAwesomeIcon icon={faSun} />

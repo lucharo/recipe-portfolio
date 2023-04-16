@@ -53,7 +53,7 @@ export default function Gallery() {
         </Box>
         <Container sx={{ py: 0 }} maxWidth="lg">
           {/* End hero unit */}
-          <Grid container spacing={4} columns={16}>
+          <Grid container spacing={4} columns={{ xs: 4, sm: 8, md: 12 }}>
             {recipes.map((recipe) => (
               <Grid item key={recipe.name} xs={12} sm={6} md={4}>
                 <Card
@@ -65,7 +65,7 @@ export default function Gallery() {
                       sx={{
                         height: 200
                       }}
-                      image={`${process.env.PUBLIC_URL}/images/auberginecurry.jpg`} //https://source.unsplash.com/random"
+                      image={`${process.env.PUBLIC_URL}/images/${recipe.image}`} //https://source.unsplash.com/random"
                       alt="random"
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
