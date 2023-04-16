@@ -10,6 +10,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { useThemeContext, themeDark, themeLight } from './ThemeContext';
 import TopBar from './TopBar';
+import * as React from 'react';
+
 
 import recipeDB from './recipes.json'
 const recipes = recipeDB.recipes;
@@ -63,7 +65,7 @@ export default function Gallery() {
                       sx={{
                         height: 200
                       }}
-                      image="/images/auberginecurry.jpg" //https://source.unsplash.com/random"
+                      image={`${process.env.PUBLIC_URL}/images/auberginecurry.jpg`} //https://source.unsplash.com/random"
                       alt="random"
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
