@@ -2,8 +2,8 @@
   "recipes": [
     {
       "name": "Aubergine Curry",
-      "image": "auberginecurry.jpg",
       "source": "https://instagram.com/p/CbX5D_BpBMO",
+      "image": "auberginecurry.jpg",
       "servings": 3,
       "ingredients": [
         "2 aubergines",
@@ -35,94 +35,9 @@
       ]
     },
     {
-      "name": "Pasta with Pistachio Pesto",
-      "image": "pistachio-pesto-pasta.png",
-      "source": "https://instagram.com/p/CdLgaiPK4TS",
-      "servings": 3,
-      "ingredients": [
-        "300 g pasta of choice",
-        "70 g pistachios (or more for a more prominent flavor)",
-        "30 g other nuts or seeds",
-        "2 handfuls of spinach",
-        "0.5 lemon, juiced",
-        "1 garlic clove",
-        "2 tbsp nutritional yeast",
-        "1 handful of fresh basil",
-        "2 tbsp olive oil",
-        "1 tsp salt & pepper (to taste)"
-      ],
-      "methods": [
-        "Toast the nuts and seeds until slightly browned from all sides.",
-        "Blend all ingredients for the pesto/sauce. Blend it as fine or coarse as you like.",
-        "Cook the pasta according to packaging instructions.",
-        "Add the pesto/sauce to a pan, loosen with some pasta water, then add in the pasta.",
-        "Serve with some crushed pistachios and vegan parmesan - enjoy!"
-      ]
-    },
-    {
-      "name": "Lemon Cashew Pasta",
-      "image": null,
-      "source": "https://instagram.com/p/CVGA96hql9X",
-      "servings": 3,
-      "ingredients": [
-        "300 g whole wheat pasta",
-        "1.5 tbsp olive oil",
-        "1 medium onion",
-        "4 cloves of garlic",
-        "1 tbsp parsley stems",
-        "1 tsp lemon zest",
-        "80 g cashews",
-        "120 ml veggie broth",
-        "4 tbsp nutritional yeast",
-        "2 lemons (juiced)",
-        "1 handful of fresh herbs (parsley and basil)",
-        "1 tsp salt and pepper (to taste)"
-      ],
-      "methods": [
-        "Soak the cashews in hot water for at least 10 minutes.",
-        "In a pan, sauté the onion until translucent, then add the garlic, parsley stems, and lemon zest and cook for a few more minutes.",
-        "Deglaze the pan with a splash of lemon juice to release all the flavors.",
-        "Blend the soaked cashews, veggie broth, nutritional yeast, and lemon juice in a blender or food processor to make the sauce",
-        "Pour the sauce back into the pan and add some fresh herbs such as parsley or basil.",
-        "Cook the pasta according to the packaging instructions until al dente, then save some pasta water",
-        "Add the cooked pasta to the sauce, mix well, and add pasta water until it reaches your desired consistency."
-      ]
-    },
-    {
-      "name": "Red Lentil Dahl",
-      "image": "dahl.png",
-      "source": "https://avirtualvegan.com/instant-pot-lentil-dal/#recipe",
-      "servings": 4,
-      "ingredients": [
-        "1 tablespoon olive oil, or use water for sautéing to make the recipe oil-free",
-        "1 large onion, chopped",
-        "4 large cloves garlic, chopped",
-        "2 tablespoons fresh ginger, finely chopped or grated",
-        "2 heaping teaspoons garam masala",
-        "0.5 teaspoon ground cinnamon",
-        "1 teaspoon red chili pepper flakes, add up to a teaspoon extra if you like it spicy. You can use 1 fresh small red chili if you prefer",
-        "2 slightly heaping teaspoons ground turmeric",
-        "2 teaspoons salt, plus more to taste at the end",
-        "1 teaspoons ground black pepper, plus more to taste at the end",
-        "400 grams of dried split red lentils, (no need to soak - but maybe rinse)",
-        "1 can of tomatoes",
-        "1 can of coconut milk"
-      ],
-      "methods": [
-        "Combine all spices into a spice mix.",
-        "Put oil in a pot, once hot, add onions.",
-        "Once the onions have browned, add garlic and ginger and cook until fragrant (add more oil if necessary).",
-        "Add the spice mix into the pot and stir until combined.",
-        "Add 3 cups of water to the pot and mix, make sure to scratch the bottom of the pot with a wooden spoon to avoid burning at the bottom.",
-        "Add the red lentils, tomatoes, and coconut milk to the pot.",
-        "Bring the mix to a boil and stir throughout.",
-        "Once boiling, bring down to a simmer, cover and let it cook for 15-20 minutes."
-      ]
-    },
-    {
       "name": "Chana Masala",
-      "image": "chanamasala.png",
       "source": "https://www.youtube.com/watch?v=81qLj6Odfgs",
+      "image": "chanamasala.png",
       "servings": 4,
       "ingredients": [
         "2 cans of chickpeas (including liquid)",
@@ -154,9 +69,119 @@
       ]
     },
     {
+      "name": "Cilantro lime noodles",
+      "source": "https://instagram.com/p/CcF1M-RDlg-",
+      "image": null,
+      "servings": 2,
+      "ingredients": [
+        "1 packet of knife-cut noodles",
+        "1 Handful of cilantro",
+        "1 tbsp red pepper flakes (mild/hot) - i used gochugaru",
+        "1 tbsp sesame oil",
+        "1 tbsp soy sauce",
+        "0.5 tbsp rice vinegar",
+        "0.5 tbsp lime juice",
+        "1 tsp maple syrup",
+        "2 tsp noodle water"
+      ],
+      "methods": [
+        "Boil knife cut noodles according to package instructions and rinse with cold water.",
+        "Combine gochugaru with cilantro.",
+        "Add heated sesame oil to the mixture.",
+        "Add the rest of the ingredients and give it a good mix.",
+        "Pour over noodles, mix and top with toasted sesame seeds.",
+        "Heat it up gently, and it's ready to serve!"
+      ]
+    },
+    {
+      "name": "Lemon Cashew Pasta",
+      "source": "https://instagram.com/p/CVGA96hql9X",
+      "image": null,
+      "servings": 3,
+      "ingredients": [
+        "300 g whole wheat pasta",
+        "1.5 tbsp olive oil",
+        "1 medium onion",
+        "4 cloves of garlic",
+        "1 tbsp parsley stems",
+        "1 tsp lemon zest",
+        "80 g cashews",
+        "120 ml veggie broth",
+        "4 tbsp nutritional yeast",
+        "2 lemons (juiced)",
+        "1 handful of fresh herbs (parsley and basil)",
+        "1 tsp salt and pepper (to taste)"
+      ],
+      "methods": [
+        "Soak the cashews in hot water for at least 10 minutes.",
+        "In a pan, sauté the onion until translucent, then add the garlic, parsley stems, and lemon zest and cook for a few more minutes.",
+        "Deglaze the pan with a splash of lemon juice to release all the flavors.",
+        "Blend the soaked cashews, veggie broth, nutritional yeast, and lemon juice in a blender or food processor to make the sauce",
+        "Pour the sauce back into the pan and add some fresh herbs such as parsley or basil.",
+        "Cook the pasta according to the packaging instructions until al dente, then save some pasta water",
+        "Add the cooked pasta to the sauce, mix well, and add pasta water until it reaches your desired consistency."
+      ]
+    },
+    {
+      "name": "Pasta with Pistachio Pesto",
+      "source": "https://instagram.com/p/CdLgaiPK4TS",
+      "image": "pistachio-pesto-pasta.png",
+      "servings": 3,
+      "ingredients": [
+        "300 g pasta of choice",
+        "70 g pistachios (or more for a more prominent flavor)",
+        "30 g other nuts or seeds",
+        "2 handfuls of spinach",
+        "0.5 lemon, juiced",
+        "1 garlic clove",
+        "2 tbsp nutritional yeast",
+        "1 handful of fresh basil",
+        "2 tbsp olive oil",
+        "1 tsp salt & pepper (to taste)"
+      ],
+      "methods": [
+        "Toast the nuts and seeds until slightly browned from all sides.",
+        "Blend all ingredients for the pesto/sauce. Blend it as fine or coarse as you like.",
+        "Cook the pasta according to packaging instructions.",
+        "Add the pesto/sauce to a pan, loosen with some pasta water, then add in the pasta.",
+        "Serve with some crushed pistachios and vegan parmesan - enjoy!"
+      ]
+    },
+    {
+      "name": "Red Lentil Dahl",
+      "source": "https://avirtualvegan.com/instant-pot-lentil-dal/#recipe",
+      "image": "dahl.png",
+      "servings": 4,
+      "ingredients": [
+        "1 tablespoon olive oil, or use water for sautéing to make the recipe oil-free",
+        "1 large onion, chopped",
+        "4 large cloves garlic, chopped",
+        "2 tablespoons fresh ginger, finely chopped or grated",
+        "2 heaping teaspoons garam masala",
+        "0.5 teaspoon ground cinnamon",
+        "1 teaspoon red chili pepper flakes, add up to a teaspoon extra if you like it spicy. You can use 1 fresh small red chili if you prefer",
+        "2 slightly heaping teaspoons ground turmeric",
+        "2 teaspoons salt, plus more to taste at the end",
+        "1 teaspoons ground black pepper, plus more to taste at the end",
+        "400 grams of dried split red lentils, (no need to soak - but maybe rinse)",
+        "1 can of tomatoes",
+        "1 can of coconut milk"
+      ],
+      "methods": [
+        "Combine all spices into a spice mix.",
+        "Put oil in a pot, once hot, add onions.",
+        "Once the onions have browned, add garlic and ginger and cook until fragrant (add more oil if necessary).",
+        "Add the spice mix into the pot and stir until combined.",
+        "Add 3 cups of water to the pot and mix, make sure to scratch the bottom of the pot with a wooden spoon to avoid burning at the bottom.",
+        "Add the red lentils, tomatoes, and coconut milk to the pot.",
+        "Bring the mix to a boil and stir throughout.",
+        "Once boiling, bring down to a simmer, cover and let it cook for 15-20 minutes."
+      ]
+    },
+    {
       "name": "The Smoothest Hummus",
-      "image": "hummus.jpeg",
       "source": "https://instagram.com/p/Cg9pcjSKTrC",
+      "image": "hummus.jpeg",
       "servings": 4,
       "ingredients": [
         "1 Large Jar of good chickpeas",
@@ -177,31 +202,6 @@
         "Add in the tahini and blend, then whilst blending add in the ice cubes one at a time.",
         "Add in the cumin, olive oil, salt, and lemon juice and blend one last time or until it's as smooth as desired.",
         "Plate up the hummus, drizzle some olive oil over it and season with fresh parsley."
-      ]
-    },
-    {
-      "name": "Cilantro lime noodles",
-      "image": null,
-      "source": "https://instagram.com/p/CcF1M-RDlg-",
-      "servings": 2,
-      "ingredients": [
-        "1 packet of knife-cut noodles",
-        "1 Handful of cilantro",
-        "1 tbsp red pepper flakes (mild/hot) - i used gochugaru",
-        "1 tbsp sesame oil",
-        "1 tbsp soy sauce",
-        "0.5 tbsp rice vinegar",
-        "0.5 tbsp lime juice",
-        "1 tsp maple syrup",
-        "2 tsp noodle water"
-      ],
-      "methods": [
-        "Boil knife cut noodles according to package instructions and rinse with cold water.",
-        "Combine gochugaru with cilantro.",
-        "Add heated sesame oil to the mixture.",
-        "Add the rest of the ingredients and give it a good mix.",
-        "Pour over noodles, mix and top with toasted sesame seeds.",
-        "Heat it up gently, and it's ready to serve!"
       ]
     }
   ]

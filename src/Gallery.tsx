@@ -11,9 +11,15 @@ import { Link } from 'react-router-dom';
 import { useThemeContext, themeDark, themeLight } from './ThemeContext';
 import TopBar from './TopBar';
 import * as React from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 
 import recipeDB from './recipes.json'
+import { Divider } from '@mui/material';
 const recipes = recipeDB.recipes;
 
 export default function Gallery() {
@@ -22,7 +28,7 @@ export default function Gallery() {
   return (
     <ThemeProvider theme={theme === 'dark' ? themeDark : themeLight}>
       <CssBaseline />
-      <TopBar theme={theme} toggleTheme={toggleTheme}/>
+      <TopBar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Box
           sx={{
@@ -41,25 +47,41 @@ export default function Gallery() {
             >
               Recipe Portfolio
             </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              This is my personal recipe collection that I have gathered from Instagram
-              accounts, YouTube channels and the web more broadly. The recipes that
-              end up on this site have all been tested by me and I make them on a recurrent basis.
-              <br></br><br></br>
-              I built this website to make it easier for myself to keep cooking great recipes that
-              I have discovered and also to share them with others.
-            </Typography>
+            <Accordion sx={{ marginBottom: 2 }}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="about-content"
+                id="about-header"
+              >
+                <Typography variant="h5" component="h2">
+                  About
+                </Typography>
+              </AccordionSummary>
+              <Divider />
+              <AccordionDetails>
+                <Typography variant="h6" align="center" color="text.secondary" paragraph>
+                  This is my personal recipe collection that I have gathered from Instagram
+                  accounts, YouTube channels and the web more broadly. The recipes that
+                  end up on this site have all been tested by me and I make them on a recurrent basis.
+                  <br />
+                  <br />
+                  I built this website to make it easier for myself to keep cooking great recipes that
+                  I have discovered and also to share them with others.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
           </Container>
         </Box>
+
         <Container sx={{ py: 0 }} maxWidth="lg">
           {/* End hero unit */}
-          <Grid container spacing={4} columns={{ xs: 4, sm: 8, md: 12 }}>
+          <Grid container key="recipe-grid" spacing={4} columns={{ xs: 4, sm: 8, md: 12 }}>
             {recipes.map((recipe) => (
               <Grid item key={recipe.name} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
-                <Link to={`/recipe/${recipe.name}`} className={theme === "dark" ? "white-link" : "black-link"}>
+                  <Link to={`/recipe/${recipe.name}`} className={theme === "dark" ? "white-link" : "black-link"}>
                     <CardMedia
                       component="img"
                       sx={{

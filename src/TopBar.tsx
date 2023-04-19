@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 
@@ -28,7 +29,15 @@ const TopBar: React.FC<TopBarProps> = ({ theme, toggleTheme }) => {
                     <FontAwesomeIcon icon={faHome} />
                     <span style={{ marginLeft: '4px' }}>Recipe Portfolio</span>
                 </Button>
-                <IconButton edge="end" color="inherit" onClick={toggleTheme} style={{ marginLeft: 'auto' }}>
+                <IconButton
+                  edge="end"
+                  color="inherit"
+                  onClick={() => window.open('https://github.com/lucharo/recipe-portfolio', '_blank')}
+                  style={{ marginLeft: 'auto' }}
+                >
+                  <FontAwesomeIcon icon={faGithub} />
+                </IconButton>
+                <IconButton edge="end" color="inherit" onClick={toggleTheme} style={{ marginLeft: '16px' }}>
                     {theme === 'dark' ? (
                         <FontAwesomeIcon icon={faSun} />
                     ) : (
