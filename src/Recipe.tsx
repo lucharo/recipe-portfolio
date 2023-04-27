@@ -47,11 +47,11 @@ const Recipe = () => {
       <TopBar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <div className="recipe-wrapper">
-        <Container maxWidth="md">
-            <Typography 
-            gutterBottom 
-            color="inherit" 
-            variant="h3">
+          <Container maxWidth="md">
+            <Typography
+              gutterBottom
+              color="inherit"
+              variant="h3">
               {recipe.name} [modified from <a href={recipe.source}>source</a>]
             </Typography>
             <h2>
@@ -71,25 +71,35 @@ const Recipe = () => {
           </Container>
 
           <div className="recipe-container">
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={4}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={4}>
 
-            <div className="column ingredients">
-              <h3>Ingredients</h3>
-              <ul>
-                {currentIngredients.map((ingredient, index) => (
-                  <li key={index}>{ingredient}</li>
-                ))}
-              </ul>
-            </div>
+              <div className="column ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                  {currentIngredients.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="column methods">
-              <h3>Methods</h3>
-              <ol>
-                {recipe.methods.map((step, index) => (
-                  <li key={index}>{step}</li>
-                ))}
-              </ol>
-            </div>
+              <div className="column methods">
+                <h3>Methods</h3>
+                <ol>
+                  {recipe.methods.map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
+                </ol>
+                {recipe.notes && (
+                  <>
+                    <h3>Notes</h3>
+                    <ol>
+                      {recipe.notes.map((step, index) => (
+                        <li key={index}>{step}</li>
+                      ))}
+                    </ol>
+                  </>
+                )}
+              </div>
             </Stack>
 
           </div>
