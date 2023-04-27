@@ -32,6 +32,30 @@
       ]
     },
     {
+      "name": "Baba Ganoush",
+      "source": "https://www.instagram.com/p/CXQ6Q6aJbHT/",
+      "image": null,
+      "servings": 4,
+      "ingredients": [
+        "2 aubergines, halved",
+        "2 tbsp tahini",
+        "2 tbsp olive oil",
+        "2 garlic cloves, minced",
+        "1/2 lemon juiced",
+        "3 tbsp parsley, chopped (optional)",
+        "1/4 tsp salt"
+      ],
+      "methods": [
+        "Cook the aubergines in the oven face down for 30 minutes",
+        "Take the aubergines out and scoop the flesh out with a spoon into a bowl, discard the skin",
+        "Add all ingredients into the bowl and combine with a fork",
+        "Using scissors, make rough cuts to the aubergine mix to reach your desired consistency. I like quite a fine texture but with still bits of aubergine for texture"
+      ],
+      "notes": [
+        "You can also use a blender to combine all the ingredients but I prefer to use scissors to have different textures in the dish"
+      ]
+    },
+    {
       "name": "Chana Masala",
       "source": "https://www.youtube.com/watch?v=81qLj6Odfgs",
       "image": "chanamasala.png",
@@ -246,10 +270,10 @@
         "10 kaffir lime leaves",
         "4 Thai or bird's eye chiles",
         "3 slices fresh galangal or ginger with pepper",
-        "1 tbsp neutral oil",
         "1 small onion",
         "3 small tomatoes",
         "2 veg stock cubes",
+        "1 tbsp neutral oil",
         "6 cups water",
         "200 g mushrooms of choice",
         "200 g baby corn",
@@ -257,27 +281,29 @@
         "3 tbsp of soy sauce or vegan fish sauce",
         "1/2 cup of lime juice",
         "1 can of coconut milk",
-        "1 tbsp red chili paste (I use Sambal Oelek)",
+        "1 tbsp red chili paste/sauce (I use Sambal Oelek)",
         "thin rice noodles"
       ],
       "methods": [
-        "Prepare lemongrass, garlic, kaffir lime leaves, and chiles",
-        "Prepare vegetables, mushrooms, and baby corn",
-        "Heat a large pot over medium high heat and sauté onion, tomatoes, and aromatics",
-        "Add vegetable broth to the pot and boil",
-        "Add mushrooms, baby corn, tomatoes, sugar, fish sauce, and salt to taste",
-        "Simmer for 5 minutes or until vegetables are cooked",
-        "Mix in lime juice, evaporated/coconut milk, and chili sauce",
-        "Adjust soup flavors as needed",
+        "With a pestle and mortar (ideally) crack lemongrass stalk",
+        "With a pesttle and mortar crush garlic and chiles",
+        "Prepare galangal, onions, tomatoes, mushrooms and baby corn",
+        "Heat a large pot over medium high heat, add oil and sauté onion and aromatics",
+        "Bring water to a boil in a separate pot and cook noodles to their specification, drain once they're ready",
+        "Add water and veg stock cubes to the pot and boil",
+        "Add mushrooms, baby corn, tomatoes, sugar, fish or soy sauce and salt to taste",
+        "Simmer for 5 minutes",
+        "Mix in lime juice, coconut milk and chili paste/sauce",
         "Cook soup for another 7-8 minutes for flavors to infuse",
-        "Remove inedible aromatics and serve hot with more lime juice and cilantro, if desired",
-        "For tom yum noodle soup, soak thin rice noodles, drain, and transfer to a bowl",
-        "Pour tom yum soup over noodles and top with vegan 'fish' and 'shrimp' balls or other toppings of choice, garnish with cilantro, if desired"
+        "(optional) Remove inedible aromatics",
+        "Serve hot with more lime juice and cilantro if desired"
       ],
       "notes": [
         "Fresh cilantro for garnish",
         "Squeeze lime juice to squeeze for garnish",
-        "For the rice noodles I use the Udon Noodles by Yutaka (https://yutaka.london/products/noodles/udon-noodles-250g/)"
+        "For the rice noodles I use the Udon Noodles by Yutaka (https://yutaka.london/products/noodles/udon-noodles-250g/)",
+        "If not using babycorn, feel free to replace babycorn for more mushrooms",
+        "I like to cook the soup and noodles separately to have the option to have the soup on its own or with noodles"
       ]
     }
   ]
