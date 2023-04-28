@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import RecipeMultiplier from "./RecipeMultiplier";
+import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import RecipeHeader from './RecipeComponents/RecipeHeader';
+import ServingsSelector from './RecipeComponents/ServingsSelector';
+import Ingredients from './RecipeComponents/Ingredients';
+import Methods from './RecipeComponents/Methods';
 
 import "./styles.css";
 
@@ -14,32 +15,71 @@ import { useThemeContext, themeLight, themeDark } from "./ThemeContext";
 
 const Recipe = () => {
   const [theme, toggleTheme] = useThemeContext();
+  const [playMode, setPlayMode] = useState(false);
+  const playModeRef = useRef(playMode);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const { recipeId } = useParams();
-  const recipe = recipeDB.recipes.find((r) => r.name === recipeId);
+  const recipe = useMemo(() => recipeDB.recipes.find((r) => r.name === recipeId), [recipeId]);
 
   const [currentIngredients, setIngredients] = useState<string[]>(recipe?.ingredients || []);
   const [currentServings, setServings] = useState<number>(recipe?.servings || 0);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const handleSpacebar = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.code === "Space") {
+        event.preventDefault();
+        if (playModeRef.current) {
+          changeSlide();
+        }
+      }
+    },
+    [currentSlide, recipe?.methods.length]
+  );
+  
+  
+  // Add an event listener for the spacebar event
+  useEffect(() => {
+    window.addEventListener("keydown", handleSpacebar);
+    return () => {
+      window.removeEventListener("keydown", handleSpacebar);
+    };
+  }, [handleSpacebar]);
+  
+
+  useEffect(() => {
+    if (recipe && currentSlide === recipe.methods.length) {
+      setPlayMode(false);
+      setCurrentSlide(0)
+    }
+  }, [currentSlide, recipe]);
+  
+  useEffect(() => {
+    playModeRef.current = playMode;
+  }, [playMode]);  
+
+  // Create a function to handle the spacebar event
+  const changeSlide = () => {
+    if (recipe) {
+      setCurrentSlide((prevSlide) => {
+        let nextSlide = prevSlide + 1;
+        if (nextSlide > recipe.methods.length) {
+          return 0;
+        }
+        return nextSlide;
+      });
+    }
+  };
+  
+  
+  const handlePlayClick = () => {
+    setPlayMode(!playMode);
+  };
+
   if (!recipe) {
     return <NotFound />;
   }
-
-  const handleMultiply = (num: number) => {
-    const recipeMultiplier = new RecipeMultiplier(currentServings);
-    const newIngredients = recipeMultiplier.multiplyIngredients(num, recipe.ingredients);
-    const newServings = num * recipe.servings;
-    setIngredients(newIngredients);
-    setServings(newServings);
-  };
-
-  const buttons = ["1x", "2x", "3x", "4x", "5x", "8x"];
-  const handleClick = (index: number) => {
-    setSelectedIndex(index);
-    const multiplier = +buttons[index].replace("x", "");
-    handleMultiply(multiplier);
-  };
 
   return (
     <ThemeProvider theme={theme === 'dark' ? themeDark : themeLight}>
@@ -48,61 +88,24 @@ const Recipe = () => {
       <main>
         <div className="recipe-wrapper">
           <Container maxWidth="md">
-            <Typography
-              gutterBottom
-              color="inherit"
-              variant="h3">
-              {recipe.name} [modified from <a href={recipe.source}>source</a>]
-            </Typography>
-            <h2>
-              Servings: {currentServings} &ensp;
-              <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                {buttons.map((button, index) => (
-                  <Button
-                    key={button}
-                    variant={selectedIndex === index ? "contained" : "outlined"}
-                    onClick={() => handleClick(index)}
-                  >
-                    {button}
-                  </Button>
-                ))}
-              </ButtonGroup>
-            </h2>
+          <RecipeHeader recipeName={recipe.name} recipeSource={recipe.source} />
+          <ServingsSelector
+            currentServings={currentServings}
+            setServings={setServings}
+            ingredients={recipe.ingredients}
+            setIngredients={setIngredients}
+          />
           </Container>
 
           <div className="recipe-container">
+            <Container maxWidth="lg">
             <Stack direction={{ xs: "column", sm: "row" }} spacing={4}>
-
-              <div className="column ingredients">
-                <h3>Ingredients</h3>
-                <ul>
-                  {currentIngredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="column methods">
-                <h3>Methods</h3>
-                <ol>
-                  {recipe.methods.map((step, index) => (
-                    <li key={index}>{step}</li>
-                  ))}
-                </ol>
-                {recipe.notes && (
-                  <>
-                    <h3>Notes</h3>
-                    <ol>
-                      {recipe.notes.map((step, index) => (
-                        <li key={index}>{step}</li>
-                      ))}
-                    </ol>
-                  </>
-                )}
-              </div>
+            <Ingredients currentIngredients={currentIngredients} />
+            <Methods recipe={recipe} playMode={playMode} handlePlayClick={handlePlayClick} currentSlide={currentSlide} />
             </Stack>
-
+            </Container>
           </div>
+
         </div>
 
       </main>
