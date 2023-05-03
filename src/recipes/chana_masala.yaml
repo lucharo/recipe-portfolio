@@ -6,35 +6,52 @@ ingredients:
 - name: of chickpeas
   quantity: 2.0
   unit: cans
-  steps: []
+  steps:
+  - 6
 - name: red onion
   quantity: 1.0
   unit: ''
-  steps: []
+  steps:
+  - 1
+  - 2
+  - 11
 - name: garlic cloves
   quantity: 2.0
   unit: cloves
-  steps: []
+  steps:
+  - 1
+  - 2
 - name: of ginger
   quantity: 1.0
   unit: thumb
-  steps: []
+  steps:
+  - 1
+  - 2
 - name: of coriander
   quantity: 1.0
-  unit: handfuls
-  steps: []
-- name: green chillies stemmed and seeded to taste
+  unit: handful
+  steps:
+  - 1
+  - 2
+  - 11
+- name: green chillies
   quantity: 2.0
   unit: ''
-  steps: []
+  steps:
+  - 11
+  - 1
+  - 2
 - name: of tomatoes
   quantity: 1.0
   unit: can
-  steps: []
-- name: cashmere chilli powder
+  steps:
+  - 4
+  - 6
+- name: chilli powder
   quantity: 1.0
   unit: tsp
-  steps: []
+  steps:
+  - 5
 - name: cumin
   quantity: 1.0
   unit: tsp
@@ -45,19 +62,21 @@ ingredients:
   unit: tsp
   steps:
   - 5
-- name: fennel seeds powdered
+- name: fennel seeds powder
   quantity: 0.5
   unit: tsp
-  steps: []
+  steps:
+  - 5
 - name: garam masala
   quantity: 1.5
   unit: tsp
   steps:
   - 8
-- name: salt to taste
+- name: salt
   quantity: 0.5
   unit: tsp
-  steps: []
+  steps:
+  - 8
 methods:
 - Combine half the onions (0.5 if using 1, so forth), ginger, coriander, garlic and
   chillies to a food processor for about 20 seconds.
@@ -71,3 +90,6 @@ methods:
 - Let it cook for another 8 minutes.
 - Cool down and serve with some rice, chapati or your carb of choice.
 - Garnish with coriander, diced onion and some green chillies.
+notes:
+- I use cashmere chilli powder if I have it.
+- I stem and seed the green chillies but adjust this to your desire level of heat.

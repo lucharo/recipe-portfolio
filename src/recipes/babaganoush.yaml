@@ -11,13 +11,12 @@ ingredients:
   - 2
   - 3
   - 5
-  - 6
 - name: tahini
   quantity: 2.0
   unit: tbsp
   steps:
   - 5
-- name: olive oil
+- name: of olive oil
   quantity: 2.0
   unit: tbsp
   steps:
@@ -34,7 +33,7 @@ ingredients:
   steps:
   - 4
   - 5
-- name: parsley
+- name: parsley (optional)
   quantity: 3.0
   unit: tbsp
   steps:
@@ -47,8 +46,8 @@ ingredients:
 methods:
 - Cut aubergines in half
 - Cook the aubergines in the oven face down for 30 minutes
-- Take the aubergines out and scoop the flesh out with a spoon into a bowl, discard
-  the skin
+- Take the aubergines from the oven and scoop the flesh out with a spoon into a bowl,
+  discard the skin
 - Cut garlic cloves finely and juice the lemon
 - Add all ingredients into the bowl and combine with a fork
 - Using scissors, make rough cuts to the mix to reach your desired consistency. I

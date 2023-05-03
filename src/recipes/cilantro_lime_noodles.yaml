@@ -6,15 +6,19 @@ ingredients:
 - name: of knife-cut noodles
   quantity: 1.0
   unit: packet
-  steps: []
-- name: Handful cilantro
+  steps:
+  - 1
+  - 5
+- name: of cilantro
   quantity: 1.0
-  unit: ''
-  steps: []
-- name: red pepper flakes mild hot - i used gochugaru
+  unit: handful
+  steps:
+  - 2
+- name: chilli flakes
   quantity: 1.0
   unit: tbsp
-  steps: []
+  steps:
+  - 2
 - name: sesame oil
   quantity: 1.0
   unit: tbsp
@@ -23,27 +27,42 @@ ingredients:
 - name: soy sauce
   quantity: 1.0
   unit: tbsp
-  steps: []
+  steps:
+  - 4
 - name: rice vinegar
   quantity: 0.5
   unit: tbsp
-  steps: []
+  steps:
+  - 4
 - name: lime juice
   quantity: 0.5
   unit: tbsp
-  steps: []
+  steps:
+  - 4
 - name: maple syrup
   quantity: 1.0
   unit: tsp
-  steps: []
+  steps:
+  - 4
 - name: noodle water
   quantity: 2.0
   unit: tsp
-  steps: []
+  steps:
+  - 1
+  - 4
+- name: sesame seeds (optional)
+  quantity: ''
+  unit: ''
+  steps:
+  - 5
 methods:
 - Boil knife cut noodles according to package instructions and rinse with cold water.
-- Combine gochugaru with cilantro.
-- Add heated sesame oil to the mixture.
+  Keep some of the noodle water for later.
+- Combine chilli flakes with cilantro.
+- Heat up sesame oil and add to the mixture. You should observe sizzling when your
+  pour the oil into the mix.
 - Add the rest of the ingredients and give it a good mix.
 - Pour over noodles, mix and top with toasted sesame seeds.
-- Heat it up gently, and it's ready to serve!
+- Serve as it is, or heat up gently in a pan
+notes:
+- I find knife-cut noodles perfect in this recipe but they can be hard to find

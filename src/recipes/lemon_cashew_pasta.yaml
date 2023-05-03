@@ -3,25 +3,30 @@ source: https://instagram.com/p/CVGA96hql9X
 image: null
 servings: 3
 ingredients:
-- name: whole wheat pasta
+- name: of pasta
   quantity: 300.0
   unit: g
-  steps: []
-- name: olive oil
+  steps:
+  - 6
+  - 7
+- name: of olive oil
   quantity: 1.5
   unit: tbsp
-  steps: []
+  steps:
+  - 2
 - name: medium onion
   quantity: 1.0
   unit: ''
-  steps: []
+  steps:
+  - 2
 - name: of garlic
   quantity: 4.0
   unit: cloves
-  steps: []
+  steps:
+  - 2
 - name: parsley stems
   quantity: 1.0
-  unit: tbsp
+  unit: handful
   steps:
   - 2
 - name: lemon zest
@@ -35,27 +40,33 @@ ingredients:
   steps:
   - 1
   - 4
-- name: veggie broth
-  quantity: 120.0
-  unit: ml
+- name: veg stock cube
+  quantity: 1.0
+  unit: cube
   steps:
   - 4
-- name: nutritional yeast
+- name: of water
+  quantity: 0.5
+  unit: cup
+  steps:
+  - 4
+- name: of nutritional yeast
   quantity: 4.0
   unit: tbsp
   steps:
   - 4
-- name: lemons juiced
+- name: lemons
   quantity: 2.0
   unit: ''
   steps:
-  - 3
   - 4
-- name: of fresh herbs parsley and basil
+  - 3
+- name: of parsley or basil
   quantity: 1.0
   unit: handful
-  steps: []
-- name: salt and pepper to taste
+  steps:
+  - 5
+- name: salt and pepper
   quantity: 1.0
   unit: tsp
   steps: []
@@ -66,8 +77,8 @@ methods:
 - Deglaze the pan with a splash of lemon juice to release all the flavors.
 - Blend the soaked cashews, veggie broth, nutritional yeast, and lemon juice in a
   blender or food processor to make the sauce
-- Pour the sauce back into the pan and add some fresh herbs such as parsley or basil.
+- Pour the sauce back into the pan and add some parsley and/or basil.
 - Cook the pasta according to the packaging instructions until al dente, then save
   some pasta water
-- Add the cooked pasta to the sauce, mix well, and add pasta water until it reaches
+- Add the cooked pasta to the sauce, mix well and add pasta water until it reaches
   your desired consistency.

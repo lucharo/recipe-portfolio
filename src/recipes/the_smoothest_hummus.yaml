@@ -3,19 +3,26 @@ source: https://instagram.com/p/Cg9pcjSKTrC
 image: hummus.jpeg
 servings: 4
 ingredients:
-- name: Large Jar good chickpeas
+- name: of chickpeas
   quantity: 1.0
-  unit: ''
-  steps: []
-- name: Clove Garlic
+  unit: can
+  steps:
+  - 1
+  - 2
+  - 3
+- name: of garlic
   quantity: 1.0
-  unit: ''
-  steps: []
-- name: Cup good quality tahini
+  unit: clove
+  steps:
+  - 1
+  - 2
+  - 3
+- name: of tahini
   quantity: 0.75
-  unit: ''
-  steps: []
-- name: lemon juiced
+  unit: cup
+  steps:
+  - 5
+- name: lemon
   quantity: 0.5
   unit: ''
   steps:
@@ -31,24 +38,26 @@ ingredients:
   unit: cubes
   steps:
   - 5
-- name: Tsp cumin
+- name: cumin
   quantity: 2.0
-  unit: ''
-  steps: []
-- name: Tbsp Olive oil
+  unit: tsp
+  steps:
+  - 6
+- name: of olive oil
   quantity: 2.0
-  unit: ''
-  steps: []
-- name: Salt
+  unit: tbsp
+  steps:
+  - 6
+- name: salt
   quantity: 1.0
   unit: tsp
   steps:
   - 1
   - 6
 methods:
-- Boil some salted water, add the chickpeas and garlic into the water, but keep the
-  chickpea brine separate.
-- Boil the chickpeas for 20 minutes to half an hour.
+- Boil some water with salt, add the chickpeas and garlic into the water, but keep
+  the chickpea brine separate.
+- Boil the chickpeas for 20 to 30 minutes.
 - Drain the chickpeas once cooked and add to a blender with the chickpea brine and
   garlic clove from earlier.
 - Blend until they form a paste-like consistency.

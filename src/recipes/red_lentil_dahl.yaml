@@ -3,67 +3,101 @@ source: https://avirtualvegan.com/instant-pot-lentil-dal/#recipe
 image: dahl.png
 servings: 4
 ingredients:
-- name: "olive oil, or use water for saut\xE9ing to make the recipe oil-free"
+- name: of oil
   quantity: 1.0
-  unit: tablespoon
-  steps: []
-- name: large onion, chopped
+  unit: tbsp
+  steps:
+  - 3
+- name: large onion
   quantity: 1.0
   unit: ''
-  steps: []
-- name: largegarlic, chopped
+  steps:
+  - 1
+  - 3
+- name: of garlic
   quantity: 4.0
   unit: cloves
-  steps: []
-- name: fresh ginger, finely chopped or grated
+  steps:
+  - 1
+  - 4
+- name: fresh ginger
   quantity: 2.0
-  unit: tablespoons
-  steps: []
-- name: heapinggaram masala
+  unit: tbsps
+  steps:
+  - 1
+  - 4
+- name: garam masala
   quantity: 2.0
   unit: teaspoons
-  steps: []
+  steps:
+  - 2
+  - 5
 - name: ground cinnamon
   quantity: 0.5
   unit: teaspoon
-  steps: []
-- name: red chili pepper flakes, add up to aextra if you like it spicy. You can use
-    fresh small red chili if you prefer
+  steps:
+  - 2
+  - 5
+- name: red chili pepper flakes
   quantity: 1.0
-  unit: teaspoon
-  steps: []
-- name: slightly heapingground turmeric
+  unit: tsp
+  steps:
+  - 2
+  - 5
+- name: ground turmeric
   quantity: 2.0
-  unit: teaspoons
-  steps: []
-- name: salt, plus more to taste at the end
+  unit: tsp
+  steps:
+  - 2
+  - 5
+- name: salt
   quantity: 2.0
-  unit: teaspoons
-  steps: []
-- name: ground black pepper, plus more to taste at the end
+  unit: tsp
+  steps:
+  - 2
+  - 5
+- name: ground black pepper
   quantity: 1.0
-  unit: teaspoons
-  steps: []
-- name: grams dried split red lentils, no need to soak - but maybe rinse
+  unit: tsp
+  steps:
+  - 2
+  - 5
+- name: of water
+  quantity: 3.0
+  unit: cups
+  steps:
+  - 6
+- name: grams of red lentils
   quantity: 400.0
   unit: ''
-  steps: []
+  steps:
+  - 7
 - name: of tomatoes
   quantity: 1.0
   unit: can
-  steps: []
+  steps:
+  - 7
 - name: of coconut milk
   quantity: 1.0
   unit: can
-  steps: []
+  steps:
+  - 7
 methods:
+- Dice onions and garlic and finely chop (or grate) ginger until you get paste
 - Combine all spices into a spice mix.
 - Put oil in a pot, once hot, add onions.
 - Once the onions have browned, add garlic and ginger and cook until fragrant (add
-  more oil if necessary).
-- Add the spice mix into the pot and stir until combined.
-- Add 3 cups of water to the pot and mix, make sure to scratch the bottom of the pot
-  with a wooden spoon to avoid burning at the bottom.
+  more oil if necessary). Stir and make sure the content of the pot does not stick
+  to the bottom.
+- Add the spice mix into the pot and stir until combined. Again, try and prevent sticking
+  to the bottom.
+- Add water to the pot and mix, make sure to scratch the bottom of the pot with a
+  wooden spoon to avoid burning at the bottom.
 - Add the red lentils, tomatoes, and coconut milk to the pot.
 - Bring the mix to a boil and stir throughout.
 - Once boiling, bring down to a simmer, cover and let it cook for 15-20 minutes.
+notes:
+- DO NOT scale chilli flakes linearly with the servings scaling
+- I don't soak my red lentils but rinsing them can be a good idea
+- Keep stirring initially as onions have a tendency to stick to the bottom and might
+  burn your whole dahl

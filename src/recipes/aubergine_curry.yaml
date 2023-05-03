@@ -8,15 +8,18 @@ ingredients:
   unit: ''
   steps:
   - 1
+  - 2
   - 7
 - name: white onion
   quantity: 1.0
   unit: ''
-  steps: []
+  steps:
+  - 3
 - name: garlic cloves
   quantity: 4.0
   unit: cloves
-  steps: []
+  steps:
+  - 3
 - name: garam masala or curry powder
   quantity: 3.0
   unit: tsp
@@ -32,30 +35,30 @@ ingredients:
   unit: tsp
   steps:
   - 4
-- name: water
-  quantity: 1.0
-  unit: cup
-  steps:
-  - 5
 - name: veg stock cube
   quantity: 1.0
   unit: cube
   steps:
   - 4
-- name: peanut almond butter
+- name: water
+  quantity: 1.0
+  unit: cup
+  steps:
+  - 5
+- name: of peanut/almond butter
   quantity: 4.0
   unit: tbsp
-  steps: []
-- name: coconut milk
+  steps:
+  - 6
+- name: of coconut milk
   quantity: 1.0
   unit: can
   steps:
   - 6
-- name: tofu
+- name: of tofu
   quantity: 1.0
   unit: block
   steps:
-  - 1
   - 7
 - name: brown sugar
   quantity: 1.0
@@ -69,12 +72,12 @@ ingredients:
   - 9
 methods:
 - Slice up the aubergines and tofu into cubes
-- Roast in the oven for 25-30 minutes
+- Roast the aubergines in the oven for 25-30 minutes
 - Dice onions and garlic and saute until soft/translucent
-- Add garam masala or curry powder, paprika or turmeric powder (respectively), chilli
-  flakes, veg stock cubes and mix
+- Add the spices and mix
 - Add water to deglaze the pan. Bring to a simmer.
 - Add peanut/almond butter and coconut milk and allow it to melt.
 - Add the aubergines and the cubed tofu into the pot and submerge
 - Cook for 10-15 minutes on a low heat.
-- Add soy sauce and brown sugar and combine adjust flavours with salt and pepper.
+- Add soy sauce and brown sugar and combine.
+- Adjust flavours with salt and pepper.

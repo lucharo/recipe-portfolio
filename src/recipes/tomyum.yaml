@@ -8,31 +8,45 @@ ingredients:
   unit: stalks
   steps:
   - 1
-- name: garlic
+  - 11
+  - 4
+- name: of garlic
   quantity: 6.0
   unit: cloves
   steps:
   - 2
+  - 4
 - name: kaffir lime leaves
   quantity: 10.0
-  unit: ''
-  steps: []
-- name: Thai or bird's eye chiles
+  unit: leaves
+  steps:
+  - 11
+  - 4
+- name: bird eye chillies
   quantity: 4.0
   unit: ''
-  steps: []
-- name: slices fresh galangal or ginger with pepper
+  steps:
+  - 2
+  - 4
+- name: fresh galangal
   quantity: 3.0
-  unit: ''
-  steps: []
+  unit: slices
+  steps:
+  - 3
+  - 4
+  - 11
 - name: small onion
   quantity: 1.0
   unit: ''
-  steps: []
+  steps:
+  - 3
+  - 4
 - name: small tomatoes
   quantity: 3.0
   unit: ''
-  steps: []
+  steps:
+  - 3
+  - 7
 - name: veg stock cubes
   quantity: 2.0
   unit: cubes
@@ -41,47 +55,56 @@ ingredients:
 - name: neutral oil
   quantity: 1.0
   unit: tbsp
-  steps: []
+  steps:
+  - 4
 - name: water
   quantity: 6.0
   unit: cups
   steps:
-  - 5
   - 6
 - name: mushrooms of choice
   quantity: 200.0
   unit: g
-  steps: []
+  steps:
+  - 3
+  - 7
 - name: baby corn
   quantity: 200.0
   unit: g
   steps:
   - 3
   - 7
-- name: sugar normal, coconut or palm
+- name: sugar (normal, coconut or palm)
   quantity: 1.0
   unit: tbsp
-  steps: []
+  steps:
+  - 7
 - name: of soy sauce or vegan fish sauce
   quantity: 3.0
   unit: tbsp
-  steps: []
+  steps:
+  - 7
 - name: of lime juice
   quantity: 0.5
   unit: cup
-  steps: []
+  steps:
+  - 9
+  - 12
 - name: of coconut milk
   quantity: 1.0
   unit: can
-  steps: []
-- name: red chili paste sauce I use Sambal Oelek
+  steps:
+  - 9
+- name: red chili paste/sauce (I use Sambal Oelek)
   quantity: 1.0
   unit: tbsp
-  steps: []
-- name: thin rice noodles
-  quantity: ''
-  unit: ''
-  steps: []
+  steps:
+  - 9
+- name: of rice noodles
+  quantity: 300.0
+  unit: g
+  steps:
+  - 5
 methods:
 - With a pestle and mortar (ideally) crack lemongrass stalk
 - With a pesttle and mortar crush garlic and chiles
@@ -94,7 +117,7 @@ methods:
 - Simmer for 5 minutes
 - Mix in lime juice, coconut milk and chili paste/sauce
 - Cook soup for another 7-8 minutes for flavors to infuse
-- (optional) Remove inedible aromatics
+- (optional) Remove inedible aromatics (kaffir lime leaves, galangal, lemongrass)
 - Serve hot with more lime juice and cilantro if desired
 notes:
 - Fresh cilantro for garnish

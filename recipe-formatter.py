@@ -1,3 +1,19 @@
+"""
+This script attempts to turn simple YAML recipes (as seen in src/recipes_simple)
+into more complex ones (src/recipes). The only thing that changes is the content
+of the ingredients section, breaking down every ingredient into:
+    - name: ingredient's name
+    - quantity: quantity of ingredient to be added in base recipe
+    - unit: unit of measurement for the ingredient (tsp, tbsp, cup...)
+    - steps: steps that recipe is used in
+
+The parsing in this script is not perfect as things like onions vs white onions or garlic vs garlic cloves 
+are not matched. I could invest more time in making this script super general but I think for the scale 
+of what I want to do that is unnecessary. Instead I go to through the output YAML files with a visual editor
+(visual-editor.py) which helps me check what ingredients are assigned to each step in an intuitive way.
+
+The already verified recipes are stored in recipes.validated to avoid regenerating these files.
+"""
 import yaml
 import re
 import os
@@ -17,19 +33,12 @@ def parse_ingredients(ingredients, methods):
         quantity = re.search(r'\d+(\.\d+)?', ingredient)
         quantity = float(quantity.group(0)) if quantity else ''
 
-        unit = re.search(r'\b(tsp|tbsp|cup|can|block|g|ml|oz|lb|stalk|thumb|'
+        unit = re.search(r'\b(tsp|tbsp|cup|can|block|g|gram|ml|oz|lb|stalk|thumb|'
                          r'tablespoon|teaspoon|handful|slice|cube|clove|packet|leaves)s?\b', ingredient)
         unit = unit.group(0) if unit else ''
 
         ingredient_name = re.sub(rf'\d+(\.\d+)?|\s{unit}\s', '', ingredient)
-        ingredient_name = re.sub(r'[\(\)\[\]/]', ' ', ingredient_name)  # Remove special symbols like (, ), [, ], /
         ingredient_name = re.sub(r'\s{2,}', ' ', ingredient_name)  # Replace multiple spaces with a single space
-        ingredient_name = re.sub(r'(optional)', '', ingredient_name, flags=re.IGNORECASE)  # Remove the word 'optional'
-       # Remove 'of' after unit
-        if unit:
-            ingredient_name = re.sub(rf'\b({unit})s?\s+of\s+', rf'\1 ', ingredient_name)
-        else:
-            ingredient_name = re.sub(r'\s+of\s+', ' ', ingredient_name)
         ingredient_name = ingredient_name.strip()
 
         lemmatized_ingredient_name = lemmatize_text(ingredient_name)
