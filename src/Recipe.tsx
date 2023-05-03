@@ -9,9 +9,13 @@ import "./styles.css";
 
 import recipeDB from "./recipes.json";
 import { useParams } from "react-router-dom";
-import { Container, CssBaseline, Stack, ThemeProvider, Typography } from "@mui/material";
+import { Container, CssBaseline, Stack, ThemeProvider } from "@mui/material";
 import TopBar from "./TopBar";
 import { useThemeContext, themeLight, themeDark } from "./ThemeContext";
+
+const isTouchDevice = () => {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+};
 
 const Recipe = () => {
   const [theme, toggleTheme] = useThemeContext();
@@ -31,7 +35,7 @@ const Recipe = () => {
     recipe?.ingredients || []
   );
   const [currentServings, setServings] = useState<number>(recipe?.servings || 0);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  // const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleSpacebar = useCallback(
     (event: KeyboardEvent) => {
@@ -44,6 +48,12 @@ const Recipe = () => {
     },
     [currentSlide, recipe?.methods.length]
   );
+
+  const handleTouch = useCallback(() => {
+    if (playModeRef.current) {
+      changeSlide();
+    }
+  }, []);
   
   
   // Add an event listener for the spacebar event
@@ -53,7 +63,16 @@ const Recipe = () => {
       window.removeEventListener("keydown", handleSpacebar);
     };
   }, [handleSpacebar]);
-  
+
+  useEffect(() => {
+    if (isTouchDevice()) {
+      window.addEventListener("touchend", handleTouch);
+      return () => {
+        window.removeEventListener("touchend", handleTouch);
+      };
+    }
+    return;
+  }, [handleTouch]);  
 
   useEffect(() => {
     if (recipe && currentSlide === recipe.methods.length) {

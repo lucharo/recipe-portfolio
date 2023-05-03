@@ -25,6 +25,7 @@ interface MethodsProps {
         >
         {playMode ? <StopIcon /> : <PlayArrowIcon />}
       </IconButton>
+      {playMode && <span className="play-mode-message">Press space for the next step</span>}
     </div>
     <ol>
       {recipe.methods.map((step, index) => (

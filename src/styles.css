@@ -80,3 +80,10 @@ opacity: 1;
 font-weight: normal;
 opacity: 0.5;
 }
+
+.play-mode-message {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
