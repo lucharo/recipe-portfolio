@@ -3,28 +3,67 @@ source: https://avirtualvegan.com/instant-pot-lentil-dal/#recipe
 image: dahl.png
 servings: 4
 ingredients:
-  - 1 tablespoon olive oil, or use water for sautéing to make the recipe oil-free
-  - 1 large onion, chopped
-  - 4 large cloves garlic, chopped
-  - 2 tablespoons fresh ginger, finely chopped or grated
-  - 2 heaping teaspoons garam masala
-  - 0.5 teaspoon ground cinnamon
-  - 1 teaspoon red chili pepper flakes, add up to a teaspoon extra if you like it spicy.
-    You can use 1 fresh small red chili if you prefer
-  - 2 slightly heaping teaspoons ground turmeric
-  - 2 teaspoons salt, plus more to taste at the end
-  - 1 teaspoons ground black pepper, plus more to taste at the end
-  - 400 grams of dried split red lentils, (no need to soak - but maybe rinse)
-  - 1 can of tomatoes
-  - 1 can of coconut milk
+- name: "olive oil, or use water for saut\xE9ing to make the recipe oil-free"
+  quantity: 1.0
+  unit: tablespoon
+  steps: []
+- name: large onion, chopped
+  quantity: 1.0
+  unit: ''
+  steps: []
+- name: largegarlic, chopped
+  quantity: 4.0
+  unit: cloves
+  steps: []
+- name: fresh ginger, finely chopped or grated
+  quantity: 2.0
+  unit: tablespoons
+  steps: []
+- name: heapinggaram masala
+  quantity: 2.0
+  unit: teaspoons
+  steps: []
+- name: ground cinnamon
+  quantity: 0.5
+  unit: teaspoon
+  steps: []
+- name: red chili pepper flakes, add up to aextra if you like it spicy. You can use
+    fresh small red chili if you prefer
+  quantity: 1.0
+  unit: teaspoon
+  steps: []
+- name: slightly heapingground turmeric
+  quantity: 2.0
+  unit: teaspoons
+  steps: []
+- name: salt, plus more to taste at the end
+  quantity: 2.0
+  unit: teaspoons
+  steps: []
+- name: ground black pepper, plus more to taste at the end
+  quantity: 1.0
+  unit: teaspoons
+  steps: []
+- name: grams dried split red lentils, no need to soak - but maybe rinse
+  quantity: 400.0
+  unit: ''
+  steps: []
+- name: of tomatoes
+  quantity: 1.0
+  unit: can
+  steps: []
+- name: of coconut milk
+  quantity: 1.0
+  unit: can
+  steps: []
 methods:
-  - Combine all spices into a spice mix.
-  - Put oil in a pot, once hot, add onions.
-  - Once the onions have browned, add garlic and ginger and cook until fragrant (add
-    more oil if necessary).
-  - Add the spice mix into the pot and stir until combined.
-  - Add 3 cups of water to the pot and mix, make sure to scratch the bottom of the pot
-    with a wooden spoon to avoid burning at the bottom.
-  - Add the red lentils, tomatoes, and coconut milk to the pot.
-  - Bring the mix to a boil and stir throughout.
-  - Once boiling, bring down to a simmer, cover and let it cook for 15-20 minutes.
+- Combine all spices into a spice mix.
+- Put oil in a pot, once hot, add onions.
+- Once the onions have browned, add garlic and ginger and cook until fragrant (add
+  more oil if necessary).
+- Add the spice mix into the pot and stir until combined.
+- Add 3 cups of water to the pot and mix, make sure to scratch the bottom of the pot
+  with a wooden spoon to avoid burning at the bottom.
+- Add the red lentils, tomatoes, and coconut milk to the pot.
+- Bring the mix to a boil and stir throughout.
+- Once boiling, bring down to a simmer, cover and let it cook for 15-20 minutes.

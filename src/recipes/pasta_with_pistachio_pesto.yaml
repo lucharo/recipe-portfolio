@@ -3,19 +3,61 @@ source: https://instagram.com/p/CdLgaiPK4TS
 image: pistachio-pesto-pasta.png
 servings: 3
 ingredients:
-  - 300 g pasta of choice
-  - 70 g pistachios (or more for a more prominent flavor)
-  - 30 g other nuts or seeds
-  - 2 handfuls of spinach
-  - 0.5 lemon, juiced
-  - 1 garlic clove
-  - 2 tbsp nutritional yeast
-  - 1 handful of fresh basil
-  - 2 tbsp olive oil
-  - 1 tsp salt & pepper (to taste)
+- name: pasta
+  quantity: 300.0
+  unit: g
+  steps:
+  - 2
+  - 3
+  - 4
+- name: pistachios or more for a more prominent flavor
+  quantity: 70.0
+  unit: g
+  steps:
+  - 2
+- name: other nuts or seeds
+  quantity: 30.0
+  unit: g
+  steps:
+  - 2
+- name: of spinach
+  quantity: 2.0
+  unit: handfuls
+  steps:
+  - 2
+- name: lemon
+  quantity: 0.5
+  unit: ''
+  steps:
+  - 2
+- name: garlic clove
+  quantity: 1.0
+  unit: clove
+  steps:
+  - 2
+- name: nutritional yeast
+  quantity: 2.0
+  unit: tbsp
+  steps:
+  - 2
+- name: of fresh basil
+  quantity: 1.0
+  unit: handful
+  steps:
+  - 2
+- name: olive oil
+  quantity: 2.0
+  unit: tbsp
+  steps:
+  - 2
+- name: salt & pepper to taste
+  quantity: 1.0
+  unit: tsp
+  steps:
+  - 2
 methods:
-  - Toast the nuts and seeds until slightly browned from all sides.
-  - Blend all ingredients for the pesto/sauce. Blend it as fine or coarse as you like.
-  - Cook the pasta according to packaging instructions.
-  - Add the pesto/sauce to a pan, loosen with some pasta water, then add in the pasta.
-  - Serve with some crushed pistachios and vegan parmesan - enjoy!
+- Toast the nuts and seeds until slightly browned from all sides.
+- Blend all ingredients for the pesto/sauce. Blend it as fine or coarse as you like.
+- Cook the pasta according to packaging instructions.
+- Add the pesto/sauce to a pan, loosen with some pasta water, then add in the pasta.
+- Serve with some crushed pistachios and vegan parmesan - enjoy!

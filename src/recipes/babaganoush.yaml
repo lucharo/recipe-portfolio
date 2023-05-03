@@ -3,17 +3,56 @@ source: https://www.instagram.com/p/CXQ6Q6aJbHT/
 image: null
 servings: 4
 ingredients:
-- 2 aubergines, halved
-- 2 tbsp tahini
-- 2 tbsp olive oil
-- 2 garlic cloves, minced
-- 1/2 lemon juiced
-- 3 tbsp parsley, chopped (optional)
-- 1/4 tsp salt
+- name: aubergines
+  quantity: 2.0
+  unit: ''
+  steps:
+  - 1
+  - 2
+  - 3
+  - 5
+  - 6
+- name: tahini
+  quantity: 2.0
+  unit: tbsp
+  steps:
+  - 5
+- name: olive oil
+  quantity: 2.0
+  unit: tbsp
+  steps:
+  - 5
+- name: garlic cloves
+  quantity: 2.0
+  unit: cloves
+  steps:
+  - 4
+  - 5
+- name: lemon
+  quantity: 0.5
+  unit: ''
+  steps:
+  - 4
+  - 5
+- name: parsley
+  quantity: 3.0
+  unit: tbsp
+  steps:
+  - 5
+- name: salt
+  quantity: 0.25
+  unit: tsp
+  steps:
+  - 5
 methods:
-  - Cook the aubergines in the oven face down for 30 minutes
-  - Take the aubergines out and scoop the flesh out with a spoon into a bowl, discard the skin
-  - Add all ingredients into the bowl and combine with a fork
-  - Using scissors, make rough cuts to the aubergine mix to reach your desired consistency. I like quite a fine texture but with still bits of aubergine for texture
+- Cut aubergines in half
+- Cook the aubergines in the oven face down for 30 minutes
+- Take the aubergines out and scoop the flesh out with a spoon into a bowl, discard
+  the skin
+- Cut garlic cloves finely and juice the lemon
+- Add all ingredients into the bowl and combine with a fork
+- Using scissors, make rough cuts to the aubergine mix to reach your desired consistency.
+  I like quite a fine texture but with still bits of aubergine for texture
 notes:
-  - You can also use a blender to combine all the ingredients but I prefer to use scissors to have different textures in the dish
+- You can also use a blender to combine all the ingredients but I prefer to use scissors
+  to have different textures in the dish
