@@ -3,40 +3,126 @@ source: https://thefoodietakesflight.com/vegan-thai-tom-yum-soup/#recipe
 image: null
 servings: 6
 ingredients:
-  - 2 stalks lemongrass
-  - 6 cloves garlic
-  - 10 kaffir lime leaves
-  - 4 Thai or bird's eye chiles
-  - 3 slices fresh galangal or ginger with pepper
-  - 1 small onion
-  - 3 small tomatoes
-  - 2 veg stock cubes  
-  - 1 tbsp neutral oil
-  - 6 cups water
-  - 200 g mushrooms of choice
-  - 200 g baby corn
-  - 1 tbsp sugar (normal, coconut or palm)
-  - 3 tbsp of soy sauce or vegan fish sauce
-  - 1/2 cup of lime juice
-  - 1 can of coconut milk
-  - 1 tbsp red chili paste/sauce (I use Sambal Oelek)
-  - thin rice noodles
+- name: lemongrass
+  quantity: 2.0
+  unit: stalks
+  steps:
+  - 1
+  - 11
+  - 4
+- name: of garlic
+  quantity: 6.0
+  unit: cloves
+  steps:
+  - 2
+  - 4
+- name: kaffir lime leaves
+  quantity: 10.0
+  unit: leaves
+  steps:
+  - 11
+  - 4
+- name: bird eye chillies
+  quantity: 4.0
+  unit: ''
+  steps:
+  - 2
+  - 4
+- name: fresh galangal
+  quantity: 3.0
+  unit: slices
+  steps:
+  - 3
+  - 4
+  - 11
+- name: small onion
+  quantity: 1.0
+  unit: ''
+  steps:
+  - 3
+  - 4
+- name: small tomatoes
+  quantity: 3.0
+  unit: ''
+  steps:
+  - 3
+  - 7
+- name: veg stock cubes
+  quantity: 2.0
+  unit: cubes
+  steps:
+  - 6
+- name: neutral oil
+  quantity: 1.0
+  unit: tbsp
+  steps:
+  - 4
+- name: water
+  quantity: 6.0
+  unit: cups
+  steps:
+  - 6
+- name: mushrooms of choice
+  quantity: 200.0
+  unit: g
+  steps:
+  - 3
+  - 7
+- name: baby corn
+  quantity: 200.0
+  unit: g
+  steps:
+  - 3
+  - 7
+- name: sugar (normal, coconut or palm)
+  quantity: 1.0
+  unit: tbsp
+  steps:
+  - 7
+- name: of soy sauce or vegan fish sauce
+  quantity: 3.0
+  unit: tbsp
+  steps:
+  - 7
+- name: of lime juice
+  quantity: 0.5
+  unit: cup
+  steps:
+  - 9
+  - 12
+- name: of coconut milk
+  quantity: 1.0
+  unit: can
+  steps:
+  - 9
+- name: red chili paste/sauce (I use Sambal Oelek)
+  quantity: 1.0
+  unit: tbsp
+  steps:
+  - 9
+- name: of rice noodles
+  quantity: 300.0
+  unit: g
+  steps:
+  - 5
 methods:
-  - With a pestle and mortar (ideally) crack lemongrass stalk
-  - With a pesttle and mortar crush garlic and chiles
-  - Prepare galangal, onions, tomatoes, mushrooms and baby corn
-  - Heat a large pot over medium high heat, add oil and sauté onion and aromatics
-  - Bring water to a boil in a separate pot and cook noodles to their specification, drain once they're ready
-  - Add water and veg stock cubes to the pot and boil
-  - Add mushrooms, baby corn, tomatoes, sugar, fish or soy sauce and salt to taste
-  - Simmer for 5 minutes
-  - Mix in lime juice, coconut milk and chili paste/sauce
-  - Cook soup for another 7-8 minutes for flavors to infuse
-  - (optional) Remove inedible aromatics
-  - Serve hot with more lime juice and cilantro if desired
+- With a pestle and mortar (ideally) crack lemongrass stalk
+- With a pesttle and mortar crush garlic and chiles
+- Prepare galangal, onions, tomatoes, mushrooms and baby corn
+- "Heat a large pot over medium high heat, add oil and saut\xE9 onion and aromatics"
+- Bring water to a boil in a separate pot and cook noodles to their specification,
+  drain once they're ready
+- Add water and veg stock cubes to the pot and boil
+- Add mushrooms, baby corn, tomatoes, sugar, fish or soy sauce and salt to taste
+- Simmer for 5 minutes
+- Mix in lime juice, coconut milk and chili paste/sauce
+- Cook soup for another 7-8 minutes for flavors to infuse
+- (optional) Remove inedible aromatics (kaffir lime leaves, galangal, lemongrass)
+- Serve hot with more lime juice and cilantro if desired
 notes:
-  - Fresh cilantro for garnish
-  - Squeeze lime juice to squeeze for garnish
-  - For the rice noodles I use the Udon Noodles by Yutaka (https://yutaka.london/products/noodles/udon-noodles-250g/)
-  - If not using babycorn, feel free to replace babycorn for more mushrooms
-  - I like to cook the soup and noodles separately to have the option to have the soup on its own or with noodles
+- Fresh cilantro for garnish
+- Squeeze lime juice to squeeze for garnish
+- For the rice noodles I use the Udon Noodles by Yutaka (https://yutaka.london/products/noodles/udon-noodles-250g/)
+- If not using babycorn, feel free to replace babycorn for more mushrooms
+- I like to cook the soup and noodles separately to have the option to have the soup
+  on its own or with noodles

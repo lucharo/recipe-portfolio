@@ -3,29 +3,93 @@ source: https://www.youtube.com/watch?v=81qLj6Odfgs
 image: chanamasala.png
 servings: 4
 ingredients:
-  - 2 cans of chickpeas (including liquid)
-  - 1 red onion
-  - 2 garlic cloves
-  - 1 thumb of ginger
-  - 1 handfuls of coriander
-  - 2 green chillies (stemmed and seeded to taste)
-  - 1 can of tomatoes
-  - 1 tsp (cashmere) chilli powder
-  - 1 tsp cumin
-  - 0.5 tsp turmeric
-  - 0.5 tsp fennel seeds (powdered)
-  - 1.5 tsp garam masala
-  - 0.5 tsp salt (to taste)
+- name: of chickpeas
+  quantity: 2.0
+  unit: cans
+  steps:
+  - 6
+- name: red onion
+  quantity: 1.0
+  unit: ''
+  steps:
+  - 1
+  - 2
+  - 11
+- name: garlic cloves
+  quantity: 2.0
+  unit: cloves
+  steps:
+  - 1
+  - 2
+- name: of ginger
+  quantity: 1.0
+  unit: thumb
+  steps:
+  - 1
+  - 2
+- name: of coriander
+  quantity: 1.0
+  unit: handful
+  steps:
+  - 1
+  - 2
+  - 11
+- name: green chillies
+  quantity: 2.0
+  unit: ''
+  steps:
+  - 11
+  - 1
+  - 2
+- name: of tomatoes
+  quantity: 1.0
+  unit: can
+  steps:
+  - 4
+  - 6
+- name: chilli powder
+  quantity: 1.0
+  unit: tsp
+  steps:
+  - 5
+- name: cumin
+  quantity: 1.0
+  unit: tsp
+  steps:
+  - 5
+- name: turmeric
+  quantity: 0.5
+  unit: tsp
+  steps:
+  - 5
+- name: fennel seeds powder
+  quantity: 0.5
+  unit: tsp
+  steps:
+  - 5
+- name: garam masala
+  quantity: 1.5
+  unit: tsp
+  steps:
+  - 8
+- name: salt
+  quantity: 0.5
+  unit: tsp
+  steps:
+  - 8
 methods:
-  - Combine half the onions (0.5 if using 1, so forth), ginger, coriander, garlic and
-    chillies to a food processor for about 20 seconds.
-  - Transfer mix to pot with cold/room temperature oil.
-  - Bring pot to a medium heat for about 5 minutes.
-  - In the meantime, add the tomatoes to a food processor for about 30 seconds
-  - Add chilli powder, cumin, turmeric and fennel seeds to the pan and combine.
-  - Add chickpeas and tomato blend to the pot.
-  - Stir, lower the heat, close and let it cook for about 15 minutes
-  - Add garam masala and salt at this stage.
-  - Let it cook for another 8 minutes.
-  - Cool down and serve with some rice, chapati or your carb of choice.
-  - Garnish with coriander, diced onion and some green chillies.
+- Combine half the onions (0.5 if using 1, so forth), ginger, coriander, garlic and
+  chillies to a food processor for about 20 seconds.
+- Transfer mix to pot with cold/room temperature oil.
+- Bring pot to a medium heat for about 5 minutes.
+- In the meantime, add the tomatoes to a food processor for about 30 seconds
+- Add chilli powder, cumin, turmeric and fennel seeds to the pan and combine.
+- Add chickpeas and tomato blend to the pot.
+- Stir, lower the heat, close and let it cook for about 15 minutes
+- Add garam masala and salt at this stage.
+- Let it cook for another 8 minutes.
+- Cool down and serve with some rice, chapati or your carb of choice.
+- Garnish with coriander, diced onion and some green chillies.
+notes:
+- I use cashmere chilli powder if I have it.
+- I stem and seed the green chillies but adjust this to your desire level of heat.

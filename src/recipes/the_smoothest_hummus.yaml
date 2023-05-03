@@ -3,24 +3,66 @@ source: https://instagram.com/p/Cg9pcjSKTrC
 image: hummus.jpeg
 servings: 4
 ingredients:
-  - 1 Large Jar of good chickpeas
-  - 1 Clove Garlic
-  - 0.75 Cup good quality tahini
-  - 0.5 lemon (juiced)
-  - 0.33 cup chickpea brine
-  - 0.75 ice cubes
-  - 2 Tsp cumin
-  - 2 Tbsp Olive oil
-  - 1 tsp Salt
+- name: of chickpeas
+  quantity: 1.0
+  unit: can
+  steps:
+  - 1
+  - 2
+  - 3
+- name: of garlic
+  quantity: 1.0
+  unit: clove
+  steps:
+  - 1
+  - 2
+  - 3
+- name: of tahini
+  quantity: 0.75
+  unit: cup
+  steps:
+  - 5
+- name: lemon
+  quantity: 0.5
+  unit: ''
+  steps:
+  - 6
+- name: chickpea brine
+  quantity: 0.33
+  unit: cup
+  steps:
+  - 1
+  - 3
+- name: ice cubes
+  quantity: 0.75
+  unit: cubes
+  steps:
+  - 5
+- name: cumin
+  quantity: 2.0
+  unit: tsp
+  steps:
+  - 6
+- name: of olive oil
+  quantity: 2.0
+  unit: tbsp
+  steps:
+  - 6
+- name: salt
+  quantity: 1.0
+  unit: tsp
+  steps:
+  - 1
+  - 6
 methods:
-  - Boil some salted water, add the chickpeas and garlic into the water, but keep the
-    chickpea brine separate.
-  - Boil the chickpeas for 20 minutes to half an hour.
-  - Drain the chickpeas once cooked and add to a blender with the chickpea brine and
-    garlic clove from earlier.
-  - Blend until they form a paste-like consistency.
-  - Add in the tahini and blend, then whilst blending add in the ice cubes one at a
-    time.
-  - Add in the cumin, olive oil, salt, and lemon juice and blend one last time or until
-    it's as smooth as desired.
-  - Plate up the hummus, drizzle some olive oil over it and season with fresh parsley.
+- Boil some water with salt, add the chickpeas and garlic into the water, but keep
+  the chickpea brine separate.
+- Boil the chickpeas for 20 to 30 minutes.
+- Drain the chickpeas once cooked and add to a blender with the chickpea brine and
+  garlic clove from earlier.
+- Blend until they form a paste-like consistency.
+- Add in the tahini and blend, then whilst blending add in the ice cubes one at a
+  time.
+- Add in the cumin, olive oil, salt, and lemon juice and blend one last time or until
+  it's as smooth as desired.
+- Plate up the hummus, drizzle some olive oil over it and season with fresh parsley.

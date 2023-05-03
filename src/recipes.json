@@ -6,29 +6,124 @@
       "image": "auberginecurry.jpg",
       "servings": 3,
       "ingredients": [
-        "2 aubergines",
-        "1 white onion",
-        "4 garlic cloves",
-        "3 tsp garam masala or curry powder",
-        "1.5 tsp paprika or turmeric powder",
-        "1 tsp chili flakes",
-        "1 cup of water",
-        "1 veg stock cube",
-        "4 tbsp peanut/almond butter",
-        "1 can coconut milk",
-        "1 block of tofu",
-        "1 tsp brown sugar",
-        "1 tsp soy sauce"
+        {
+          "name": "aubergines",
+          "quantity": 2,
+          "unit": "",
+          "steps": [
+            1,
+            2,
+            7
+          ]
+        },
+        {
+          "name": "white onion",
+          "quantity": 1,
+          "unit": "",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "garlic cloves",
+          "quantity": 4,
+          "unit": "cloves",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "garam masala or curry powder",
+          "quantity": 3,
+          "unit": "tsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "paprika or turmeric powder",
+          "quantity": 1.5,
+          "unit": "tsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "chilli flakes",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "veg stock cube",
+          "quantity": 1,
+          "unit": "cube",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "water",
+          "quantity": 1,
+          "unit": "cup",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "of peanut/almond butter",
+          "quantity": 4,
+          "unit": "tbsp",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "of coconut milk",
+          "quantity": 1,
+          "unit": "can",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "of tofu",
+          "quantity": 1,
+          "unit": "block",
+          "steps": [
+            7
+          ]
+        },
+        {
+          "name": "brown sugar",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            9
+          ]
+        },
+        {
+          "name": "soy sauce",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            9
+          ]
+        }
       ],
       "methods": [
         "Slice up the aubergines and tofu into cubes",
-        "Roast in the oven for 25-30 minutes",
-        "Dice onions and garlic and sauté until soft/translucent",
-        "Add spices, veg stock cube and water to deglaze the pan. Bring to a simmer.",
+        "Roast the aubergines in the oven for 25-30 minutes",
+        "Dice onions and garlic and saute until soft/translucent",
+        "Add the spices and mix",
+        "Add water to deglaze the pan. Bring to a simmer.",
         "Add peanut/almond butter and coconut milk and allow it to melt.",
         "Add the aubergines and the cubed tofu into the pot and submerge",
         "Cook for 10-15 minutes on a low heat.",
-        "Add soy sauce and sugar and combine adjust flavours with salt and pepper."
+        "Add soy sauce and brown sugar and combine.",
+        "Adjust flavours with salt and pepper."
       ]
     },
     {
@@ -37,19 +132,75 @@
       "image": null,
       "servings": 4,
       "ingredients": [
-        "2 aubergines, halved",
-        "2 tbsp tahini",
-        "2 tbsp olive oil",
-        "2 garlic cloves, minced",
-        "1/2 lemon juiced",
-        "3 tbsp parsley, chopped (optional)",
-        "1/4 tsp salt"
+        {
+          "name": "aubergines",
+          "quantity": 2,
+          "unit": "",
+          "steps": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "name": "tahini",
+          "quantity": 2,
+          "unit": "tbsp",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "of olive oil",
+          "quantity": 2,
+          "unit": "tbsp",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "garlic cloves",
+          "quantity": 2,
+          "unit": "cloves",
+          "steps": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "lemon",
+          "quantity": 0.5,
+          "unit": "",
+          "steps": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "parsley (optional)",
+          "quantity": 3,
+          "unit": "tbsp",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "salt",
+          "quantity": 0.25,
+          "unit": "tsp",
+          "steps": [
+            5
+          ]
+        }
       ],
       "methods": [
+        "Cut aubergines in half",
         "Cook the aubergines in the oven face down for 30 minutes",
-        "Take the aubergines out and scoop the flesh out with a spoon into a bowl, discard the skin",
+        "Take the aubergines from the oven and scoop the flesh out with a spoon into a bowl, discard the skin",
+        "Cut garlic cloves finely and juice the lemon",
         "Add all ingredients into the bowl and combine with a fork",
-        "Using scissors, make rough cuts to the aubergine mix to reach your desired consistency. I like quite a fine texture but with still bits of aubergine for texture"
+        "Using scissors, make rough cuts to the mix to reach your desired consistency. I like quite a fine texture but with still bits of aubergine for texture"
       ],
       "notes": [
         "You can also use a blender to combine all the ingredients but I prefer to use scissors to have different textures in the dish"
@@ -61,19 +212,119 @@
       "image": "chanamasala.png",
       "servings": 4,
       "ingredients": [
-        "2 cans of chickpeas (including liquid)",
-        "1 red onion",
-        "2 garlic cloves",
-        "1 thumb of ginger",
-        "1 handfuls of coriander",
-        "2 green chillies (stemmed and seeded to taste)",
-        "1 can of tomatoes",
-        "1 tsp (cashmere) chilli powder",
-        "1 tsp cumin",
-        "0.5 tsp turmeric",
-        "0.5 tsp fennel seeds (powdered)",
-        "1.5 tsp garam masala",
-        "0.5 tsp salt (to taste)"
+        {
+          "name": "of chickpeas",
+          "quantity": 2,
+          "unit": "cans",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "red onion",
+          "quantity": 1,
+          "unit": "",
+          "steps": [
+            1,
+            2,
+            11
+          ]
+        },
+        {
+          "name": "garlic cloves",
+          "quantity": 2,
+          "unit": "cloves",
+          "steps": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "of ginger",
+          "quantity": 1,
+          "unit": "thumb",
+          "steps": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "of coriander",
+          "quantity": 1,
+          "unit": "handful",
+          "steps": [
+            1,
+            2,
+            11
+          ]
+        },
+        {
+          "name": "green chillies",
+          "quantity": 2,
+          "unit": "",
+          "steps": [
+            11,
+            1,
+            2
+          ]
+        },
+        {
+          "name": "of tomatoes",
+          "quantity": 1,
+          "unit": "can",
+          "steps": [
+            4,
+            6
+          ]
+        },
+        {
+          "name": "chilli powder",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "cumin",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "turmeric",
+          "quantity": 0.5,
+          "unit": "tsp",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "fennel seeds powder",
+          "quantity": 0.5,
+          "unit": "tsp",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "garam masala",
+          "quantity": 1.5,
+          "unit": "tsp",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "salt",
+          "quantity": 0.5,
+          "unit": "tsp",
+          "steps": [
+            8
+          ]
+        }
       ],
       "methods": [
         "Combine half the onions (0.5 if using 1, so forth), ginger, coriander, garlic and chillies to a food processor for about 20 seconds.",
@@ -87,6 +338,10 @@
         "Let it cook for another 8 minutes.",
         "Cool down and serve with some rice, chapati or your carb of choice.",
         "Garnish with coriander, diced onion and some green chillies."
+      ],
+      "notes": [
+        "I use cashmere chilli powder if I have it.",
+        "I stem and seed the green chillies but adjust this to your desire level of heat."
       ]
     },
     {
@@ -95,23 +350,99 @@
       "image": null,
       "servings": 2,
       "ingredients": [
-        "1 packet of knife-cut noodles",
-        "1 Handful of cilantro",
-        "1 tbsp red pepper flakes (mild/hot) - i used gochugaru",
-        "1 tbsp sesame oil",
-        "1 tbsp soy sauce",
-        "0.5 tbsp rice vinegar",
-        "0.5 tbsp lime juice",
-        "1 tsp maple syrup",
-        "2 tsp noodle water"
+        {
+          "name": "of knife-cut noodles",
+          "quantity": 1,
+          "unit": "packet",
+          "steps": [
+            1,
+            5
+          ]
+        },
+        {
+          "name": "of cilantro",
+          "quantity": 1,
+          "unit": "handful",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "chilli flakes",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "sesame oil",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "soy sauce",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "rice vinegar",
+          "quantity": 0.5,
+          "unit": "tbsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "lime juice",
+          "quantity": 0.5,
+          "unit": "tbsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "maple syrup",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "noodle water",
+          "quantity": 2,
+          "unit": "tsp",
+          "steps": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "sesame seeds (optional)",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            5
+          ]
+        }
       ],
       "methods": [
-        "Boil knife cut noodles according to package instructions and rinse with cold water.",
-        "Combine gochugaru with cilantro.",
-        "Add heated sesame oil to the mixture.",
+        "Boil knife cut noodles according to package instructions and rinse with cold water. Keep some of the noodle water for later.",
+        "Combine chilli flakes with cilantro.",
+        "Heat up sesame oil and add to the mixture. You should observe sizzling when your pour the oil into the mix.",
         "Add the rest of the ingredients and give it a good mix.",
         "Pour over noodles, mix and top with toasted sesame seeds.",
-        "Heat it up gently, and it's ready to serve!"
+        "Serve as it is, or heat up gently in a pan"
+      ],
+      "notes": [
+        "I find knife-cut noodles perfect in this recipe but they can be hard to find"
       ]
     },
     {
@@ -120,27 +451,120 @@
       "image": null,
       "servings": 3,
       "ingredients": [
-        "300 g whole wheat pasta",
-        "1.5 tbsp olive oil",
-        "1 medium onion",
-        "4 cloves of garlic",
-        "1 tbsp parsley stems",
-        "1 tsp lemon zest",
-        "80 g cashews",
-        "120 ml veggie broth",
-        "4 tbsp nutritional yeast",
-        "2 lemons (juiced)",
-        "1 handful of fresh herbs (parsley and basil)",
-        "1 tsp salt and pepper (to taste)"
+        {
+          "name": "of pasta",
+          "quantity": 300,
+          "unit": "g",
+          "steps": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "of olive oil",
+          "quantity": 1.5,
+          "unit": "tbsp",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "medium onion",
+          "quantity": 1,
+          "unit": "",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "of garlic",
+          "quantity": 4,
+          "unit": "cloves",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "parsley stems",
+          "quantity": 1,
+          "unit": "handful",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "lemon zest",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "cashews",
+          "quantity": 80,
+          "unit": "g",
+          "steps": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "veg stock cube",
+          "quantity": 1,
+          "unit": "cube",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "of water",
+          "quantity": 0.5,
+          "unit": "cup",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "of nutritional yeast",
+          "quantity": 4,
+          "unit": "tbsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "lemons",
+          "quantity": 2,
+          "unit": "",
+          "steps": [
+            4,
+            3
+          ]
+        },
+        {
+          "name": "of parsley or basil",
+          "quantity": 1,
+          "unit": "handful",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "salt and pepper",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": []
+        }
       ],
       "methods": [
         "Soak the cashews in hot water for at least 10 minutes.",
         "In a pan, sauté the onion until translucent, then add the garlic, parsley stems, and lemon zest and cook for a few more minutes.",
         "Deglaze the pan with a splash of lemon juice to release all the flavors.",
         "Blend the soaked cashews, veggie broth, nutritional yeast, and lemon juice in a blender or food processor to make the sauce",
-        "Pour the sauce back into the pan and add some fresh herbs such as parsley or basil.",
+        "Pour the sauce back into the pan and add some parsley and/or basil.",
         "Cook the pasta according to the packaging instructions until al dente, then save some pasta water",
-        "Add the cooked pasta to the sauce, mix well, and add pasta water until it reaches your desired consistency."
+        "Add the cooked pasta to the sauce, mix well and add pasta water until it reaches your desired consistency."
       ]
     },
     {
@@ -149,23 +573,95 @@
       "image": "pistachio-pesto-pasta.png",
       "servings": 3,
       "ingredients": [
-        "300 g pasta of choice",
-        "70 g pistachios (or more for a more prominent flavor)",
-        "30 g other nuts or seeds",
-        "2 handfuls of spinach",
-        "0.5 lemon, juiced",
-        "1 garlic clove",
-        "2 tbsp nutritional yeast",
-        "1 handful of fresh basil",
-        "2 tbsp olive oil",
-        "1 tsp salt & pepper (to taste)"
+        {
+          "name": "pasta",
+          "quantity": 300,
+          "unit": "g",
+          "steps": [
+            4,
+            3
+          ]
+        },
+        {
+          "name": "pistachios",
+          "quantity": 70,
+          "unit": "g",
+          "steps": [
+            2,
+            1
+          ]
+        },
+        {
+          "name": "cashews",
+          "quantity": 30,
+          "unit": "g",
+          "steps": [
+            2,
+            1
+          ]
+        },
+        {
+          "name": "of spinach",
+          "quantity": 500,
+          "unit": "g",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "lemon",
+          "quantity": 0.5,
+          "unit": "",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "garlic clove",
+          "quantity": 1,
+          "unit": "clove",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "of nutritional yeast",
+          "quantity": 2,
+          "unit": "tbsp",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "of fresh basil",
+          "quantity": 1,
+          "unit": "handful",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "olive oil",
+          "quantity": 2,
+          "unit": "tbsp",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "salt & pepper",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            2
+          ]
+        }
       ],
       "methods": [
-        "Toast the nuts and seeds until slightly browned from all sides.",
-        "Blend all ingredients for the pesto/sauce. Blend it as fine or coarse as you like.",
-        "Cook the pasta according to packaging instructions.",
-        "Add the pesto/sauce to a pan, loosen with some pasta water, then add in the pasta.",
-        "Serve with some crushed pistachios and vegan parmesan - enjoy!"
+        "(Optional) Toast the nuts until slightly browned from all sides for a deeper flavour.",
+        "Blend all ingredients for the pesto. Blend it as fine or coarse as you like.",
+        "Cook the pasta according to packaging instructions and save some of the pasta water.",
+        "Add the pesto to a large pan, add in the pasta and loosen with some pasta wate or oil."
       ]
     },
     {
@@ -174,32 +670,157 @@
       "image": "N/A",
       "servings": 4,
       "ingredients": [
-        "4 red peppers",
-        "1 onion, quartered",
-        "4 garlic cloves",
-        "50 g cashews",
-        "320 g spaghetti",
-        "250 ml unsweetened plant-based milk",
-        "1 tbsp dried mixed herbs",
-        "50 g sun-dried tomatoes in oil, drained",
-        "1 tsp balsamic vinegar",
-        "3 tbsp nutritional yeast",
-        "1 tsp of salt",
-        "1 tsp pepper",
-        "1 handful of fresh basil for topping",
-        "1 tbsp of toasted cashews for topping",
-        "1 tsp of red chilli flakes for topping"
+        {
+          "name": "red peppers",
+          "quantity": 4,
+          "unit": "",
+          "steps": [
+            3,
+            4,
+            7
+          ]
+        },
+        {
+          "name": "onion",
+          "quantity": 1,
+          "unit": "",
+          "steps": [
+            3,
+            5,
+            7
+          ]
+        },
+        {
+          "name": "garlic cloves",
+          "quantity": 4,
+          "unit": "cloves",
+          "steps": [
+            5,
+            7
+          ]
+        },
+        {
+          "name": "cashews",
+          "quantity": 50,
+          "unit": "g",
+          "steps": [
+            2,
+            8
+          ]
+        },
+        {
+          "name": "spaghetti",
+          "quantity": 300,
+          "unit": "g",
+          "steps": [
+            10,
+            6
+          ]
+        },
+        {
+          "name": "of pasta water",
+          "quantity": 1,
+          "unit": "cup",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "unsweetened plant-based milk",
+          "quantity": 250,
+          "unit": "ml",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "dried mixed herbs",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "sun-dried tomatoes in oil",
+          "quantity": 50,
+          "unit": "g",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "balsamic vinegar",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "nutritional yeast",
+          "quantity": 3,
+          "unit": "tbsp",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "of salt",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "pepper",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            8
+          ]
+        },
+        {
+          "name": "of fresh basil (optional)",
+          "quantity": 1,
+          "unit": "handful",
+          "steps": [
+            11
+          ]
+        },
+        {
+          "name": "of toasted cashews (optional)",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            11
+          ]
+        },
+        {
+          "name": "of red chilli flakes (optional)",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            11
+          ]
+        }
       ],
       "methods": [
-        "Preheat the oven to 230°C fan / 400°F.",
-        "Transfer the cashews to a bowl and cover in hot water straight from a kettle. Leave to one side to soak.",
+        "Preheat the oven to 180°C.",
+        "Transfer the cashews to a bowl and cover in hot water straight from a kettle. Leave on one side to soak.",
+        "Remove the stem of the red peppers and cut the onion(s) in quarters.",
         "Add the red peppers to a roasting tray and roast for 15 minutes.",
         "Remove the tray from the oven. Add the quartered onions and garlic cloves and return to the oven for another 15 minutes.",
-        "Cook the pasta in boiling salted water as per packet instructions and make sure you reserve some pasta water.",
-        "Leave the roasted veggies to cool for 5 minutes. Then peel the onion and garlic, and remove any skin, stalks, and seeds from the red peppers. Transfer them to a blender.",
-        "Drain the cashews and add them to the blender, along with the plant-based milk, 250ml (1 cup) of pasta water you reserved earlier, dried mixed herbs, sun-dried tomatoes (drain as much oil as possible), balsamic vinegar, nutritional yeast, and very generous pinches of salt and pepper. Blend until smooth.",
+        "Cook the pasta in boiling salted water as per packet instructions and make sure you reserve some pasta water (1 cup for every 4 servings of this dish).",
+        "Leave the roasted veggies to cool for 5 minutes. Then peel the onion and garlic, and remove any skin and any remaining stalks or seeds from the red peppers. Transfer them to a blender.",
+        "Drain the cashews and add them to the blender, along with the plant-based milk and pasta water you reserved earlier, dried mixed herbs, sun-dried tomatoes (drain as much oil as possible), balsamic vinegar, nutritional yeast, and very generous pinches of salt and pepper",
+        "Blend until smooth.",
         "Pour the sauce into a large saucepan on a low-medium heat. Gently heat the sauce, then add the spaghetti.",
         "Top with basil, toasted cashews, and chilli flakes."
+      ],
+      "notes": [
+        "If you don't have dried mixed herbs, use something like oregano or thyme"
       ]
     },
     {
@@ -208,29 +829,143 @@
       "image": "dahl.png",
       "servings": 4,
       "ingredients": [
-        "1 tablespoon olive oil, or use water for sautéing to make the recipe oil-free",
-        "1 large onion, chopped",
-        "4 large cloves garlic, chopped",
-        "2 tablespoons fresh ginger, finely chopped or grated",
-        "2 heaping teaspoons garam masala",
-        "0.5 teaspoon ground cinnamon",
-        "1 teaspoon red chili pepper flakes, add up to a teaspoon extra if you like it spicy. You can use 1 fresh small red chili if you prefer",
-        "2 slightly heaping teaspoons ground turmeric",
-        "2 teaspoons salt, plus more to taste at the end",
-        "1 teaspoons ground black pepper, plus more to taste at the end",
-        "400 grams of dried split red lentils, (no need to soak - but maybe rinse)",
-        "1 can of tomatoes",
-        "1 can of coconut milk"
+        {
+          "name": "of oil",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "large onion",
+          "quantity": 1,
+          "unit": "",
+          "steps": [
+            1,
+            3
+          ]
+        },
+        {
+          "name": "of garlic",
+          "quantity": 4,
+          "unit": "cloves",
+          "steps": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "fresh ginger",
+          "quantity": 2,
+          "unit": "tbsps",
+          "steps": [
+            1,
+            4
+          ]
+        },
+        {
+          "name": "garam masala",
+          "quantity": 2,
+          "unit": "teaspoons",
+          "steps": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "ground cinnamon",
+          "quantity": 0.5,
+          "unit": "teaspoon",
+          "steps": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "red chili pepper flakes",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "ground turmeric",
+          "quantity": 2,
+          "unit": "tsp",
+          "steps": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "salt",
+          "quantity": 2,
+          "unit": "tsp",
+          "steps": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "ground black pepper",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "of water",
+          "quantity": 3,
+          "unit": "cups",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "grams of red lentils",
+          "quantity": 400,
+          "unit": "",
+          "steps": [
+            7
+          ]
+        },
+        {
+          "name": "of tomatoes",
+          "quantity": 1,
+          "unit": "can",
+          "steps": [
+            7
+          ]
+        },
+        {
+          "name": "of coconut milk",
+          "quantity": 1,
+          "unit": "can",
+          "steps": [
+            7
+          ]
+        }
       ],
       "methods": [
+        "Dice onions and garlic and finely chop (or grate) ginger until you get paste",
         "Combine all spices into a spice mix.",
         "Put oil in a pot, once hot, add onions.",
-        "Once the onions have browned, add garlic and ginger and cook until fragrant (add more oil if necessary).",
-        "Add the spice mix into the pot and stir until combined.",
-        "Add 3 cups of water to the pot and mix, make sure to scratch the bottom of the pot with a wooden spoon to avoid burning at the bottom.",
+        "Once the onions have browned, add garlic and ginger and cook until fragrant (add more oil if necessary). Stir and make sure the content of the pot does not stick to the bottom.",
+        "Add the spice mix into the pot and stir until combined. Again, try and prevent sticking to the bottom.",
+        "Add water to the pot and mix, make sure to scratch the bottom of the pot with a wooden spoon to avoid burning at the bottom.",
         "Add the red lentils, tomatoes, and coconut milk to the pot.",
         "Bring the mix to a boil and stir throughout.",
         "Once boiling, bring down to a simmer, cover and let it cook for 15-20 minutes."
+      ],
+      "notes": [
+        "DO NOT scale chilli flakes linearly with the servings scaling",
+        "I don't soak my red lentils but rinsing them can be a good idea",
+        "Keep stirring initially as onions have a tendency to stick to the bottom and might burn your whole dahl"
       ]
     },
     {
@@ -239,19 +974,88 @@
       "image": "hummus.jpeg",
       "servings": 4,
       "ingredients": [
-        "1 Large Jar of good chickpeas",
-        "1 Clove Garlic",
-        "0.75 Cup good quality tahini",
-        "0.5 lemon (juiced)",
-        "0.33 cup chickpea brine",
-        "0.75 ice cubes",
-        "2 Tsp cumin",
-        "2 Tbsp Olive oil",
-        "1 tsp Salt"
+        {
+          "name": "of chickpeas",
+          "quantity": 1,
+          "unit": "can",
+          "steps": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "of garlic",
+          "quantity": 1,
+          "unit": "clove",
+          "steps": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "of tahini",
+          "quantity": 0.75,
+          "unit": "cup",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "lemon",
+          "quantity": 0.5,
+          "unit": "",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "chickpea brine",
+          "quantity": 0.33,
+          "unit": "cup",
+          "steps": [
+            1,
+            3
+          ]
+        },
+        {
+          "name": "ice cubes",
+          "quantity": 0.75,
+          "unit": "cubes",
+          "steps": [
+            5
+          ]
+        },
+        {
+          "name": "cumin",
+          "quantity": 2,
+          "unit": "tsp",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "of olive oil",
+          "quantity": 2,
+          "unit": "tbsp",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "salt",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            1,
+            6
+          ]
+        }
       ],
       "methods": [
-        "Boil some salted water, add the chickpeas and garlic into the water, but keep the chickpea brine separate.",
-        "Boil the chickpeas for 20 minutes to half an hour.",
+        "Boil some water with salt, add the chickpeas and garlic into the water, but keep the chickpea brine separate.",
+        "Boil the chickpeas for 20 to 30 minutes.",
         "Drain the chickpeas once cooked and add to a blender with the chickpea brine and garlic clove from earlier.",
         "Blend until they form a paste-like consistency.",
         "Add in the tahini and blend, then whilst blending add in the ice cubes one at a time.",
@@ -265,24 +1069,162 @@
       "image": null,
       "servings": 6,
       "ingredients": [
-        "2 stalks lemongrass",
-        "6 cloves garlic",
-        "10 kaffir lime leaves",
-        "4 Thai or bird's eye chiles",
-        "3 slices fresh galangal or ginger with pepper",
-        "1 small onion",
-        "3 small tomatoes",
-        "2 veg stock cubes",
-        "1 tbsp neutral oil",
-        "6 cups water",
-        "200 g mushrooms of choice",
-        "200 g baby corn",
-        "1 tbsp sugar (normal, coconut or palm)",
-        "3 tbsp of soy sauce or vegan fish sauce",
-        "1/2 cup of lime juice",
-        "1 can of coconut milk",
-        "1 tbsp red chili paste/sauce (I use Sambal Oelek)",
-        "thin rice noodles"
+        {
+          "name": "lemongrass",
+          "quantity": 2,
+          "unit": "stalks",
+          "steps": [
+            1,
+            11,
+            4
+          ]
+        },
+        {
+          "name": "of garlic",
+          "quantity": 6,
+          "unit": "cloves",
+          "steps": [
+            2,
+            4
+          ]
+        },
+        {
+          "name": "kaffir lime leaves",
+          "quantity": 10,
+          "unit": "leaves",
+          "steps": [
+            11,
+            4
+          ]
+        },
+        {
+          "name": "bird eye chillies",
+          "quantity": 4,
+          "unit": "",
+          "steps": [
+            2,
+            4
+          ]
+        },
+        {
+          "name": "fresh galangal",
+          "quantity": 3,
+          "unit": "slices",
+          "steps": [
+            3,
+            4,
+            11
+          ]
+        },
+        {
+          "name": "small onion",
+          "quantity": 1,
+          "unit": "",
+          "steps": [
+            3,
+            4
+          ]
+        },
+        {
+          "name": "small tomatoes",
+          "quantity": 3,
+          "unit": "",
+          "steps": [
+            3,
+            7
+          ]
+        },
+        {
+          "name": "veg stock cubes",
+          "quantity": 2,
+          "unit": "cubes",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "neutral oil",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "water",
+          "quantity": 6,
+          "unit": "cups",
+          "steps": [
+            6
+          ]
+        },
+        {
+          "name": "mushrooms of choice",
+          "quantity": 200,
+          "unit": "g",
+          "steps": [
+            3,
+            7
+          ]
+        },
+        {
+          "name": "baby corn",
+          "quantity": 200,
+          "unit": "g",
+          "steps": [
+            3,
+            7
+          ]
+        },
+        {
+          "name": "sugar (normal, coconut or palm)",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            7
+          ]
+        },
+        {
+          "name": "of soy sauce or vegan fish sauce",
+          "quantity": 3,
+          "unit": "tbsp",
+          "steps": [
+            7
+          ]
+        },
+        {
+          "name": "of lime juice",
+          "quantity": 0.5,
+          "unit": "cup",
+          "steps": [
+            9,
+            12
+          ]
+        },
+        {
+          "name": "of coconut milk",
+          "quantity": 1,
+          "unit": "can",
+          "steps": [
+            9
+          ]
+        },
+        {
+          "name": "red chili paste/sauce (I use Sambal Oelek)",
+          "quantity": 1,
+          "unit": "tbsp",
+          "steps": [
+            9
+          ]
+        },
+        {
+          "name": "of rice noodles",
+          "quantity": 300,
+          "unit": "g",
+          "steps": [
+            5
+          ]
+        }
       ],
       "methods": [
         "With a pestle and mortar (ideally) crack lemongrass stalk",
@@ -295,7 +1237,7 @@
         "Simmer for 5 minutes",
         "Mix in lime juice, coconut milk and chili paste/sauce",
         "Cook soup for another 7-8 minutes for flavors to infuse",
-        "(optional) Remove inedible aromatics",
+        "(optional) Remove inedible aromatics (kaffir lime leaves, galangal, lemongrass)",
         "Serve hot with more lime juice and cilantro if desired"
       ],
       "notes": [

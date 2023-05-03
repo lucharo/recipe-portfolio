@@ -6,7 +6,6 @@ This is a personal recipe portfolio website built with React. The website contai
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Developer Section](#developer-section)
 - [License](#license)
 
@@ -14,8 +13,9 @@ This is a personal recipe portfolio website built with React. The website contai
 
 - A visually appealing gallery of recipes
 - Responsive design that works on various screen sizes
+- A fancy yet simple "Cooking mode" guiding users visually through a recipe.
+- A simple minimal aesthetic where whe ingredients and recipe method are side-by-side for accesibility.
 - Dark and light themes
-- Each recipe has its own dedicated page
 - Built with React and Material UI
 
 ## Installation
@@ -43,12 +43,6 @@ To run the project locally, follow these steps:
 
 4. Open your browser and visit `http://localhost:3000`.
 
-## Usage
-
-- Browse the recipe gallery on the homepage.
-- Click on a recipe card to view the full details of the recipe.
-- Use the top right button to switch between dark and light themes.
-
 ## Developer Section
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses Material UI components from the `@mui/material` package.
@@ -57,12 +51,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - `public/` - Contains the static assets and the `index.html` file.
 - `src/` - Contains the source code for the React components and other JavaScript files.
-  - `App.tsx` - The main component that wraps the entire application.
   - `index.tsx` - The entry point for the React application.
   - `Gallery.tsx` - The main gallery component for displaying recipes.
   - `TopBar.tsx` - The top navigation bar component.
   - `ThemeContext.tsx` - Provides the theme context and hooks for managing the dark and light themes.
+  - `RecipeComponents/` & `Recipe.tsx` - these build out how the recipes look like including a cool "cooking mode" that walks the user through the recipe step-by-step.
   - `recipes.json` - Contains the data for all the recipes in the portfolio.
+  - `recipes_simple/` - this folder contains the recipes in a simple YAML format friendly to human readers.
+  - `recipes/` - this folder is first populated by the `recipe-formatter.py` script which _attempts_ at distilling more computer-friendly metadata about each ingredient such as: ingredient `name`, `unit`, `quantity` and most importantly recipe `steps`. The recipe `steps` link which steps an ingredient is used in (for the purpose of the cooking mode). After the YAML files in this folder are generated, the owner (me) of the project runs the `visual-editor.py` which assists in manually double checking and assigning the right ingredioents to each step.
 
 ### Available Scripts
 
