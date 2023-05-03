@@ -22,7 +22,14 @@ const Recipe = () => {
   const { recipeId } = useParams();
   const recipe = useMemo(() => recipeDB.recipes.find((r) => r.name === recipeId), [recipeId]);
 
-  const [currentIngredients, setIngredients] = useState<string[]>(recipe?.ingredients || []);
+  const [currentIngredients, setIngredients] = useState<{ 
+    name: string; 
+    quantity: number; 
+    unit: string;
+    steps: number[];
+  }[]>(
+    recipe?.ingredients || []
+  );
   const [currentServings, setServings] = useState<number>(recipe?.servings || 0);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -100,7 +107,7 @@ const Recipe = () => {
           <div className="recipe-container">
             <Container maxWidth="lg">
             <Stack direction={{ xs: "column", sm: "row" }} spacing={4}>
-            <Ingredients currentIngredients={currentIngredients} />
+            <Ingredients currentIngredients={currentIngredients} currentStep={currentSlide + 1} playMode={playMode} />
             <Methods recipe={recipe} playMode={playMode} handlePlayClick={handlePlayClick} currentSlide={currentSlide} />
             </Stack>
             </Container>

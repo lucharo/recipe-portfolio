@@ -51,8 +51,8 @@ ingredients:
   - 1
   - 4
 - name: sesame seeds (optional)
-  quantity: ''
-  unit: ''
+  quantity: 1
+  unit: tbsp
   steps:
   - 5
 methods:

@@ -70,3 +70,5 @@ if selected_recipe:
     yaml_string = yaml.dump(recipe, default_flow_style=False, sort_keys=False)
     with st.expander("Click here to expand YAML"):
         st.code(yaml_string, language='yaml')
+else:
+    st.header("All recipes validated! Congrats 🎉")
