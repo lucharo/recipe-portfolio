@@ -26,9 +26,9 @@ const Recipe = () => {
   const { recipeId } = useParams();
   const recipe = useMemo(() => recipeDB.recipes.find((r) => r.name === recipeId), [recipeId]);
 
-  const [currentIngredients, setIngredients] = useState<{ 
-    name: string; 
-    quantity: number; 
+  const [currentIngredients, setIngredients] = useState<{
+    name: string;
+    quantity: number;
     unit: string;
     steps: number[];
   }[]>(
@@ -49,13 +49,24 @@ const Recipe = () => {
     [currentSlide, recipe?.methods.length]
   );
 
-  const handleTouch = useCallback(() => {
-    if (playModeRef.current) {
-      changeSlide();
+  const [initialTouchX, setInitialTouchX] = useState<number | null>(null);
+  const [initialTouchY, setInitialTouchY] = useState<number | null>(null);
+
+
+  const handleTouch = useCallback((event: TouchEvent) => {
+    if (initialTouchX !== null && initialTouchY !== null) {
+      const deltaX = event.changedTouches[0].clientX - initialTouchX;
+      const deltaY = event.changedTouches[0].clientY - initialTouchY;
+      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+      if (playModeRef.current && distance < 10) {
+        changeSlide();
+      }
     }
-  }, []);
-  
-  
+  }, [initialTouchX, initialTouchY]);
+
+
+
   // Add an event listener for the spacebar event
   useEffect(() => {
     window.addEventListener("keydown", handleSpacebar);
@@ -66,13 +77,21 @@ const Recipe = () => {
 
   useEffect(() => {
     if (isTouchDevice()) {
+      const handleTouchStart = (event: TouchEvent) => {
+        setInitialTouchX(event.touches[0].clientX);
+        setInitialTouchY(event.touches[0].clientY);
+      };
+
+      window.addEventListener("touchstart", handleTouchStart);
       window.addEventListener("touchend", handleTouch);
       return () => {
+        window.removeEventListener("touchstart", handleTouchStart);
         window.removeEventListener("touchend", handleTouch);
       };
     }
     return;
-  }, [handleTouch]);  
+  }, [handleTouch]);
+
 
   useEffect(() => {
     if (recipe && currentSlide === recipe.methods.length) {
@@ -80,10 +99,10 @@ const Recipe = () => {
       setCurrentSlide(0)
     }
   }, [currentSlide, recipe]);
-  
+
   useEffect(() => {
     playModeRef.current = playMode;
-  }, [playMode]);  
+  }, [playMode]);
 
   // Create a function to handle the spacebar event
   const changeSlide = () => {
@@ -97,8 +116,8 @@ const Recipe = () => {
       });
     }
   };
-  
-  
+
+
   const handlePlayClick = () => {
     setPlayMode(!playMode);
   };
@@ -114,21 +133,21 @@ const Recipe = () => {
       <main>
         <div className="recipe-wrapper">
           <Container maxWidth="md">
-          <RecipeHeader recipeName={recipe.name} recipeSource={recipe.source} />
-          <ServingsSelector
-            currentServings={currentServings}
-            setServings={setServings}
-            ingredients={recipe.ingredients}
-            setIngredients={setIngredients}
-          />
+            <RecipeHeader recipeName={recipe.name} recipeSource={recipe.source} />
+            <ServingsSelector
+              currentServings={currentServings}
+              setServings={setServings}
+              ingredients={recipe.ingredients}
+              setIngredients={setIngredients}
+            />
           </Container>
 
           <div className="recipe-container">
             <Container maxWidth="lg">
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={4}>
-            <Ingredients currentIngredients={currentIngredients} currentStep={currentSlide + 1} playMode={playMode} />
-            <Methods recipe={recipe} playMode={playMode} handlePlayClick={handlePlayClick} currentSlide={currentSlide} />
-            </Stack>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={4}>
+                <Ingredients currentIngredients={currentIngredients} currentStep={currentSlide + 1} playMode={playMode} />
+                <Methods recipe={recipe} playMode={playMode} handlePlayClick={handlePlayClick} currentSlide={currentSlide} />
+              </Stack>
             </Container>
           </div>
 
