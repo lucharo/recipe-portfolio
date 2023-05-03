@@ -17,7 +17,8 @@ def parse_ingredients(ingredients, methods):
         quantity = re.search(r'\d+(\.\d+)?', ingredient)
         quantity = float(quantity.group(0)) if quantity else ''
 
-        unit = re.search(r'\b(tsp|tbsp|cup|can|block|g|ml|oz|lb|stalk|tablespoon|teaspoon|handful|cube|clove|packet)s?\b', ingredient)
+        unit = re.search(r'\b(tsp|tbsp|cup|can|block|g|ml|oz|lb|stalk|thumb|'
+                         r'tablespoon|teaspoon|handful|slice|cube|clove|packet|leaves)s?\b', ingredient)
         unit = unit.group(0) if unit else ''
 
         ingredient_name = re.sub(rf'\d+(\.\d+)?|\s{unit}\s', '', ingredient)
@@ -56,7 +57,13 @@ def save_recipe(recipe, output_path):
     with open(output_path, 'w') as f:
         yaml.dump(recipe, f, default_flow_style=False, sort_keys=False)
 
-recipe_files = os.listdir('src/recipes_simple')
+
+# Read the verified recipe file names
+with open('src/recipes.validated', 'r') as f:
+    verified_recipes = f.read().splitlines()
+
+# Filter out the verified recipe files
+recipe_files = [file for file in os.listdir('src/recipes_simple') if file not in verified_recipes]
 output_folder = 'src/recipes'
 
 if not os.path.exists(output_folder):

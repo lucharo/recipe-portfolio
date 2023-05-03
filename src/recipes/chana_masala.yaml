@@ -15,9 +15,9 @@ ingredients:
   quantity: 2.0
   unit: cloves
   steps: []
-- name: thumb ginger
+- name: of ginger
   quantity: 1.0
-  unit: ''
+  unit: thumb
   steps: []
 - name: of coriander
   quantity: 1.0

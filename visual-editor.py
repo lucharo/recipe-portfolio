@@ -1,12 +1,9 @@
 import os
 import yaml
 import streamlit as st
-from pygments import highlight
-from pygments.lexers.data import YamlLexer
-from pygments.formatters import HtmlFormatter
 
 RECIPE_FOLDER = "src/recipes"
-VERIFIED_FILE = "src/recipes/validated.txt"
+VERIFIED_FILE = "src/recipes.validated"
 
 @st.cache_resource
 def load_recipe(file_path):
