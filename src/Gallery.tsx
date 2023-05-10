@@ -16,7 +16,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-
+import './styles.css';
 
 import recipeDB from './recipes.json'
 import { Divider } from '@mui/material';

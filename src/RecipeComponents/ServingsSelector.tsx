@@ -1,33 +1,44 @@
 import React, { useState, useCallback } from 'react';
 import { Button, ButtonGroup } from '@mui/material';
-import RecipeMultiplier from '../RecipeMultiplier';
 
 type ServingsSelectorProps = {
   currentServings: number;
   setServings: (servings: number) => void;
   ingredients: any[];
   setIngredients: (ingredients: any[]) => void;
+  originalIngredients: any[];
+  originalServings: number;
 };
 
-const ServingsSelector: React.FC<ServingsSelectorProps> = ({ currentServings, setServings, ingredients, setIngredients }) => {
+const ServingsSelector: React.FC<ServingsSelectorProps> = ({
+  currentServings,
+  setServings,
+  ingredients,
+  setIngredients,
+  originalIngredients,
+  originalServings
+}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const multiplierButtons = ["1x", "2x", "3x", "5x", "8x"];
 
   const handleMultiply = useCallback(
     (num: number) => {
-      const recipeMultiplier = new RecipeMultiplier(currentServings);
-      const newIngredients = recipeMultiplier.multiplyIngredients(num, ingredients);
+      const newIngredients = originalIngredients.map(ingredient => {
+        const newQuantity = ingredient.quantity * num;
+        return { ...ingredient, quantity: newQuantity };
+      });
+
       const newServings = num * currentServings;
       setIngredients(newIngredients);
-      setServings(newServings)
+      setServings(newServings);
     },
-    [currentServings, ingredients, setIngredients],
+    [originalServings, originalIngredients, setIngredients],
   );
 
   const handleClick = (index: number) => {
     setSelectedIndex(index);
     const multiplier = +multiplierButtons[index].replace("x", "");
-    handleMultiply(multiplier)
+    handleMultiply(multiplier);
   };
 
   return (

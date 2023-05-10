@@ -8,6 +8,7 @@ import { faMoon, faSun, faHome } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
+import './styles.css';
 
 interface TopBarProps {
     theme: string;

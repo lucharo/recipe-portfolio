@@ -137,8 +137,10 @@ const Recipe = () => {
             <ServingsSelector
               currentServings={currentServings}
               setServings={setServings}
-              ingredients={recipe.ingredients}
+              ingredients={currentIngredients}
               setIngredients={setIngredients}
+              originalIngredients={recipe.ingredients}
+              originalServings={recipe.servings}
             />
           </Container>
 

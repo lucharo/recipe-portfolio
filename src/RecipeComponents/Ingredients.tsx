@@ -20,26 +20,15 @@ const Ingredients: React.FC<IngredientsProps> = ({ currentIngredients, currentSt
         {currentIngredients.map((ingredient, index) => {
           const isCurrentStep = ingredient.steps.includes(currentStep); // Check if currentStep is in the steps array
           return (
-            <div
+            <li
               key={index}
               className={clsx({
                 'current-step': playMode && isCurrentStep,
                 'faded-step': playMode && !isCurrentStep,
               })}
-              style={
-                playMode
-                  ? {
-                    fontWeight: playMode && isCurrentStep ? 'bold' : 'normal',
-                    opacity: playMode && isCurrentStep ? 1 : 0.5,
-                  }
-                  : {
-                    fontWeight: 'normal',
-                    opacity: 1,
-                  }
-              }
             >
               {ingredient.quantity} {ingredient.unit} {ingredient.name}
-            </div>
+            </li>
           );
         })}
       </ul>

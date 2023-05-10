@@ -26,10 +26,16 @@ export const themeLight = createTheme({
   palette: {
     mode: 'light',
   },
+  typography: {
+    fontFamily: "var(--global-font-family)",
+  },
 });
 
 export const themeDark = createTheme({
   palette: {
     mode: 'dark',
+  },
+  typography: {
+    fontFamily: "var(--global-font-family)",
   },
 });

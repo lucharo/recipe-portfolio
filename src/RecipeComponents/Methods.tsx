@@ -35,17 +35,6 @@ interface MethodsProps {
             'current-step': playMode && currentSlide === index,
             'faded-step': playMode && currentSlide !== index,
           })}
-          style={playMode ?
-            {
-              fontWeight: playMode && currentSlide === index ? 'bold' : 'normal',
-              opacity: playMode && currentSlide === index ? 1 : 0.5,
-            }
-            :
-            {
-              fontWeight: 'normal',
-              opacity: 1
-            }
-          }
         >
           {step}
         </li>

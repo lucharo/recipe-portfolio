@@ -1,7 +1,19 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
 h1 {
     color: blue
 }
 
+/* styles.css */
+:root {
+    --global-font-family: 'Space Mono', monospace;
+  }
+  
+  div, h1, h2, h3, h4, h5, h6 {
+    font-family: var(--global-font-family);
+  }
+  
 .column {
     float: left;
 }
@@ -70,20 +82,32 @@ h1 {
 .white-link:hover {
     text-decoration: underline;
 }
-  
+
 .current-step {
-font-weight: bold;
-opacity: 1;
+    font-weight: bold;
+    opacity: 1;
 }
 
 .faded-step {
-font-weight: normal;
-opacity: 0.5;
+    font-weight: normal;
+    opacity: 0.5;
 }
 
 .play-mode-message {
     margin-left: 1rem;
     font-size: 0.9rem;
     color: #555;
-  }
-  
+}
+
+.faded-step:not(.current-step)::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+.ingredients div,
+.methods div {
+  font-family: 'Roboto Mono', monospace;
+}
