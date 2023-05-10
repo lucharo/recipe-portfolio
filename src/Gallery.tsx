@@ -16,6 +16,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import SearchBar from './SearchBar';
+
 import './styles.css';
 
 import recipeDB from './recipes.json'

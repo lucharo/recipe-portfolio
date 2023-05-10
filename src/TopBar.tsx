@@ -9,6 +9,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import './styles.css';
+import SearchBar from './SearchBar';
 
 interface TopBarProps {
     theme: string;
@@ -30,6 +31,7 @@ const TopBar: React.FC<TopBarProps> = ({ theme, toggleTheme }) => {
                     <FontAwesomeIcon icon={faHome} />
                     <span style={{ marginLeft: '4px' }}>Recipe Portfolio</span>
                 </Button>
+                <SearchBar/>
                 <IconButton
                   edge="end"
                   color="inherit"
