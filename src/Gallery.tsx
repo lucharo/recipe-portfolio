@@ -114,7 +114,8 @@ export default function Gallery() {
           color="text.secondary"
           component="p"
         >
-          by <a href="https://github.com/lucharo">@lucharo</a>, 2023
+          by <a className={theme === "dark" ? "white-link" : "black-link"} href="https://github.com/lucharo">@lucharo</a>, 2023
+          
         </Typography>
       </Box>
       {/* End footer */}
