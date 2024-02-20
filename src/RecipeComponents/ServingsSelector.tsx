@@ -28,11 +28,11 @@ const ServingsSelector: React.FC<ServingsSelectorProps> = ({
         return { ...ingredient, quantity: newQuantity };
       });
 
-      const newServings = num * currentServings;
+      const newServings = num * originalServings;
       setIngredients(newIngredients);
       setServings(newServings);
     },
-    [originalServings, originalIngredients, setIngredients],
+    [originalServings, originalIngredients, setIngredients, setServings],
   );
 
   const handleClick = (index: number) => {

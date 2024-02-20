@@ -37,6 +37,20 @@ const Recipe = () => {
   const [currentServings, setServings] = useState<number>(recipe?.servings || 0);
   // const [selectedIndex, setSelectedIndex] = useState(0);
 
+
+  // Create a function to handle the spacebar event
+  const changeSlide = useCallback(() => {
+    if (recipe) {
+      setCurrentSlide((prevSlide) => {
+        let nextSlide = prevSlide + 1;
+        if (nextSlide >= recipe.methods.length) {
+          return 0;
+        }
+        return nextSlide;
+      });
+    }
+  }, [recipe]); 
+
   const handleSpacebar = useCallback(
     (event: KeyboardEvent) => {
       if (event.code === "Space") {
@@ -46,7 +60,7 @@ const Recipe = () => {
         }
       }
     },
-    [currentSlide, recipe?.methods.length]
+    [changeSlide]
   );
 
   const [initialTouchX, setInitialTouchX] = useState<number | null>(null);
@@ -63,7 +77,7 @@ const Recipe = () => {
         changeSlide();
       }
     }
-  }, [initialTouchX, initialTouchY]);
+  }, [initialTouchX, initialTouchY, changeSlide]);
 
 
 
@@ -103,20 +117,6 @@ const Recipe = () => {
   useEffect(() => {
     playModeRef.current = playMode;
   }, [playMode]);
-
-  // Create a function to handle the spacebar event
-  const changeSlide = () => {
-    if (recipe) {
-      setCurrentSlide((prevSlide) => {
-        let nextSlide = prevSlide + 1;
-        if (nextSlide > recipe.methods.length) {
-          return 0;
-        }
-        return nextSlide;
-      });
-    }
-  };
-
 
   const handlePlayClick = () => {
     setPlayMode(!playMode);
