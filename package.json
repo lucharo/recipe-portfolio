@@ -1,9 +1,10 @@
 {
-  "homepage": "https://lucharo.github.io/recipe-portfolio",
+  "homepage": "https://cook.luischav.es",
   "name": "recipe-portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cooklang/cooklang-ts": "^1.2.4",
     "@emotion/styled": "^11.10.6",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
