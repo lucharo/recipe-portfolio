@@ -2,12 +2,6 @@ name: Version branch & Cloudflare alias
 on:
   release:
     types: [published]
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Semver tag to (re)process'
-        required: true
-
 
 permissions:
   contents: write   # lets the job push branches/tags
