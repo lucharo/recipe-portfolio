@@ -46,9 +46,13 @@ jobs:
             -H "Content-Type: application/json" \
             "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/domains" \
             --data "{\"name\":\"$ALIAS\",\"branch\":\"$BRANCH\"}")
-          echo "$resp" | jq -e '.success' >/dev/null || {
-            echo "Cloudflare API failed ➜ $resp"
-            exit 1
+          echo "$resp" | jq -e '
+            if .success then true
+            elif (.errors[]?.code|tonumber) == 8000018 then true
+            else false end' >/dev/null || {
+              echo "Cloudflare API error:"
+              echo "$resp"
+              exit 1
           }
 
 
