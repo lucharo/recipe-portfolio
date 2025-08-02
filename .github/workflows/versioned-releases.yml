@@ -27,8 +27,9 @@ jobs:
       # keep / move the vX branch at this commit
       - if: steps.gate.outputs.skip != 'yes'
         run: |
-          git branch -f v${{steps.semver.outputs.major}} $GITHUB_SHA
-          git push -f origin v${{steps.semver.outputs.major}}
+          BRANCH="releases/v${{steps.semver.outputs.major}}"
+          git branch -f $BRANCH $GITHUB_SHA
+          git push -f origin $BRANCH
 
       # one POST to attach vX.cook... to branch vX
       - if: steps.gate.outputs.skip != 'yes'
@@ -39,11 +40,12 @@ jobs:
           MAJOR: ${{ steps.semver.outputs.major }}
         run: |
           ALIAS="v${MAJOR}.cook.luischav.es"
+          BRANCH="releases/v${MAJOR}"
           resp=$(curl -s -X POST \
             -H "Authorization: Bearer $CF_API_TOKEN" \
             -H "Content-Type: application/json" \
             "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/pages/projects/$PROJECT/domains" \
-            --data "{\"name\":\"$ALIAS\",\"branch\":\"v$MAJOR\"}")
+            --data "{\"name\":\"$ALIAS\",\"branch\":\"$BRANCH\"}")
           echo "$resp" | jq -e '.success' >/dev/null || {
             echo "Cloudflare API failed ➜ $resp"
             exit 1
