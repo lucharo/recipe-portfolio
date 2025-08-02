@@ -1,10 +1,11 @@
 name: Version branch & Cloudflare alias
+
 on:
   release:
     types: [published]
 
 permissions:
-  contents: write   # lets the job push branches/tags
+  contents: write
 
 jobs:
   alias:
@@ -13,7 +14,7 @@ jobs:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
 
-      # skip if the tag isn’t like v1.2.3
+      # ── gate ──
       - id: gate
         run: |
           [[ "${GITHUB_REF#refs/tags/}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] \
@@ -24,14 +25,14 @@ jobs:
         run: |
           echo "major=$(echo ${GITHUB_REF#refs/tags/v} | cut -d. -f1)" >>"$GITHUB_OUTPUT"
 
-      # keep / move the vX branch at this commit
+      # ── branch ──
       - if: steps.gate.outputs.skip != 'yes'
         run: |
-          BRANCH="releases/v${{steps.semver.outputs.major}}"
-          git branch -f $BRANCH $GITHUB_SHA
-          git push -f origin $BRANCH
+          BRANCH="releases/v${{ steps.semver.outputs.major }}"
+          git branch -f "$BRANCH" "$GITHUB_SHA"
+          git push -f origin "$BRANCH"
 
-      # one POST to attach vX.cook... to branch vX
+      # ── attach custom domain ──
       - if: steps.gate.outputs.skip != 'yes'
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
@@ -48,40 +49,35 @@ jobs:
             --data "{\"name\":\"$ALIAS\",\"branch\":\"$BRANCH\"}")
           echo "$resp" | jq -e '
             if .success then true
-            elif (.errors[]?.code|tonumber) == 8000018 then true
-            else false end' >/dev/null || {
-              echo "Cloudflare API error:"
-              echo "$resp"
-              exit 1
-            }
+            elif (.errors[]?.code|tonumber) == 8000018 then true   # domain already attached
+            else false end' >/dev/null || { echo "$resp"; exit 1; }
 
-      # ensure the CNAME exists (runs once per major)
+      # ── CNAME record (lighter error handling) ──
       - if: steps.gate.outputs.skip != 'yes'
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           MAJOR: ${{ steps.semver.outputs.major }}
-          PROJECT: recipe-portfolio         # same Pages project slug
+          PROJECT: recipe-portfolio
         run: |
           ZONE_ID=$(curl -s -H "Authorization: Bearer $CF_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/zones?name=luischav.es" | jq -r '.result[0].id')
 
           ALIAS="v${MAJOR}.cook.luischav.es"
-          TARGET="${PROJECT}.pages.dev"
+          BRANCH="releases/v${MAJOR}"
+          SANITIZED=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed 's#[^a-z0-9-]#-#g')
+          TARGET="${SANITIZED}.${PROJECT}.pages.dev"
 
-          # skip if CNAME already present
-          CNT=$(curl -s -H "Authorization: Bearer $CF_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?type=CNAME&name=$ALIAS" \
-            | jq '.result | length')
+          # create, letting “already exists” (81057) pass
+          resp=$(curl -s -X POST \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+            --data "{\"type\":\"CNAME\",\"name\":\"$ALIAS\",\"content\":\"$TARGET\",\"proxied\":true}")
 
-          if [ "$CNT" -eq 0 ]; then
-            echo "Creating DNS CNAME $ALIAS → $TARGET"
-            curl -s -X POST \
-              -H "Authorization: Bearer $CF_API_TOKEN" \
-              -H "Content-Type: application/json" \
-              "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
-              --data "{\"type\":\"CNAME\",\"name\":\"$ALIAS\",\"content\":\"$TARGET\",\"proxied\":true}"
-          else
-            echo "CNAME already present"
-          fi
+          echo "$resp" | jq -e '
+            if .success then true
+            elif (.errors[]?.code|tonumber) == 81057 then true   # CNAME already present
+            else false end' >/dev/null || { echo "$resp"; exit 1; }
+
+          echo "CNAME ready → $ALIAS → $TARGET"
 
