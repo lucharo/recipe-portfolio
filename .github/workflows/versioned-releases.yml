@@ -3,6 +3,9 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: write   # lets the job push branches/tags
+
 jobs:
   alias:
     runs-on: ubuntu-latest
