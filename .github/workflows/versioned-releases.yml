@@ -76,7 +76,7 @@ jobs:
 
           echo "$resp" | jq -e '
             if .success then true
-            elif (.errors[]?.code|tonumber) == 81057 then true   # CNAME already present
+            elif (.errors[]?.code|tonumber) == 81053 then true   # CNAME already present
             else false end' >/dev/null || { echo "$resp"; exit 1; }
 
           echo "CNAME ready → $ALIAS → $TARGET"
