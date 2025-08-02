@@ -53,7 +53,35 @@ jobs:
               echo "Cloudflare API error:"
               echo "$resp"
               exit 1
-          }
+            }
 
+      # ensure the CNAME exists (runs once per major)
+      - if: steps.gate.outputs.skip != 'yes'
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          MAJOR: ${{ steps.semver.outputs.major }}
+          PROJECT: recipe-portfolio         # same Pages project slug
+        run: |
+          ZONE_ID=$(curl -s -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/zones?name=luischav.es" | jq -r '.result[0].id')
 
+          ALIAS="v${MAJOR}.cook.luischav.es"
+          TARGET="${PROJECT}.pages.dev"
+
+          # skip if CNAME already present
+          CNT=$(curl -s -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?type=CNAME&name=$ALIAS" \
+            | jq '.result | length')
+
+          if [ "$CNT" -eq 0 ]; then
+            echo "Creating DNS CNAME $ALIAS → $TARGET"
+            curl -s -X POST \
+              -H "Authorization: Bearer $CF_API_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+              --data "{\"type\":\"CNAME\",\"name\":\"$ALIAS\",\"content\":\"$TARGET\",\"proxied\":true}"
+          else
+            echo "CNAME already present"
+          fi
 
