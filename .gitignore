@@ -1,3 +1,18 @@
 site/
 node_modules/
+build/
 *.ipynb
+.DS_Store
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
+*.tsbuildinfo
+bun.lockb
+.claude/
+# staging area for gemini-generated image variants — pick via /variants.html
+public/variants/
+public/variants.html

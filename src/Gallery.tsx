@@ -1,124 +1,165 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
-import { useThemeContext, themeDark, themeLight } from './ThemeContext';
-import TopBar from './TopBar';
-import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React from "react";
+import type { Recipe } from "./types";
+import RecipePlaceholder from "./RecipePlaceholder";
 
-import './styles.css';
+interface GalleryProps {
+  recipes: Recipe[];
+  onOpen: (r: Recipe) => void;
+}
 
-import recipeDB from './recipes.json'
-import { Divider } from '@mui/material';
-const recipes = recipeDB.recipes;
-
-export default function Gallery() {
-  const [theme, toggleTheme] = useThemeContext(); // Add this line
-
+const Gallery: React.FC<GalleryProps> = ({ recipes, onOpen }) => {
   return (
-    <ThemeProvider theme={theme === 'dark' ? themeDark : themeLight}>
-      <CssBaseline />
-      <TopBar theme={theme} toggleTheme={toggleTheme} />
-      <main>
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
+    <main style={{ maxWidth: 1240, margin: "0 auto", padding: "40px 24px 80px", width: "100%" }}>
+      <section style={{ marginBottom: 36 }}>
+        <h1
+          style={{
+            fontFamily: "var(--mono)",
+            fontWeight: 700,
+            fontSize: "clamp(28px, 4vw, 40px)",
+            lineHeight: 1.15,
+            margin: 0,
+            marginBottom: 12,
+            letterSpacing: "-0.01em",
           }}
         >
-          <Container maxWidth="md">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Recipe Portfolio
-            </Typography>
-            <Accordion sx={{ marginBottom: 2 }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="about-content"
-                id="about-header"
-              >
-                <Typography variant="h5" component="h2">
-                  About
-                </Typography>
-              </AccordionSummary>
-              <Divider />
-              <AccordionDetails>
-                <Typography variant="h6" align="center" color="text.secondary" paragraph>
-                  This is my personal recipe collection that I have gathered from Instagram
-                  accounts, YouTube channels and the web more broadly. The recipes that
-                  end up on this site have all been tested by me and I make them on a recurrent basis.
-                  <br />
-                  <br />
-                  I built this website to make it easier for myself to keep cooking great recipes that
-                  I have discovered and also to share them with others.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Container>
-        </Box>
-
-        <Container sx={{ py: 0 }} maxWidth="lg">
-          {/* End hero unit */}
-          <Grid container key="recipe-grid" spacing={4} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {recipes.map((recipe) => (
-              <Grid item key={recipe.name} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <Link to={`/recipe/${recipe.name}`} className={theme === "dark" ? "white-link" : "black-link"}>
-                    <CardMedia
-                      component="img"
-                      sx={{
-                        height: 200
-                      }}
-                      image={`${process.env.PUBLIC_URL}/images/${recipe.image}`} //https://source.unsplash.com/random"
-                      alt="random"
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom color="inherit" variant="h5" component="h2">
-                        {recipe.name}
-                      </Typography>
-                      <Typography>
-                        YUMMY!
-                      </Typography>
-                    </CardContent>
-                  </Link>
-
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
+          <span style={{ color: "var(--accent)" }}>#</span> recipe portfolio
+        </h1>
+        <p
+          style={{
+            fontFamily: "var(--mono)",
+            fontSize: 14,
+            color: "var(--fg-2)",
+            maxWidth: 680,
+            margin: 0,
+            lineHeight: 1.6,
+          }}
         >
-          by <a className={theme === "dark" ? "white-link" : "black-link"} href="https://github.com/lucharo">@lucharo</a>, 2023
-          
-        </Typography>
-      </Box>
-      {/* End footer */}
-    </ThemeProvider>
+          this is my personal recipe collection — recipes I've gathered from
+          instagram, youtube and the web more broadly, all tested and cooked on a
+          recurrent basis. built to make it easier to keep cooking them and to
+          share them with others.
+        </p>
+      </section>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "baseline",
+          gap: 12,
+          marginBottom: 20,
+          paddingBottom: 10,
+          borderBottom: "1px dashed var(--rule)",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "var(--mono)",
+            fontSize: 14,
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+            textTransform: "lowercase",
+            margin: 0,
+          }}
+        >
+          recipes
+        </h2>
+        <span style={{ color: "var(--fg-3)", fontFamily: "var(--mono)", fontSize: 12 }}>
+          ({recipes.length})
+        </span>
+      </div>
+
+      <div
+        className="rp-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gap: 18,
+        }}
+      >
+        {recipes.map((r) => (
+          <RecipeCard key={r.name} recipe={r} onOpen={onOpen} />
+        ))}
+      </div>
+
+      <footer
+        style={{
+          marginTop: 64,
+          paddingTop: 24,
+          borderTop: "1px dashed var(--rule)",
+          fontFamily: "var(--mono)",
+          fontSize: 12,
+          color: "var(--fg-3)",
+        }}
+      >
+        by{" "}
+        <a href="https://github.com/lucharo" className="link-underline">
+          @lucharo
+        </a>
+        , 2023
+      </footer>
+    </main>
   );
+};
+
+interface CardProps {
+  recipe: Recipe;
+  onOpen: (r: Recipe) => void;
 }
+
+const RecipeCard: React.FC<CardProps> = ({ recipe, onOpen }) => (
+  <article
+    onClick={() => onOpen(recipe)}
+    style={{ cursor: "pointer", display: "flex", flexDirection: "column" }}
+    onMouseEnter={(e) => {
+      const w = e.currentTarget.querySelector<HTMLDivElement>(".img-wrap");
+      const t = e.currentTarget.querySelector<HTMLHeadingElement>(".card-title");
+      if (w) w.style.transform = "translateY(-2px)";
+      if (t) t.style.color = "var(--accent)";
+    }}
+    onMouseLeave={(e) => {
+      const w = e.currentTarget.querySelector<HTMLDivElement>(".img-wrap");
+      const t = e.currentTarget.querySelector<HTMLHeadingElement>(".card-title");
+      if (w) w.style.transform = "translateY(0)";
+      if (t) t.style.color = "var(--fg)";
+    }}
+  >
+    <div
+      className="img-wrap"
+      style={{
+        aspectRatio: "1/1",
+        overflow: "hidden",
+        borderRadius: 4,
+        border: "1px solid var(--rule-soft)",
+        marginBottom: 8,
+        transition: "transform 0.25s ease",
+      }}
+    >
+      <RecipePlaceholder recipe={recipe} />
+    </div>
+    <h3
+      className="card-title"
+      style={{
+        fontFamily: "var(--mono)",
+        fontSize: 13,
+        fontWeight: 700,
+        margin: 0,
+        lineHeight: 1.25,
+        transition: "color 0.15s ease",
+      }}
+    >
+      {recipe.name.toLowerCase()}
+    </h3>
+    <div
+      style={{
+        fontFamily: "var(--mono)",
+        fontSize: 10,
+        color: "var(--fg-3)",
+        marginTop: 3,
+      }}
+    >
+      {recipe.methods.length} steps · {recipe.ingredients.length} ingredients
+    </div>
+  </article>
+);
+
+export default Gallery;
