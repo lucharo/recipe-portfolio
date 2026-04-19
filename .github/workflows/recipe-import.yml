@@ -36,6 +36,8 @@ jobs:
         with:
           node-version: "20"
       - run: npm ci
+      - name: Install workflow-only deps (not in package.json to keep the app bundle clean)
+        run: npm install --no-save sharp@^0.33.5
       - name: Install yt-dlp
         run: pipx install yt-dlp
       - uses: anthropics/claude-code-action@v1

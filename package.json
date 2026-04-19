@@ -42,7 +42,6 @@
     "@types/react-dom": "^18.2.19",
     "eslint-config-react-app": "^7.0.1",
     "js-yaml": "^4.1.0",
-    "react-scripts": "*",
-    "sharp": "^0.33.5"
+    "react-scripts": "*"
   }
 }
