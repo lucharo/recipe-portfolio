@@ -1,0 +1,142 @@
+name: recipe-import
+
+on:
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "GitHub issue number to import a recipe from"
+        required: true
+        type: string
+
+concurrency:
+  group: recipe-import-${{ github.event.issue.number || github.event.inputs.issue_number }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    env:
+      ISSUE_NUMBER: ${{ github.event.issue.number || github.event.inputs.issue_number }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      INSTAGRAM_SESSIONID: ${{ secrets.INSTAGRAM_SESSIONID }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: redesign/editorial-notebook
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - name: Install workflow-only deps (not in package.json to keep the app bundle clean)
+        run: npm install --no-save sharp@^0.33.5
+      - name: Install yt-dlp
+        run: pipx install yt-dlp
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_args: "--model claude-sonnet-4-6"
+          prompt: |
+            You are importing a recipe from GitHub issue #${{ env.ISSUE_NUMBER }} in repo ${{ env.GITHUB_REPOSITORY }}.
+
+            ## Step-by-step
+
+            1. Read the issue: `gh issue view ${{ env.ISSUE_NUMBER }} --json title,body,url,labels`.
+            2. From the issue, derive:
+               - `SLUG`: kebab-case from the dish name (e.g. "Mexican Rice & Beans" → `mexican-rice-and-beans`).
+               - `DISH_DESC`: a short 3-8 word description for the image generator (e.g. "black bean chocolate brownies on a plate").
+               - `SOURCE_URL`: the first URL in the issue body.
+            3. Fetch the source content by host:
+               - `youtube.com` / `youtu.be`: run `yt-dlp --skip-download --write-auto-sub --sub-lang en --sub-format vtt --output '/tmp/source.%(ext)s' "$SOURCE_URL"`, then read `/tmp/source.en.vtt`. Also fetch page metadata with `curl -sL "$SOURCE_URL" | head -c 8000`.
+               - `instagram.com`: run `curl -sL -A 'Mozilla/5.0 (Macintosh)' "$SOURCE_URL"`. If the HTML is empty or login-walled AND `$INSTAGRAM_SESSIONID` is non-empty, retry with `-b "sessionid=$INSTAGRAM_SESSIONID"`. If you still can't extract a caption/recipe, post a comment on the issue asking Luis to paste the caption/transcript into the issue body, then exit (do not fail).
+               - other: use WebFetch.
+            4. Read `src/recipes/_template.yaml` and `src/recipes/the_smoothest_hummus.yaml` as references for the YAML schema.
+            5. Write `src/recipes/$SLUG.yaml`:
+               - Required: `name`, `source` (the SOURCE_URL), `image: $SLUG.jpg`, `servings`, `ingredients`, `methods`.
+               - Optional: `creator` (Instagram handle, YouTube channel, blog author name), `notes`.
+               - Ingredients MUST include `steps: [N, ...]` with 1-indexed step numbers — read the methods and decide which ingredients each step uses. Do not output `steps: []`.
+               - Use clean names (`chickpeas`, not `of chickpeas`).
+               - Units must be one of: tsp, tbsp, cup, can, clove, handful, g, ml, oz, lb — or `''` when unitless.
+            6. Generate 3 candidate photos: `node scripts/generate-recipe-images.mjs "$SLUG" "$DISH_DESC"`. This writes to `public/images/candidates/$SLUG-{1,2,3}.jpg`.
+            7. Create branch `recipe-import/$SLUG` off `redesign/editorial-notebook`, add the new YAML + the 3 candidate images, commit (`Draft: add $NAME`), and push.
+            8. Post this comment on issue #${{ env.ISSUE_NUMBER }} via `gh issue comment`:
+
+               ```
+               <!-- slug:$SLUG -->
+               Drafted `src/recipes/$SLUG.yaml`. Pick a dish photo:
+
+               1. ![variant 1](https://raw.githubusercontent.com/${{ env.GITHUB_REPOSITORY }}/recipe-import/$SLUG/public/images/candidates/$SLUG-1.jpg)
+               2. ![variant 2](https://raw.githubusercontent.com/${{ env.GITHUB_REPOSITORY }}/recipe-import/$SLUG/public/images/candidates/$SLUG-2.jpg)
+               3. ![variant 3](https://raw.githubusercontent.com/${{ env.GITHUB_REPOSITORY }}/recipe-import/$SLUG/public/images/candidates/$SLUG-3.jpg)
+
+               Reply `/use 1`, `/use 2`, or `/use 3` to finalize.
+               ```
+
+            ## Important
+
+            - Do NOT open a PR yet — finalize runs after Luis picks a variant.
+            - Do NOT modify existing recipes.
+            - Do NOT regenerate `src/recipes.json` — finalize handles that.
+            - If any step fails, post the error as an issue comment so Luis can debug.
+
+  finalize:
+    if: |
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == github.event.repository.owner.login &&
+      startsWith(github.event.comment.body, '/use ')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    env:
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      COMMENT_BODY: ${{ github.event.comment.body }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_args: "--model claude-sonnet-4-6"
+          prompt: |
+            Luis picked a recipe image variant. Finalize the import for issue #${{ env.ISSUE_NUMBER }}.
+
+            The comment body is: `${{ env.COMMENT_BODY }}`. It matches `^/use [1-3]$`.
+
+            ## Step-by-step
+
+            1. Parse the variant number `N` (1|2|3) from the comment body.
+            2. Find the bot comment on this issue containing `<!-- slug:... -->`:
+               `gh issue view ${{ env.ISSUE_NUMBER }} --comments` — scan for the marker and extract `SLUG`.
+            3. `git fetch origin` and `git checkout recipe-import/$SLUG`.
+            4. `mv public/images/candidates/$SLUG-$N.jpg public/images/$SLUG.jpg`.
+            5. `rm -rf public/images/candidates` (on this branch only).
+            6. Confirm `src/recipes/$SLUG.yaml` has `image: $SLUG.jpg` (it should already; fix if not).
+            7. `node generate-recipes-json.ts` to regenerate `src/recipes.json`.
+            8. Commit (`Add $NAME`) and push.
+            9. Open a PR:
+               `gh pr create --base redesign/editorial-notebook --head recipe-import/$SLUG --title "Add $NAME" --body "Closes #${{ env.ISSUE_NUMBER }}."`
+            10. Post a comment on issue #${{ env.ISSUE_NUMBER }} linking the new PR.
+
+            ## Important
+
+            - If the slug can't be found (no prior bot comment), post a comment explaining and exit.
+            - Never force-push.
