@@ -209,7 +209,7 @@
     {
       "name": "Chana Masala",
       "source": "https://www.youtube.com/watch?v=81qLj6Odfgs",
-      "image": "chanamasala.png",
+      "image": "chanamasala.jpg",
       "servings": 4,
       "ingredients": [
         {
@@ -347,7 +347,7 @@
     {
       "name": "Cilantro lime noodles",
       "source": "https://instagram.com/p/CcF1M-RDlg-",
-      "image": null,
+      "image": "cilantro-lime-noodles.jpg",
       "servings": 2,
       "ingredients": [
         {
@@ -448,7 +448,7 @@
     {
       "name": "Lemon Cashew Pasta",
       "source": "https://instagram.com/p/CVGA96hql9X",
-      "image": null,
+      "image": "lemon-cashew-pasta.jpg",
       "servings": 3,
       "ingredients": [
         {
@@ -570,7 +570,7 @@
     {
       "name": "Pasta with Pistachio Pesto",
       "source": "https://instagram.com/p/CdLgaiPK4TS",
-      "image": "pistachio-pesto-pasta.png",
+      "image": "pistachio-pesto-pasta.jpg",
       "servings": 3,
       "ingredients": [
         {
@@ -667,7 +667,7 @@
     {
       "name": "Roasted Red Pepper and Cashew Pasta",
       "source": "https://www.instagram.com/p/CVHxV4hJoPV/",
-      "image": "N/A",
+      "image": "red-pepper-pasta.jpg",
       "servings": 4,
       "ingredients": [
         {
@@ -826,7 +826,7 @@
     {
       "name": "Red Lentil Dahl",
       "source": "https://avirtualvegan.com/instant-pot-lentil-dal/#recipe",
-      "image": "dahl.png",
+      "image": "dahl.jpg",
       "servings": 4,
       "ingredients": [
         {
@@ -1066,7 +1066,7 @@
     {
       "name": "Vegan Thai Tom Yum Soup",
       "source": "https://thefoodietakesflight.com/vegan-thai-tom-yum-soup/#recipe",
-      "image": null,
+      "image": "tom-yum.jpg",
       "servings": 6,
       "ingredients": [
         {

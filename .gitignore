@@ -13,3 +13,6 @@ yarn-error.log*
 *.tsbuildinfo
 bun.lockb
 .claude/
+# staging area for gemini-generated image variants — pick via /variants.html
+public/variants/
+public/variants.html
