@@ -63,7 +63,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 #root { min-height: 100vh; display: flex; flex-direction: column; }
 
 @media (max-width: 700px) {
-  .rp-grid-3 { grid-template-columns: 1fr !important; }
+  .rp-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; }
   .rp-recipe-split { grid-template-columns: 1fr !important; gap: 24px !important; }
   .rp-recipe-header { grid-template-columns: 1fr !important; }
   .rp-recipe-header-photo { max-width: 320px; }

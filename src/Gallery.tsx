@@ -69,11 +69,11 @@ const Gallery: React.FC<GalleryProps> = ({ recipes, onOpen }) => {
       </div>
 
       <div
-        className="rp-grid-3"
+        className="rp-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 24,
+          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gap: 18,
         }}
       >
         {recipes.map((r) => (
@@ -126,11 +126,11 @@ const RecipeCard: React.FC<CardProps> = ({ recipe, onOpen }) => (
     <div
       className="img-wrap"
       style={{
-        aspectRatio: "4/3",
+        aspectRatio: "1/1",
         overflow: "hidden",
         borderRadius: 4,
         border: "1px solid var(--rule-soft)",
-        marginBottom: 10,
+        marginBottom: 8,
         transition: "transform 0.25s ease",
       }}
     >
@@ -140,7 +140,7 @@ const RecipeCard: React.FC<CardProps> = ({ recipe, onOpen }) => (
       className="card-title"
       style={{
         fontFamily: "var(--mono)",
-        fontSize: 15,
+        fontSize: 13,
         fontWeight: 700,
         margin: 0,
         lineHeight: 1.25,
@@ -152,9 +152,9 @@ const RecipeCard: React.FC<CardProps> = ({ recipe, onOpen }) => (
     <div
       style={{
         fontFamily: "var(--mono)",
-        fontSize: 11,
+        fontSize: 10,
         color: "var(--fg-3)",
-        marginTop: 4,
+        marginTop: 3,
       }}
     >
       {recipe.methods.length} steps · {recipe.ingredients.length} ingredients
