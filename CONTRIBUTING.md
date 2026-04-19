@@ -4,13 +4,11 @@
 
 ### The automated way (preferred)
 
-1. Open a new issue with the source URL (Instagram, YouTube, blog, whatever) in the body.
-2. Add the `recipe` label.
-3. GitHub Actions will read the issue, fetch the source, draft a `src/recipes/<slug>.yaml`, generate 3 candidate dish photos, and comment back with the options.
+1. Open an issue with the source URL (Instagram, YouTube, blog, whatever) in the body and add the `recipe` label so it shows up in the queue.
+2. When you're ready to import it, trigger the workflow manually: Actions tab → `recipe-import` → **Run workflow** → enter the issue number. (Labeling alone does not auto-run — this is intentional, so a pile of labeled issues doesn't fire off every agent at once.)
+3. GitHub Actions reads the issue, fetches the source, drafts `src/recipes/<slug>.yaml`, generates 3 candidate dish photos, and comments back with the options.
 4. Reply `/use 1`, `/use 2`, or `/use 3` to pick your favourite photo.
-5. The action opens a PR against the current integration branch (today: `redesign/editorial-notebook`, eventually `main`) and closes the issue.
-
-You can also trigger the flow manually from the Actions tab → `recipe-import` → Run workflow, passing the issue number.
+5. The action opens a PR against `main` closing the issue.
 
 ### The manual way
 
