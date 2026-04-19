@@ -38,9 +38,21 @@ jobs:
       - run: npm ci
       - name: Install workflow-only deps (not in package.json to keep the app bundle clean)
         run: npm install --no-save sharp@^0.33.5
-      - name: Install youtube-transcript-api (CI-friendly alternative to yt-dlp; yt-dlp gets bot-walled from GH Actions IPs)
-        run: pipx install youtube-transcript-api
+      - name: Pre-flight — short-circuit YouTube URLs (all known transcript endpoints are IP-blocked from GH Actions, so spinning up Claude just to write a polite fallback wastes tokens)
+        id: preflight
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BODY=$(gh issue view "$ISSUE_NUMBER" --json body -q .body)
+          # Skip only if body contains a YouTube URL AND has no recipe-shaped content yet.
+          # Once you paste the transcript/ingredients into the issue body, the `ingredient|cup|tsp|...`
+          # check lets the run through so Claude can process it.
+          if echo "$BODY" | grep -qE 'youtube\.com|youtu\.be' && ! echo "$BODY" | grep -qiE 'ingredient|cup|tsp|tbsp|clove|serves|servings'; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            gh issue comment "$ISSUE_NUMBER" --body $'This issue links a YouTube video. YouTube blocks transcript APIs (`yt-dlp`, `youtube-transcript-api`, etc.) from GitHub Actions IPs, so the automation can\'t fetch it.\n\nTo import this one: either (a) handle it locally and push a PR by hand, or (b) open the video, click ⋯ → *Show transcript*, paste it into this issue body, and re-dispatch the workflow — the pre-flight check will let it through once the body contains recipe content.'
+          fi
       - uses: anthropics/claude-code-action@v1
+        if: steps.preflight.outputs.skip != 'true'
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -56,7 +68,7 @@ jobs:
                - `DISH_DESC`: a short 3-8 word description for the image generator (e.g. "black bean chocolate brownies on a plate").
                - `SOURCE_URL`: the first URL in the issue body.
             3. Fetch the source content by host:
-               - `youtube.com` / `youtu.be`: extract the 11-char video id (`VIDEO_ID=$(echo "$SOURCE_URL" | sed -E 's|.*(youtu\.be/\|v=)([A-Za-z0-9_-]{11}).*|\2|')`), then run `youtube_transcript_api "$VIDEO_ID" --format text > /tmp/transcript.txt`. Also fetch the page HTML for the title/description/channel: `curl -sL "$SOURCE_URL" | head -c 20000 > /tmp/page.html`. Read both files. If the transcript fetch fails, post a comment on the issue asking Luis to paste the recipe content into the issue body and exit (do not fail).
+               - `youtube.com` / `youtu.be`: the pre-flight step already gated this — if you're running, the issue body contains pasted recipe content (ingredients/methods/etc.). Use the issue body as the source. Do NOT try to fetch the video transcript; it's blocked from CI and the pre-flight will have handled the "no content yet" case already.
                - `instagram.com`: run `curl -sL -A 'Mozilla/5.0 (Macintosh)' "$SOURCE_URL"`. If the HTML is empty or login-walled AND `$INSTAGRAM_SESSIONID` is non-empty, retry with `-b "sessionid=$INSTAGRAM_SESSIONID"`. If you still can't extract a caption/recipe, post a comment on the issue asking Luis to paste the caption/transcript into the issue body, then exit (do not fail).
                - other: use WebFetch.
             4. Read `src/recipes/_template.yaml` and `src/recipes/the_smoothest_hummus.yaml` as references for the YAML schema.
