@@ -38,8 +38,8 @@ jobs:
       - run: npm ci
       - name: Install workflow-only deps (not in package.json to keep the app bundle clean)
         run: npm install --no-save sharp@^0.33.5
-      - name: Install yt-dlp
-        run: pipx install yt-dlp
+      - name: Install youtube-transcript-api (CI-friendly alternative to yt-dlp; yt-dlp gets bot-walled from GH Actions IPs)
+        run: pipx install youtube-transcript-api
       - uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -56,7 +56,7 @@ jobs:
                - `DISH_DESC`: a short 3-8 word description for the image generator (e.g. "black bean chocolate brownies on a plate").
                - `SOURCE_URL`: the first URL in the issue body.
             3. Fetch the source content by host:
-               - `youtube.com` / `youtu.be`: run `yt-dlp --skip-download --write-auto-sub --sub-lang en --sub-format vtt --output '/tmp/source.%(ext)s' "$SOURCE_URL"`, then read `/tmp/source.en.vtt`. Also fetch page metadata with `curl -sL "$SOURCE_URL" | head -c 8000`.
+               - `youtube.com` / `youtu.be`: extract the 11-char video id (`VIDEO_ID=$(echo "$SOURCE_URL" | sed -E 's|.*(youtu\.be/\|v=)([A-Za-z0-9_-]{11}).*|\2|')`), then run `youtube_transcript_api "$VIDEO_ID" --format text > /tmp/transcript.txt`. Also fetch the page HTML for the title/description/channel: `curl -sL "$SOURCE_URL" | head -c 20000 > /tmp/page.html`. Read both files. If the transcript fetch fails, post a comment on the issue asking Luis to paste the recipe content into the issue body and exit (do not fail).
                - `instagram.com`: run `curl -sL -A 'Mozilla/5.0 (Macintosh)' "$SOURCE_URL"`. If the HTML is empty or login-walled AND `$INSTAGRAM_SESSIONID` is non-empty, retry with `-b "sessionid=$INSTAGRAM_SESSIONID"`. If you still can't extract a caption/recipe, post a comment on the issue asking Luis to paste the caption/transcript into the issue body, then exit (do not fail).
                - other: use WebFetch.
             4. Read `src/recipes/_template.yaml` and `src/recipes/the_smoothest_hummus.yaml` as references for the YAML schema.
