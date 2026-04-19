@@ -16,3 +16,7 @@ bun.lockb
 # staging area for gemini-generated image variants — pick via /variants.html
 public/variants/
 public/variants.html
+# intermediate recipe-import candidates before Luis picks a variant — the CI
+# finalize job moves the chosen one to public/images/<slug>.jpg and deletes
+# the rest, but if you're running locally, don't commit candidates by accident
+public/images/candidates/

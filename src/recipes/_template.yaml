@@ -1,0 +1,41 @@
+# Recipe schema template.
+# Copy this file to <slug>.yaml, fill in the fields, and commit. The
+# prebuild step (`node generate-recipes-json.ts`) will roll it into
+# `src/recipes.json`.
+#
+# See `the_smoothest_hummus.yaml` for a real example.
+
+# ---- Required ----
+
+name: Recipe Name                   # Human-readable title shown in the gallery
+source: https://example.com/recipe  # Original source URL; the UI parses the host
+image: <slug>.jpg                   # Filename under public/images/ — set by the
+                                    # import automation after you pick a variant
+servings: 4                         # Integer
+
+# Each ingredient lists the 1-indexed step numbers it appears in. The
+# mapping powers the play-mode ingredient spotlight in src/Recipe.tsx.
+# Use clean names: `chickpeas`, not `of chickpeas`.
+ingredients:
+  - name: onion
+    quantity: 1.0
+    unit: ''            # Allowed: tsp, tbsp, cup, can, clove, handful,
+                        # g, ml, oz, lb. Empty string when unitless.
+    steps: [1]          # 1-indexed; every number must match a step below
+
+  - name: chickpeas
+    quantity: 1.0
+    unit: can
+    steps: [1, 2]
+
+# Steps are rendered in order, numbered from 1.
+methods:
+  - Dice the onion and sauté in a large pot until translucent.
+  - Add the chickpeas; stir to coat.
+
+# ---- Optional ----
+
+# creator: '@someone'   # Attribution handle; omit if unknown
+# deleted: false        # true if the source URL is dead; hides the link in UI
+# notes:
+#   - Stir occasionally or the bottom catches.
