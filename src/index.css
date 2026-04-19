@@ -67,4 +67,29 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .rp-recipe-split { grid-template-columns: 1fr !important; gap: 24px !important; }
   .rp-recipe-header { grid-template-columns: 1fr !important; }
   .rp-recipe-header-photo { max-width: 320px; }
+
+  /* play mode on mobile: focus on the active step + its ingredients,
+     plus a peek at the next step. !important needed because list items
+     are rendered with inline display: grid / display: flex. */
+  .rp-main[data-mobile-focus="true"] .rp-method[data-active="false"][data-next="false"] {
+    display: none !important;
+  }
+  .rp-main[data-mobile-focus="true"] .rp-ingredient[data-linked="false"] {
+    display: none !important;
+  }
+  .rp-main[data-mobile-focus="true"] .rp-method[data-next="true"] {
+    opacity: 0.5;
+    background: transparent !important;
+    border-left-color: transparent !important;
+    font-weight: 400 !important;
+  }
+  .rp-main[data-mobile-focus="true"] .rp-method[data-next="true"]::before {
+    content: "next →";
+    display: block;
+    grid-column: 1 / -1;
+    font-size: 10px;
+    color: var(--fg-3);
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
 }

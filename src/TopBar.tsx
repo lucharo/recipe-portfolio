@@ -6,10 +6,9 @@ interface TopBarProps {
   theme: Theme;
   setTheme: (t: Theme) => void;
   onHome: () => void;
-  onToggleTweaks: () => void;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ theme, setTheme, onHome, onToggleTweaks }) => {
+const TopBar: React.FC<TopBarProps> = ({ theme, setTheme, onHome }) => {
   const isDark = theme === "dark";
   return (
     <header
@@ -53,21 +52,6 @@ const TopBar: React.FC<TopBarProps> = ({ theme, setTheme, onHome, onToggleTweaks
 
         <div style={{ flex: 1 }} />
 
-        <button
-          onClick={onToggleTweaks}
-          title="tweaks"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 32,
-            height: 32,
-            borderRadius: 999,
-            color: "var(--fg-2)",
-          }}
-        >
-          <Icon name="sliders" size={15} />
-        </button>
         <a
           href="https://github.com/lucharo/recipe-portfolio"
           target="_blank"

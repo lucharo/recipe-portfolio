@@ -21,14 +21,10 @@ export interface RecipeDB {
   recipes: Recipe[];
 }
 
-export type CardStyle = "simple" | "polaroid" | "list";
-export type Accent = "persimmon" | "mustard" | "forest" | "plum";
 export type Theme = "light" | "dark";
 
 export interface AppState {
   route: "gallery" | "recipe";
   slug: string | null;
-  cardStyle: CardStyle;
-  accent: Accent;
   theme: Theme;
 }

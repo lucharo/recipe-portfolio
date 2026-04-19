@@ -163,7 +163,11 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
   }, [playMode, playStep]);
 
   return (
-    <main style={{ maxWidth: 1240, margin: "0 auto", padding: "24px 24px 64px", width: "100%" }}>
+    <main
+      className="rp-main"
+      data-mobile-focus={playMode ? "true" : "false"}
+      style={{ maxWidth: 1240, margin: "0 auto", padding: "24px 24px 64px", width: "100%" }}
+    >
       <button
         onClick={onBack}
         style={{
@@ -401,6 +405,8 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
               return (
                 <li
                   key={i}
+                  className="rp-ingredient"
+                  data-linked={linked ? "true" : "false"}
                   style={{
                     display: "flex",
                     gap: 8,
@@ -456,11 +462,15 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
             {recipe.methods.map((step, i) => {
               const n = i + 1;
               const active = activeStep === n;
+              const isNext = playMode && n === playStep + 1;
               const faded = playMode && !active;
               return (
                 <li
                   key={i}
+                  className="rp-method"
                   data-step={n}
+                  data-active={active ? "true" : "false"}
+                  data-next={isNext ? "true" : "false"}
                   onMouseEnter={() => !playMode && setHoveredStep(n)}
                   onMouseLeave={() => !playMode && setHoveredStep(null)}
                   onClick={() => playMode && setPlayStep(n)}

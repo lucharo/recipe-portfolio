@@ -2,7 +2,7 @@ import React from "react";
 
 type IconName =
   | "sun" | "moon" | "play" | "stop" | "x"
-  | "arrow-left" | "arrow-right" | "external" | "github" | "home" | "sliders";
+  | "arrow-left" | "arrow-right" | "external" | "github" | "home";
 
 interface IconProps {
   name: IconName;
@@ -81,12 +81,6 @@ const Icon: React.FC<IconProps> = ({ name, size = 16, stroke = 1.6 }) => {
       return (
         <svg {...common}>
           <path d="M3 10l9-7 9 7v11a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z" />
-        </svg>
-      );
-    case "sliders":
-      return (
-        <svg {...common}>
-          <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
         </svg>
       );
     default:
