@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --paper:      oklch(96.5% 0.014 80);
+  --paper-2:    oklch(93% 0.02 78);
+  --paper-3:    oklch(88% 0.024 75);
+  --ink:        oklch(26% 0.02 60);
+  --ink-2:      oklch(42% 0.02 60);
+  --ink-3:      oklch(62% 0.022 65);
+  --rule:       oklch(78% 0.024 70);
+  --rule-soft:  oklch(86% 0.022 72);
+
+  --accent:     oklch(56% 0.14 35);
+  --accent-2:   oklch(62% 0.14 35);
+
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-2: var(--ink-2);
+  --fg-3: var(--ink-3);
+
+  --mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --hand: "Caveat", "Bradley Hand", cursive;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+[data-theme="dark"] {
+  --paper:   oklch(22% 0.014 60);
+  --paper-2: oklch(26% 0.016 60);
+  --paper-3: oklch(30% 0.018 60);
+  --ink:     oklch(94% 0.014 85);
+  --ink-2:   oklch(78% 0.018 80);
+  --ink-3:   oklch(58% 0.022 70);
+  --rule:    oklch(38% 0.022 65);
+  --rule-soft: oklch(32% 0.02 65);
+  --accent:  oklch(72% 0.14 40);
+  --accent-2: oklch(78% 0.12 40);
+}
+
+[data-accent="persimmon"] { --accent: oklch(56% 0.14 35);  --accent-2: oklch(62% 0.14 35); }
+[data-accent="mustard"]   { --accent: oklch(60% 0.13 85);  --accent-2: oklch(66% 0.13 85); }
+[data-accent="forest"]    { --accent: oklch(48% 0.12 150); --accent-2: oklch(54% 0.12 150); }
+[data-accent="plum"]      { --accent: oklch(48% 0.13 345); --accent-2: oklch(54% 0.13 345); }
+
+[data-theme="dark"][data-accent="persimmon"] { --accent: oklch(72% 0.14 40);  --accent-2: oklch(78% 0.12 40); }
+[data-theme="dark"][data-accent="mustard"]   { --accent: oklch(80% 0.13 85);  --accent-2: oklch(86% 0.12 85); }
+[data-theme="dark"][data-accent="forest"]    { --accent: oklch(72% 0.13 150); --accent-2: oklch(80% 0.12 150); }
+[data-theme="dark"][data-accent="plum"]      { --accent: oklch(72% 0.14 345); --accent-2: oklch(80% 0.12 345); }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
+
+.link-underline { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+.link-underline:hover { text-decoration-color: var(--accent); color: var(--accent); }
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+@media (max-width: 700px) {
+  .rp-grid-3 { grid-template-columns: 1fr !important; }
+  .rp-recipe-split { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .rp-recipe-header { grid-template-columns: 1fr !important; }
+  .rp-recipe-header-photo { max-width: 320px; }
 }

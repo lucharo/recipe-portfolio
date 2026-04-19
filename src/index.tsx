@@ -1,23 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Recipe from './Recipe';
-import Gallery from './Gallery';
-import reportWebVitals from './reportWebVitals';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App";
 
-ReactDOM.render(
+const container = document.getElementById("root");
+if (!container) throw new Error("Missing #root element");
+
+createRoot(container).render(
   <React.StrictMode>
-    {/* <BrowserRouter basename="/recipe-portfolio"> */}
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Gallery />} />
-        <Route path="/recipe/:recipeId" element={<Recipe />} />
-      </Routes>
-    </HashRouter>
-    {/* </BrowserRouter> */}
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App />
+  </React.StrictMode>
 );
-
-reportWebVitals();

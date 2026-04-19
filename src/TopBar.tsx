@@ -1,53 +1,108 @@
-// TopBar.tsx
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun, faHome } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
-import './styles.css';
+import React from "react";
+import Icon from "./Icon";
+import type { Theme } from "./types";
 
 interface TopBarProps {
-    theme: string;
-    toggleTheme: () => void;
+  theme: Theme;
+  setTheme: (t: Theme) => void;
+  onHome: () => void;
+  onToggleTweaks: () => void;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ theme, toggleTheme }) => {
-    const navigate = useNavigate();
+const TopBar: React.FC<TopBarProps> = ({ theme, setTheme, onHome, onToggleTweaks }) => {
+  const isDark = theme === "dark";
+  return (
+    <header
+      style={{
+        borderBottom: "1px solid var(--rule)",
+        background: "var(--bg)",
+        position: "sticky",
+        top: 0,
+        zIndex: 10,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1240,
+          margin: "0 auto",
+          padding: "14px 24px",
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+        }}
+      >
+        <button
+          onClick={onHome}
+          title="home"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 10,
+            fontFamily: "var(--mono)",
+            fontSize: 14,
+            fontWeight: 700,
+            color: "var(--fg)",
+            padding: "6px 10px",
+            border: "1px solid var(--rule)",
+            borderRadius: 3,
+          }}
+        >
+          <Icon name="home" size={14} />
+          <span>recipe portfolio</span>
+        </button>
 
-    return (
-        <AppBar position="relative">
-            <Toolbar>
-                <Button
-                    key="home"
-                    variant="outlined"
-                    color="inherit"
-                    onClick={() => navigate('/')}
-                >
-                    <FontAwesomeIcon icon={faHome} />
-                    <span style={{ marginLeft: '4px' }}>Recipe Portfolio</span>
-                </Button>
-                <IconButton
-                  edge="end"
-                  color="inherit"
-                  onClick={() => window.open('https://github.com/lucharo/recipe-portfolio', '_blank')}
-                  style={{ marginLeft: 'auto' }}
-                >
-                  <FontAwesomeIcon icon={faGithub} />
-                </IconButton>
-                <IconButton edge="end" color="inherit" onClick={toggleTheme} style={{ marginLeft: '16px' }}>
-                    {theme === 'dark' ? (
-                        <FontAwesomeIcon icon={faSun} />
-                    ) : (
-                        <FontAwesomeIcon icon={faMoon} />
-                    )}
-                </IconButton>
-            </Toolbar>
-        </AppBar>
-    );
+        <div style={{ flex: 1 }} />
+
+        <button
+          onClick={onToggleTweaks}
+          title="tweaks"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 32,
+            height: 32,
+            borderRadius: 999,
+            color: "var(--fg-2)",
+          }}
+        >
+          <Icon name="sliders" size={15} />
+        </button>
+        <a
+          href="https://github.com/lucharo/recipe-portfolio"
+          target="_blank"
+          rel="noreferrer"
+          title="source on github"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 32,
+            height: 32,
+            borderRadius: 999,
+            color: "var(--fg-2)",
+          }}
+        >
+          <Icon name="github" size={16} />
+        </a>
+        <button
+          onClick={() => setTheme(isDark ? "light" : "dark")}
+          title={isDark ? "light mode" : "dark mode"}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 32,
+            height: 32,
+            borderRadius: 999,
+            color: "var(--fg-2)",
+          }}
+        >
+          <Icon name={isDark ? "sun" : "moon"} size={15} />
+        </button>
+      </div>
+    </header>
+  );
 };
 
 export default TopBar;
