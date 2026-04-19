@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: redesign/editorial-notebook
+          ref: main
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
@@ -44,7 +44,7 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_args: "--model claude-sonnet-4-6"
+          claude_args: "--model claude-sonnet-4-6 --permission-mode bypassPermissions"
           prompt: |
             You are importing a recipe from GitHub issue #${{ env.ISSUE_NUMBER }} in repo ${{ env.GITHUB_REPOSITORY }}.
 
@@ -67,7 +67,7 @@ jobs:
                - Use clean names (`chickpeas`, not `of chickpeas`).
                - Units must be one of: tsp, tbsp, cup, can, clove, handful, g, ml, oz, lb — or `''` when unitless.
             6. Generate 3 candidate photos: `node scripts/generate-recipe-images.mjs "$SLUG" "$DISH_DESC"`. This writes to `public/images/candidates/$SLUG-{1,2,3}.jpg`.
-            7. Create branch `recipe-import/$SLUG` off `redesign/editorial-notebook`, add the new YAML + the 3 candidate images, commit (`Draft: add $NAME`), and push.
+            7. Create branch `recipe-import/$SLUG` off `main`, add the new YAML + the 3 candidate images, commit (`Draft: add $NAME`), and push.
             8. Post this comment on issue #${{ env.ISSUE_NUMBER }} via `gh issue comment`:
 
                ```
@@ -115,7 +115,7 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_args: "--model claude-sonnet-4-6"
+          claude_args: "--model claude-sonnet-4-6 --permission-mode bypassPermissions"
           prompt: |
             Luis picked a recipe image variant. Finalize the import for issue #${{ env.ISSUE_NUMBER }}.
 
@@ -133,7 +133,7 @@ jobs:
             7. `node generate-recipes-json.ts` to regenerate `src/recipes.json`.
             8. Commit (`Add $NAME`) and push.
             9. Open a PR:
-               `gh pr create --base redesign/editorial-notebook --head recipe-import/$SLUG --title "Add $NAME" --body "Closes #${{ env.ISSUE_NUMBER }}."`
+               `gh pr create --base main --head recipe-import/$SLUG --title "Add $NAME" --body "Closes #${{ env.ISSUE_NUMBER }}."`
             10. Post a comment on issue #${{ env.ISSUE_NUMBER }} linking the new PR.
 
             ## Important
