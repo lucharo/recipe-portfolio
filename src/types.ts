@@ -23,8 +23,11 @@ export interface RecipeDB {
 
 export type Theme = "light" | "dark";
 
+export type ViewMode = "grid" | "list";
+
 export interface AppState {
   route: "gallery" | "recipe";
   slug: string | null;
   theme: Theme;
+  viewMode: ViewMode;
 }

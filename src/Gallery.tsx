@@ -1,13 +1,16 @@
 import React from "react";
-import type { Recipe } from "./types";
+import type { Recipe, ViewMode } from "./types";
 import RecipePlaceholder from "./RecipePlaceholder";
+import Icon from "./Icon";
 
 interface GalleryProps {
   recipes: Recipe[];
   onOpen: (r: Recipe) => void;
+  viewMode: ViewMode;
+  setViewMode: (m: ViewMode) => void;
 }
 
-const Gallery: React.FC<GalleryProps> = ({ recipes, onOpen }) => {
+const Gallery: React.FC<GalleryProps> = ({ recipes, onOpen, viewMode, setViewMode }) => {
   return (
     <main style={{ maxWidth: 1240, margin: "0 auto", padding: "40px 24px 80px", width: "100%" }}>
       <section style={{ marginBottom: 36 }}>
@@ -44,7 +47,7 @@ const Gallery: React.FC<GalleryProps> = ({ recipes, onOpen }) => {
       <div
         style={{
           display: "flex",
-          alignItems: "baseline",
+          alignItems: "center",
           gap: 12,
           marginBottom: 20,
           paddingBottom: 10,
@@ -66,20 +69,30 @@ const Gallery: React.FC<GalleryProps> = ({ recipes, onOpen }) => {
         <span style={{ color: "var(--fg-3)", fontFamily: "var(--mono)", fontSize: 12 }}>
           ({recipes.length})
         </span>
+        <div style={{ flex: 1 }} />
+        <ViewToggle viewMode={viewMode} setViewMode={setViewMode} />
       </div>
 
-      <div
-        className="rp-grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-          gap: 18,
-        }}
-      >
-        {recipes.map((r) => (
-          <RecipeCard key={r.name} recipe={r} onOpen={onOpen} />
-        ))}
-      </div>
+      {viewMode === "grid" ? (
+        <div
+          className="rp-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+            gap: 18,
+          }}
+        >
+          {recipes.map((r) => (
+            <RecipeCard key={r.name} recipe={r} onOpen={onOpen} />
+          ))}
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {recipes.map((r) => (
+            <RecipeRow key={r.name} recipe={r} onOpen={onOpen} />
+          ))}
+        </div>
+      )}
 
       <footer
         style={{
@@ -158,6 +171,109 @@ const RecipeCard: React.FC<CardProps> = ({ recipe, onOpen }) => (
       }}
     >
       {recipe.methods.length} steps · {recipe.ingredients.length} ingredients
+    </div>
+  </article>
+);
+
+interface ViewToggleProps {
+  viewMode: ViewMode;
+  setViewMode: (m: ViewMode) => void;
+}
+
+const ViewToggle: React.FC<ViewToggleProps> = ({ viewMode, setViewMode }) => {
+  const btn = (mode: ViewMode, icon: "grid" | "list", label: string) => {
+    const active = viewMode === mode;
+    return (
+      <button
+        onClick={() => setViewMode(mode)}
+        title={label}
+        aria-label={label}
+        aria-pressed={active}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: 28,
+          height: 28,
+          borderRadius: 3,
+          border: "1px solid",
+          borderColor: active ? "var(--rule)" : "transparent",
+          background: active ? "var(--rule-soft)" : "transparent",
+          color: active ? "var(--fg)" : "var(--fg-3)",
+        }}
+      >
+        <Icon name={icon} size={14} />
+      </button>
+    );
+  };
+  return (
+    <div style={{ display: "inline-flex", gap: 4 }}>
+      {btn("grid", "grid", "grid view")}
+      {btn("list", "list", "list view")}
+    </div>
+  );
+};
+
+const RecipeRow: React.FC<CardProps> = ({ recipe, onOpen }) => (
+  <article
+    onClick={() => onOpen(recipe)}
+    style={{
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      gap: 14,
+      padding: "10px 4px",
+      borderBottom: "1px dashed var(--rule-soft)",
+    }}
+    onMouseEnter={(e) => {
+      const t = e.currentTarget.querySelector<HTMLHeadingElement>(".row-title");
+      if (t) t.style.color = "var(--accent)";
+    }}
+    onMouseLeave={(e) => {
+      const t = e.currentTarget.querySelector<HTMLHeadingElement>(".row-title");
+      if (t) t.style.color = "var(--fg)";
+    }}
+  >
+    <div
+      style={{
+        width: 56,
+        height: 56,
+        flexShrink: 0,
+        overflow: "hidden",
+        borderRadius: 4,
+        border: "1px solid var(--rule-soft)",
+      }}
+    >
+      <RecipePlaceholder recipe={recipe} />
+    </div>
+    <div style={{ display: "flex", flexDirection: "column", minWidth: 0, flex: 1 }}>
+      <h3
+        className="row-title"
+        style={{
+          fontFamily: "var(--mono)",
+          fontSize: 14,
+          fontWeight: 700,
+          margin: 0,
+          lineHeight: 1.25,
+          transition: "color 0.15s ease",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {recipe.name.toLowerCase()}
+      </h3>
+      <div
+        style={{
+          fontFamily: "var(--mono)",
+          fontSize: 11,
+          color: "var(--fg-3)",
+          marginTop: 3,
+        }}
+      >
+        {recipe.methods.length} steps · {recipe.ingredients.length} ingredients
+        {recipe.creator ? ` · ${recipe.creator.toLowerCase()}` : ""}
+      </div>
     </div>
   </article>
 );
