@@ -1,5 +1,5 @@
 import React from "react";
-import type { AppState, Recipe, RecipeDB, Theme } from "./types";
+import type { AppState, Recipe, RecipeDB, Theme, ViewMode } from "./types";
 import TopBar from "./TopBar";
 import Gallery from "./Gallery";
 import RecipeView from "./Recipe";
@@ -12,6 +12,7 @@ const DEFAULT_STATE: AppState = {
   route: "gallery",
   slug: null,
   theme: "light",
+  viewMode: "grid",
 };
 
 const toSlug = (name: string): string =>
@@ -27,6 +28,7 @@ const loadState = (): AppState => {
       route: saved.route ?? DEFAULT_STATE.route,
       slug: saved.slug ?? DEFAULT_STATE.slug,
       theme: saved.theme ?? saved.tweaks?.theme ?? DEFAULT_STATE.theme,
+      viewMode: saved.viewMode ?? DEFAULT_STATE.viewMode,
     };
   } catch {
     return DEFAULT_STATE;
@@ -40,7 +42,12 @@ const App: React.FC = () => {
   React.useEffect(() => {
     localStorage.setItem(
       LS_KEY,
-      JSON.stringify({ route: state.route, slug: state.slug, theme: state.theme })
+      JSON.stringify({
+        route: state.route,
+        slug: state.slug,
+        theme: state.theme,
+        viewMode: state.viewMode,
+      })
     );
   }, [state]);
 
@@ -50,6 +57,7 @@ const App: React.FC = () => {
   }, [state.theme]);
 
   const setTheme = (theme: Theme) => setState((s) => ({ ...s, theme }));
+  const setViewMode = (viewMode: ViewMode) => setState((s) => ({ ...s, viewMode }));
   const openRecipe = (r: Recipe) =>
     setState((s) => ({ ...s, route: "recipe", slug: toSlug(r.name) }));
   const goHome = () => setState((s) => ({ ...s, route: "gallery", slug: null }));
@@ -62,7 +70,14 @@ const App: React.FC = () => {
     <>
       <TopBar theme={state.theme} setTheme={setTheme} onHome={goHome} />
 
-      {state.route === "gallery" && <Gallery recipes={recipes} onOpen={openRecipe} />}
+      {state.route === "gallery" && (
+        <Gallery
+          recipes={recipes}
+          onOpen={openRecipe}
+          viewMode={state.viewMode}
+          setViewMode={setViewMode}
+        />
+      )}
 
       {state.route === "recipe" && currentRecipe && (
         <RecipeView recipe={currentRecipe} onBack={goHome} />
