@@ -207,6 +207,83 @@
       ]
     },
     {
+      "name": "Banana Bread",
+      "source": "https://github.com/lucharo/recipe-portfolio/issues/49",
+      "image": "banana-bread.jpg",
+      "servings": 8,
+      "ingredients": [
+        {
+          "name": "oat flour",
+          "quantity": 3,
+          "unit": "cup",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "bananas",
+          "quantity": 720,
+          "unit": "g",
+          "steps": [
+            1
+          ]
+        },
+        {
+          "name": "soy milk",
+          "quantity": 0.5,
+          "unit": "cup",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "name": "salt",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "baking powder",
+          "quantity": 1.5,
+          "unit": "tsp",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "bicarbonate",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "vanilla extract",
+          "quantity": 1,
+          "unit": "tsp",
+          "steps": [
+            2
+          ]
+        }
+      ],
+      "methods": [
+        "Mash the bananas in a bowl until mostly smooth.",
+        "Mix the mashed bananas with soy milk and vanilla extract.",
+        "In a separate bowl, combine oat flour, salt, baking powder, and bicarbonate.",
+        "Fold the wet ingredients into the dry ingredients until just combined.",
+        "Pour the batter into a greased loaf pan.",
+        "Bake at 350°F for 50-60 minutes until a toothpick inserted in the center comes out clean.",
+        "Cool in the pan for 10 minutes, then turn out onto a wire rack to cool completely."
+      ],
+      "notes": [
+        "From Alex, modified from original source",
+        "Start with 1/4 cup soy milk and add more as needed for desired texture"
+      ]
+    },
+    {
       "name": "Sweet Potato & Black Bean Chocolate Brownie",
       "source": "https://www.gazoakleychef.com/recipes/black-bean-chocolate-brownie/",
       "image": "black-bean-chocolate-brownie.jpg",
