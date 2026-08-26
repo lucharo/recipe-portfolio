@@ -59,6 +59,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - `recipes.json` - Contains the data for all the recipes in the portfolio.
   - `recipes_simple/` - this folder contains the recipes in a simple YAML format friendly to human readers.
   - `recipes/` - this folder is first populated by the `recipe-formatter.py` script which _attempts_ at distilling more computer-friendly metadata about each ingredient such as: ingredient `name`, `unit`, `quantity` and most importantly recipe `steps`. The recipe `steps` link which steps an ingredient is used in (for the purpose of the cooking mode). After the YAML files in this folder are generated, the owner (me) of the project runs the `visual-editor.py` which assists in manually double checking and assigning the right ingredioents to each step.
+  - [`docs/faq/README.md`](docs/faq/README.md) - current Cooking Mode behaviour and proposed recipe-model features, with source links.
 
 ### Available Scripts
 
