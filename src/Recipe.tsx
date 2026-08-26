@@ -10,6 +10,9 @@ interface RecipeProps {
 
 type WakeLockSentinel = { release: () => Promise<void> };
 
+const HOLD_TO_JUMP_MS = 600;
+const POINTER_MOVE_TOLERANCE = 12;
+
 const fmtQty = (q: number): string => {
   if (q === 0) return "";
   if (Number.isInteger(q)) return String(q);
@@ -77,7 +80,16 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
   const [hoveredStep, setHoveredStep] = React.useState<number | null>(null);
   const [playMode, setPlayMode] = React.useState(false);
   const [playStep, setPlayStep] = React.useState(1);
+  const [holdingStep, setHoldingStep] = React.useState<number | null>(null);
   const wakeLock = React.useRef<WakeLockSentinel | null>(null);
+  const playSurfaceGesture = React.useRef<{
+    pointerId: number;
+    startX: number;
+    startY: number;
+    moved: boolean;
+    holdFired: boolean;
+    holdTimer: number | null;
+  } | null>(null);
 
   const total = recipe.methods.length;
   const activeStep = playMode ? playStep : hoveredStep;
@@ -102,6 +114,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
   React.useEffect(() => {
     if (!playMode) return;
     const onKey = (e: KeyboardEvent) => {
+      if (isInteractiveTarget(e.target)) return;
       if (e.code === "Space" || e.code === "ArrowRight") {
         e.preventDefault();
         next();
@@ -116,16 +129,80 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
     return () => window.removeEventListener("keydown", onKey);
   }, [playMode, next, prev]);
 
-  React.useEffect(() => {
-    if (!playMode) return;
-    const onTap = (e: MouseEvent) => {
-      const target = e.target as HTMLElement | null;
-      if (target && target.closest("button, a, input")) return;
-      next();
+  const isInteractiveTarget = (target: EventTarget | null) =>
+    target instanceof Element &&
+    !!target.closest("button, a, input, select, textarea, [role='button']");
+
+  const onPlaySurfacePointerDown = (e: React.PointerEvent<HTMLElement>) => {
+    if (!playMode || !e.isPrimary) return;
+    const target = e.target instanceof Element ? e.target : null;
+    const stepElement = target?.closest<HTMLElement>("[data-step]") ?? null;
+    if (!stepElement && isInteractiveTarget(target)) return;
+
+    const gesture = {
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      moved: false,
+      holdFired: false,
+      holdTimer: null as number | null,
     };
-    window.addEventListener("click", onTap);
-    return () => window.removeEventListener("click", onTap);
-  }, [playMode, next]);
+    const step = stepElement ? Number(stepElement.dataset.step) : null;
+    if (step) {
+      setHoldingStep(step);
+      gesture.holdTimer = window.setTimeout(() => {
+        const current = playSurfaceGesture.current;
+        if (!current || current.pointerId !== e.pointerId || current.moved) return;
+        current.holdFired = true;
+        current.holdTimer = null;
+        setHoldingStep(null);
+        setPlayStep(step);
+        navigator.vibrate?.(10);
+      }, HOLD_TO_JUMP_MS);
+    }
+    playSurfaceGesture.current = gesture;
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+
+  const onPlaySurfacePointerMove = (e: React.PointerEvent<HTMLElement>) => {
+    const gesture = playSurfaceGesture.current;
+    if (!gesture || gesture.pointerId !== e.pointerId) return;
+    if (
+      Math.hypot(e.clientX - gesture.startX, e.clientY - gesture.startY) >
+      POINTER_MOVE_TOLERANCE
+    ) {
+      gesture.moved = true;
+      if (gesture.holdTimer !== null) window.clearTimeout(gesture.holdTimer);
+      gesture.holdTimer = null;
+      setHoldingStep(null);
+    }
+  };
+
+  const onPlaySurfacePointerUp = (e: React.PointerEvent<HTMLElement>) => {
+    const gesture = playSurfaceGesture.current;
+    playSurfaceGesture.current = null;
+    if (!gesture || gesture.pointerId !== e.pointerId) return;
+    if (gesture.holdTimer !== null) window.clearTimeout(gesture.holdTimer);
+    setHoldingStep(null);
+    if (gesture.moved || gesture.holdFired) return;
+    if (e.clientX < window.innerWidth / 2) prev();
+    else next();
+  };
+
+  const onPlaySurfacePointerCancel = () => {
+    const gesture = playSurfaceGesture.current;
+    if (gesture?.holdTimer != null) window.clearTimeout(gesture.holdTimer);
+    playSurfaceGesture.current = null;
+    setHoldingStep(null);
+  };
+
+  React.useEffect(
+    () => () => {
+      const gesture = playSurfaceGesture.current;
+      if (gesture?.holdTimer != null) window.clearTimeout(gesture.holdTimer);
+    },
+    []
+  );
 
   React.useEffect(() => {
     if (!playMode) return;
@@ -159,7 +236,8 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
   React.useEffect(() => {
     if (!playMode) return;
     const el = document.querySelector<HTMLElement>(`[data-step="${playStep}"]`);
-    if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+    if (el) el.scrollIntoView({ block: "center", behavior: reduceMotion ? "auto" : "smooth" });
   }, [playMode, playStep]);
 
   return (
@@ -318,6 +396,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
             fontFamily: "var(--mono)",
             fontSize: 13,
             fontWeight: 700,
+            minHeight: 44,
           }}
         >
           <Icon name={playMode ? "stop" : "play"} size={13} />
@@ -343,6 +422,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
               step {playStep} / {total}
             </div>
             <div
+              className="rp-play-hint"
               style={{
                 marginLeft: "auto",
                 fontFamily: "var(--mono)",
@@ -350,7 +430,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
                 color: "var(--fg-3)",
               }}
             >
-              press space · tap · ← →
+              tap left/right · hold a step to jump · keyboard ← →
             </div>
           </>
         )}
@@ -358,6 +438,11 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
 
       {playMode && (
         <div
+          role="progressbar"
+          aria-label="Recipe progress"
+          aria-valuemin={1}
+          aria-valuemax={total}
+          aria-valuenow={playStep}
           style={{
             height: 2,
             background: "var(--rule-soft)",
@@ -366,6 +451,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
           }}
         >
           <div
+            className="rp-progress-fill"
             style={{
               position: "absolute",
               inset: 0,
@@ -377,8 +463,22 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
         </div>
       )}
 
+      <div className="rp-sr-only" aria-live="polite" aria-atomic="true">
+        {playMode ? `Step ${playStep} of ${total}` : ""}
+      </div>
+
       <section
         className="rp-recipe-split"
+        data-play-mode={playMode ? "true" : "false"}
+        onPointerDown={onPlaySurfacePointerDown}
+        onPointerMove={onPlaySurfacePointerMove}
+        onPointerUp={onPlaySurfacePointerUp}
+        onPointerCancel={onPlaySurfacePointerCancel}
+        onContextMenu={(e) => {
+          if (playMode && e.target instanceof Element && e.target.closest("[data-step]")) {
+            e.preventDefault();
+          }
+        }}
         style={{
           display: "grid",
           gridTemplateColumns: "minmax(0, 0.8fr) minmax(0, 1.2fr)",
@@ -471,9 +571,24 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
                   data-step={n}
                   data-active={active ? "true" : "false"}
                   data-next={isNext ? "true" : "false"}
+                  data-holding={holdingStep === n ? "true" : "false"}
+                  role={playMode ? "button" : undefined}
+                  tabIndex={playMode ? 0 : undefined}
+                  aria-current={active && playMode ? "step" : undefined}
+                  aria-label={playMode ? `Step ${n} of ${total}. Press Enter to jump here.` : undefined}
                   onMouseEnter={() => !playMode && setHoveredStep(n)}
                   onMouseLeave={() => !playMode && setHoveredStep(null)}
-                  onClick={() => playMode && setPlayStep(n)}
+                  onKeyDown={(e) => {
+                    if (!playMode || (e.key !== "Enter" && e.key !== " ")) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setPlayStep(n);
+                  }}
+                  onClick={(e) => {
+                    if (!playMode) return;
+                    e.stopPropagation();
+                    if (e.detail === 0) setPlayStep(n);
+                  }}
                   style={{
                     display: "grid",
                     gridTemplateColumns: "30px 1fr",
@@ -488,17 +603,21 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
                     opacity: faded ? 0.35 : 1,
                     fontWeight: active && playMode ? 700 : 400,
                     cursor: playMode ? "pointer" : "default",
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
                   <span
                     style={{
                       color: active ? "var(--accent)" : "var(--fg-3)",
                       fontWeight: 700,
+                      position: "relative",
+                      zIndex: 1,
                     }}
                   >
                     {n}.
                   </span>
-                  <span>{step}</span>
+                  <span style={{ position: "relative", zIndex: 1 }}>{step}</span>
                 </li>
               );
             })}
@@ -541,8 +660,8 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
 };
 
 const stepperBtn: React.CSSProperties = {
-  width: 26,
-  height: 26,
+  width: 44,
+  height: 44,
   border: "1px solid var(--rule)",
   fontFamily: "var(--mono)",
   fontSize: 14,
@@ -564,6 +683,7 @@ const playNavBtn = (disabled: boolean): React.CSSProperties => ({
   fontFamily: "var(--mono)",
   fontSize: 12,
   borderRadius: 3,
+  minHeight: 44,
   opacity: disabled ? 0.4 : 1,
 });
 

@@ -62,6 +62,59 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 #root { min-height: 100vh; display: flex; flex-direction: column; }
 
+.rp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rp-recipe-split[data-play-mode="true"] {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+.rp-method[role="button"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.rp-method[data-holding="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--paper-3);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: rp-hold-to-jump 600ms linear forwards;
+  pointer-events: none;
+}
+
+@keyframes rp-hold-to-jump {
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .rp-method,
+  .rp-progress-fill {
+    transition: none !important;
+  }
+
+  .rp-method[data-holding="true"]::after {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
+
 @media (max-width: 700px) {
   .rp-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; }
   .rp-recipe-split { grid-template-columns: 1fr !important; gap: 24px !important; }

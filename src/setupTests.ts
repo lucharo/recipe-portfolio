@@ -3,3 +3,6 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+// React 18 uses this flag to recognise that Jest's DOM environment supports act().
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
