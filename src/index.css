@@ -74,7 +74,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   border: 0;
 }
 
-.rp-recipe-split[data-play-mode="true"] {
+.rp-recipe-split[data-cooking-mode="true"] {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -249,7 +249,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   .rp-recipe-header { grid-template-columns: 1fr !important; }
   .rp-recipe-header-photo { max-width: 320px; }
 
-  /* play mode on mobile: focus on the active step + its ingredients,
+  /* Cooking Mode on mobile: focus on the active step + its ingredients,
      plus a peek at the next step. !important needed because list items
      are rendered with inline display: grid / display: flex. */
   .rp-main[data-mobile-focus="true"] .rp-method[data-active="false"][data-next="false"] {

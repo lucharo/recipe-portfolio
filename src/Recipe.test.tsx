@@ -18,7 +18,7 @@ const recipe: RecipeT = {
 const PLAY_GUIDE_STORAGE_KEY = "recipe-portfolio:play-guide-until:v1";
 const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
-describe("Recipe Play Mode", () => {
+describe("Recipe Cooking Mode", () => {
   let container: HTMLDivElement;
   let root: Root;
 
@@ -35,9 +35,9 @@ describe("Recipe Play Mode", () => {
 
     act(() => root.render(<Recipe recipe={recipe} onBack={jest.fn()} />));
     const playButton = Array.from(container.querySelectorAll("button")).find(
-      (button) => button.textContent?.trim() === "play mode"
+      (button) => button.textContent?.trim() === "cooking mode"
     );
-    if (!playButton) throw new Error("play mode button missing");
+    if (!playButton) throw new Error("cooking mode button missing");
     act(() => playButton.dispatchEvent(new MouseEvent("click", { bubbles: true })));
   });
 
@@ -50,9 +50,9 @@ describe("Recipe Play Mode", () => {
   const playToggle = () => {
     const button = Array.from(container.querySelectorAll("button")).find((candidate) => {
       const label = candidate.textContent?.trim();
-      return label === "play mode" || label === "stop";
+      return label === "cooking mode" || label === "stop";
     });
-    if (!button) throw new Error("play mode toggle missing");
+    if (!button) throw new Error("cooking mode toggle missing");
     return button;
   };
 

@@ -13,7 +13,7 @@
 ### The manual way
 
 1. Copy `src/recipes/_template.yaml` to `src/recipes/<slug>.yaml`.
-2. Fill in the fields. Pay special attention to the `steps:` array on each ingredient — it's 1-indexed and drives the play-mode spotlight in [src/Recipe.tsx](src/Recipe.tsx).
+2. Fill in the fields. Pay special attention to the `steps:` array on each ingredient — it's 1-indexed and drives the Cooking Mode spotlight in [src/Recipe.tsx](src/Recipe.tsx).
 3. Drop a 4:3 JPEG at `public/images/<slug>.jpg`.
 4. `npm install && npm start` to verify the recipe renders.
 5. Open a PR.

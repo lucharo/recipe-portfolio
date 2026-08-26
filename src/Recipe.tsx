@@ -437,7 +437,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
           }}
         >
           <Icon name={playMode ? "stop" : "play"} size={13} />
-          {playMode ? "stop" : "play mode"}
+          {playMode ? "stop" : "cooking mode"}
         </button>
 
         {playMode && (
@@ -506,7 +506,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
 
       <section
         className="rp-recipe-split"
-        data-play-mode={playMode ? "true" : "false"}
+        data-cooking-mode={playMode ? "true" : "false"}
         onPointerDown={onPlaySurfacePointerDown}
         onPointerMove={onPlaySurfacePointerMove}
         onPointerUp={onPlaySurfacePointerUp}
@@ -714,7 +714,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
         >
           <div className="rp-play-guide-heading">
             <span>first time here?</span>
-            <h2 id="rp-play-guide-title">play mode controls</h2>
+            <h2 id="rp-play-guide-title">cooking mode controls</h2>
           </div>
 
           <div className="rp-play-guide-zone rp-play-guide-zone-left">

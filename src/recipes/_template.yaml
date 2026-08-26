@@ -14,7 +14,7 @@ image: <slug>.jpg                   # Filename under public/images/ — set by t
 servings: 4                         # Integer
 
 # Each ingredient lists the 1-indexed step numbers it appears in. The
-# mapping powers the play-mode ingredient spotlight in src/Recipe.tsx.
+# mapping powers the Cooking Mode ingredient spotlight in src/Recipe.tsx.
 # Use clean names: `chickpeas`, not `of chickpeas`.
 ingredients:
   - name: onion
