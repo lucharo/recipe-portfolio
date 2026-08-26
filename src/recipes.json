@@ -866,6 +866,126 @@
       ]
     },
     {
+      "name": "Creamy Vegetable Risotto",
+      "source": "https://minimalistbaker.com/creamy-vegetable-risotto-30-minutes/",
+      "image": "creamy-vegetable-risotto.jpg",
+      "servings": 4,
+      "ingredients": [
+        {
+          "name": "warm vegetable stock, made with Marigold bouillon powder and water",
+          "quantity": 3.5,
+          "unit": "cups",
+          "steps": [
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "water or oil, divided",
+          "quantity": 2,
+          "unit": "tbsp",
+          "steps": [
+            2,
+            3
+          ]
+        },
+        {
+          "name": "asparagus or broccolini, trimmed and chopped",
+          "quantity": 1,
+          "unit": "small bunch",
+          "steps": [
+            2,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "red pepper, thinly sliced",
+          "quantity": 1,
+          "unit": "",
+          "steps": [
+            2,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "sea salt",
+          "quantity": 0.25,
+          "unit": "tsp",
+          "steps": [
+            2,
+            6
+          ]
+        },
+        {
+          "name": "black pepper",
+          "quantity": 0.25,
+          "unit": "tsp",
+          "steps": [
+            2,
+            6
+          ]
+        },
+        {
+          "name": "shallot, thinly sliced",
+          "quantity": 0.75,
+          "unit": "cup",
+          "steps": [
+            3
+          ]
+        },
+        {
+          "name": "arborio rice",
+          "quantity": 1,
+          "unit": "cup",
+          "steps": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "dry white wine, or extra vegetable stock",
+          "quantity": 0.25,
+          "unit": "cup",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "name": "vegan parmesan, plus extra to serve",
+          "quantity": 0.25,
+          "unit": "cup",
+          "steps": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "parsley, chopped (optional)",
+          "quantity": 1,
+          "unit": "handful",
+          "steps": [
+            7
+          ]
+        }
+      ],
+      "methods": [
+        "Mix the bouillon powder into warm or boiling water, then keep the stock warm over a low heat.",
+        "Heat half the water or oil in a large pan. Add the asparagus or broccolini and red pepper, season, then cook for 3-4 minutes until just tender. Cover briefly to help them steam, then set aside.",
+        "Add the remaining water or oil to a wide pan. Cook the shallot over a medium heat for 1-2 minutes, until softened.",
+        "Add the rice and stir for 1 minute. Pour in the wine or extra stock and cook until absorbed.",
+        "Add the warm stock one ladleful at a time. Stir often and keep the rice at a gentle simmer, adding more only as each ladleful is absorbed. Cook for 15-20 minutes, until creamy but still al dente. You may not need all the stock.",
+        "Take the pan off the heat. Stir in the vegan parmesan and most of the vegetables, then taste and adjust the seasoning.",
+        "Serve straight away, topped with the remaining vegetables, extra vegan parmesan and parsley."
+      ],
+      "notes": [
+        "Best eaten fresh. Keep leftovers covered in the fridge for 2-3 days."
+      ],
+      "creator": "Minimalist Baker"
+    },
+    {
       "name": "Lemon Cashew Pasta",
       "source": "https://instagram.com/p/CVGA96hql9X",
       "image": "lemon-cashew-pasta.jpg",
