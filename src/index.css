@@ -98,6 +98,132 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   pointer-events: none;
 }
 
+.rp-play-guide {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: oklch(97% 0.008 80);
+  background: rgb(25 24 22 / 82%);
+  backdrop-filter: grayscale(1) blur(3px);
+  -webkit-backdrop-filter: grayscale(1) blur(3px);
+  touch-action: none;
+  overflow: hidden;
+  animation: rp-play-guide-arrive 180ms ease-out both;
+}
+
+.rp-play-guide-heading {
+  position: absolute;
+  z-index: 1;
+  top: clamp(28px, 7vh, 72px);
+  left: 50%;
+  width: min(90vw, 520px);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.rp-play-guide-heading span,
+.rp-play-guide-footer span {
+  display: block;
+  color: rgb(255 255 255 / 62%);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.rp-play-guide-heading h2 {
+  margin: 5px 0 0;
+  font-family: var(--mono);
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 700;
+}
+
+.rp-play-guide-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 112px 18px 160px;
+  text-align: center;
+}
+
+.rp-play-guide-zone-left {
+  border-right: 1px dashed rgb(255 255 255 / 26%);
+}
+
+.rp-play-guide-zone strong,
+.rp-play-guide-hold strong {
+  font-size: clamp(15px, 2vw, 20px);
+}
+
+.rp-play-guide-zone span,
+.rp-play-guide-hold > span:last-child {
+  color: rgb(255 255 255 / 66%);
+  font-size: 11px;
+}
+
+.rp-play-guide-hold {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(132px, 19vh, 188px);
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  width: min(86vw, 260px);
+  padding: 13px 20px;
+  text-align: center;
+  background: rgb(255 255 255 / 9%);
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 4px;
+  transform: translateX(-50%);
+}
+
+.rp-play-guide-hold-mark {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 3px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgb(255 255 255 / 10%);
+}
+
+.rp-play-guide-footer {
+  position: absolute;
+  z-index: 1;
+  bottom: max(28px, env(safe-area-inset-bottom));
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  width: min(90vw, 420px);
+  transform: translateX(-50%);
+}
+
+.rp-play-guide-footer button {
+  min-width: 190px;
+  min-height: 48px;
+  padding: 11px 22px;
+  color: oklch(26% 0.02 60);
+  background: oklch(96.5% 0.014 80);
+  border: 1px solid oklch(96.5% 0.014 80);
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rp-play-guide-footer button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+@keyframes rp-play-guide-arrive {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @keyframes rp-hold-to-jump {
   to { transform: scaleX(1); }
 }
@@ -105,8 +231,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 @media (prefers-reduced-motion: reduce) {
   body,
   .rp-method,
-  .rp-progress-fill {
+  .rp-progress-fill,
+  .rp-play-guide {
     transition: none !important;
+    animation: none !important;
   }
 
   .rp-method[data-holding="true"]::after {

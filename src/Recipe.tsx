@@ -12,6 +12,19 @@ type WakeLockSentinel = { release: () => Promise<void> };
 
 const HOLD_TO_JUMP_MS = 600;
 const POINTER_MOVE_TOLERANCE = 12;
+const PLAY_GUIDE_STORAGE_KEY = "recipe-portfolio:play-guide-until:v1";
+const PLAY_GUIDE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+const shouldShowPlayGuide = () => {
+  try {
+    const storedUntil = window.localStorage.getItem(PLAY_GUIDE_STORAGE_KEY);
+    if (storedUntil === null) return true;
+    const until = Number(storedUntil);
+    return !Number.isFinite(until) || until <= Date.now();
+  } catch {
+    return true;
+  }
+};
 
 const fmtQty = (q: number): string => {
   if (q === 0) return "";
@@ -81,7 +94,9 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
   const [playMode, setPlayMode] = React.useState(false);
   const [playStep, setPlayStep] = React.useState(1);
   const [holdingStep, setHoldingStep] = React.useState<number | null>(null);
+  const [showPlayGuide, setShowPlayGuide] = React.useState(false);
   const wakeLock = React.useRef<WakeLockSentinel | null>(null);
+  const playGuideButton = React.useRef<HTMLButtonElement | null>(null);
   const playSurfaceGesture = React.useRef<{
     pointerId: number;
     startX: number;
@@ -111,9 +126,26 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
     []
   );
 
+  const dismissPlayGuide = React.useCallback(() => {
+    try {
+      window.localStorage.setItem(
+        PLAY_GUIDE_STORAGE_KEY,
+        String(Date.now() + PLAY_GUIDE_TTL_MS)
+      );
+    } catch {
+      /* The guide still closes when storage is unavailable. */
+    }
+    setShowPlayGuide(false);
+  }, []);
+
+  React.useEffect(() => {
+    if (showPlayGuide) playGuideButton.current?.focus();
+  }, [showPlayGuide]);
+
   React.useEffect(() => {
     if (!playMode) return;
     const onKey = (e: KeyboardEvent) => {
+      if (showPlayGuide) return;
       if (isInteractiveTarget(e.target)) return;
       if (e.code === "Space" || e.code === "ArrowRight") {
         e.preventDefault();
@@ -127,14 +159,14 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [playMode, next, prev]);
+  }, [playMode, showPlayGuide, next, prev]);
 
   const isInteractiveTarget = (target: EventTarget | null) =>
     target instanceof Element &&
     !!target.closest("button, a, input, select, textarea, [role='button']");
 
   const onPlaySurfacePointerDown = (e: React.PointerEvent<HTMLElement>) => {
-    if (!playMode || !e.isPrimary) return;
+    if (!playMode || showPlayGuide || !e.isPrimary) return;
     const target = e.target instanceof Element ? e.target : null;
     const stepElement = target?.closest<HTMLElement>("[data-step]") ?? null;
     if (!stepElement && isInteractiveTarget(target)) return;
@@ -228,7 +260,12 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
 
   const togglePlay = () => {
     setPlayMode((p) => {
-      if (!p) setPlayStep(1);
+      if (!p) {
+        setPlayStep(1);
+        setShowPlayGuide(shouldShowPlayGuide());
+      } else {
+        setShowPlayGuide(false);
+      }
       return !p;
     });
   };
@@ -655,6 +692,56 @@ const Recipe: React.FC<RecipeProps> = ({ recipe, onBack }) => {
           )}
         </div>
       </section>
+
+      {showPlayGuide && (
+        <div
+          className="rp-play-guide"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="rp-play-guide-title"
+          onPointerDown={(e) => e.stopPropagation()}
+          onPointerUp={(e) => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") {
+              e.preventDefault();
+              dismissPlayGuide();
+            } else if (e.key === "Tab") {
+              e.preventDefault();
+              playGuideButton.current?.focus();
+            }
+          }}
+        >
+          <div className="rp-play-guide-heading">
+            <span>first time here?</span>
+            <h2 id="rp-play-guide-title">play mode controls</h2>
+          </div>
+
+          <div className="rp-play-guide-zone rp-play-guide-zone-left">
+            <Icon name="arrow-left" size={34} stroke={1.3} />
+            <strong>tap left</strong>
+            <span>previous step</span>
+          </div>
+          <div className="rp-play-guide-zone rp-play-guide-zone-right">
+            <Icon name="arrow-right" size={34} stroke={1.3} />
+            <strong>tap right</strong>
+            <span>next step</span>
+          </div>
+
+          <div className="rp-play-guide-hold">
+            <span className="rp-play-guide-hold-mark" aria-hidden="true" />
+            <strong>hold a step</strong>
+            <span>jump straight there</span>
+          </div>
+
+          <div className="rp-play-guide-footer">
+            <button ref={playGuideButton} onClick={dismissPlayGuide}>
+              start cooking
+            </button>
+            <span>we'll show this reminder again in a week</span>
+          </div>
+        </div>
+      )}
     </main>
   );
 };

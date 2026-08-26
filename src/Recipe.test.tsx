@@ -15,11 +15,18 @@ const recipe: RecipeT = {
   methods: ["Warm the stock.", "Add the rice.", "Finish the risotto."],
 };
 
+const PLAY_GUIDE_STORAGE_KEY = "recipe-portfolio:play-guide-until:v1";
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
 describe("Recipe Play Mode", () => {
   let container: HTMLDivElement;
   let root: Root;
 
   beforeEach(() => {
+    window.localStorage.setItem(
+      PLAY_GUIDE_STORAGE_KEY,
+      String(Date.now() + ONE_WEEK_MS)
+    );
     container = document.createElement("div");
     document.body.appendChild(container);
     root = createRoot(container);
@@ -37,7 +44,24 @@ describe("Recipe Play Mode", () => {
   afterEach(() => {
     act(() => root.unmount());
     container.remove();
+    window.localStorage.clear();
   });
+
+  const playToggle = () => {
+    const button = Array.from(container.querySelectorAll("button")).find((candidate) => {
+      const label = candidate.textContent?.trim();
+      return label === "play mode" || label === "stop";
+    });
+    if (!button) throw new Error("play mode toggle missing");
+    return button;
+  };
+
+  const reenterPlayModeWithGuideExpiry = (expiry: number | string | null) => {
+    act(() => playToggle().dispatchEvent(new MouseEvent("click", { bubbles: true })));
+    if (expiry === null) window.localStorage.removeItem(PLAY_GUIDE_STORAGE_KEY);
+    else window.localStorage.setItem(PLAY_GUIDE_STORAGE_KEY, String(expiry));
+    act(() => playToggle().dispatchEvent(new MouseEvent("click", { bubbles: true })));
+  };
 
   const activeStep = () =>
     container.querySelector<HTMLElement>('.rp-method[data-active="true"]')?.dataset.step;
@@ -60,6 +84,51 @@ describe("Recipe Play Mode", () => {
       );
     });
   };
+
+  test("shows the navigation guide when the weekly dismissal is missing", () => {
+    reenterPlayModeWithGuideExpiry(null);
+
+    const guide = container.querySelector('[role="dialog"][aria-modal="true"]');
+    const playSurface = container.querySelector(".rp-recipe-split");
+    if (!playSurface) throw new Error("play surface missing");
+    expect(guide).toHaveTextContent("tap left");
+    expect(guide).toHaveTextContent("tap right");
+    expect(guide).toHaveTextContent("hold a step");
+    tapAt(playSurface, 800);
+    expect(activeStep()).toBe("1");
+  });
+
+  test("dismissing the guide remembers it for a week without advancing", () => {
+    reenterPlayModeWithGuideExpiry(null);
+    const guide = container.querySelector<HTMLElement>('[role="dialog"]');
+    const dismissButton = guide?.querySelector("button");
+    if (!guide || !dismissButton) throw new Error("navigation guide missing");
+    const beforeDismissal = Date.now();
+
+    act(() => dismissButton.dispatchEvent(new MouseEvent("click", { bubbles: true })));
+
+    expect(container.querySelector('[role="dialog"]')).not.toBeInTheDocument();
+    expect(activeStep()).toBe("1");
+    expect(Number(window.localStorage.getItem(PLAY_GUIDE_STORAGE_KEY))).toBeGreaterThanOrEqual(
+      beforeDismissal + ONE_WEEK_MS
+    );
+  });
+
+  test("shows the navigation guide again after its weekly dismissal expires", () => {
+    reenterPlayModeWithGuideExpiry(Date.now() - 1);
+
+    expect(container.querySelector('[role="dialog"]')).toBeInTheDocument();
+  });
+
+  test("shows the navigation guide when its stored dismissal is malformed", () => {
+    reenterPlayModeWithGuideExpiry("not-a-date");
+
+    expect(container.querySelector('[role="dialog"]')).toBeInTheDocument();
+  });
+
+  test("keeps the navigation guide hidden while its dismissal is current", () => {
+    expect(container.querySelector('[role="dialog"]')).not.toBeInTheDocument();
+  });
 
   test("right-side taps advance and left-side taps go back", () => {
     const playSurface = container.querySelector(".rp-recipe-split");
