@@ -4,16 +4,16 @@ image: banana-bread.jpg
 servings: 8
 ingredients:
   - name: oat flour
-    quantity: 3.0
-    unit: cup
+    quantity: 270
+    unit: g
     steps: [3]
   - name: bananas
     quantity: 720.0
     unit: g
     steps: [1]
   - name: soy milk
-    quantity: 0.5
-    unit: cup
+    quantity: 120
+    unit: ml
     steps: [2]
   - name: salt
     quantity: 1.0
@@ -37,8 +37,8 @@ methods:
   - In a separate bowl, combine oat flour, salt, baking powder, and bicarbonate.
   - Fold the wet ingredients into the dry ingredients until just combined.
   - Pour the batter into a greased loaf pan.
-  - Bake at 350°F for 50-60 minutes until a toothpick inserted in the center comes out clean.
+  - Bake at 180°C for 50-60 minutes until a toothpick inserted in the center comes out clean.
   - Cool in the pan for 10 minutes, then turn out onto a wire rack to cool completely.
 notes:
   - From Alex, modified from original source
-  - Start with 1/4 cup soy milk and add more as needed for desired texture
+  - Start with 60 ml soy milk and add more as needed for desired texture

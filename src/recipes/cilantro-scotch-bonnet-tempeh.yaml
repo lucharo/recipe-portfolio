@@ -36,8 +36,8 @@ ingredients:
     unit: tbsp
     steps: [2]
   - name: extra virgin olive oil
-    quantity: 0.25
-    unit: cup
+    quantity: 60
+    unit: ml
     steps: [2]
   - name: sea salt
     quantity: 0.5
@@ -55,9 +55,9 @@ ingredients:
     quantity: 1
     unit: ''
     steps: [3]
-  - name: cannellini beans
-    quantity: 4
-    unit: cup
+  - name: cannellini beans, drained
+    quantity: 3
+    unit: can
     steps: [4]
   - name: onion
     quantity: 1
@@ -68,12 +68,12 @@ ingredients:
     unit: tbsp
     steps: [4]
   - name: dried porcini mushrooms
-    quantity: 1
-    unit: cup
+    quantity: 30
+    unit: g
     steps: [4]
   - name: white wine
-    quantity: 1
-    unit: cup
+    quantity: 250
+    unit: ml
     steps: [4]
   - name: pistachio nuts
     quantity: 1

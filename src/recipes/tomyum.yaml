@@ -58,8 +58,8 @@ ingredients:
   steps:
   - 4
 - name: water
-  quantity: 6.0
-  unit: cups
+  quantity: 1400
+  unit: ml
   steps:
   - 6
 - name: mushrooms of choice
@@ -85,8 +85,8 @@ ingredients:
   steps:
   - 7
 - name: of lime juice
-  quantity: 0.5
-  unit: cup
+  quantity: 120
+  unit: ml
   steps:
   - 9
   - 12

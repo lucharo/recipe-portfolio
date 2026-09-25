@@ -22,19 +22,19 @@ ingredients:
   - 4
 - name: fresh ginger
   quantity: 2.0
-  unit: tbsps
+  unit: tbsp
   steps:
   - 1
   - 4
 - name: garam masala
   quantity: 2.0
-  unit: teaspoons
+  unit: tsp
   steps:
   - 2
   - 5
 - name: ground cinnamon
   quantity: 0.5
-  unit: teaspoon
+  unit: tsp
   steps:
   - 2
   - 5
@@ -63,8 +63,8 @@ ingredients:
   - 2
   - 5
 - name: of water
-  quantity: 3.0
-  unit: cups
+  quantity: 750
+  unit: ml
   steps:
   - 6
 - name: grams of red lentils

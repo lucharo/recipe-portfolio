@@ -10,7 +10,7 @@ const recipe: RecipeT = {
   image: null,
   servings: 2,
   ingredients: [
-    { name: "stock", quantity: 2, unit: "cups", steps: [1, 2, 3] },
+    { name: "stock", quantity: 500, unit: "ml", steps: [1, 2, 3] },
   ],
   methods: ["Warm the stock.", "Add the rice.", "Finish the risotto."],
 };

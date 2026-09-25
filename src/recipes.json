@@ -66,8 +66,8 @@
         },
         {
           "name": "water",
-          "quantity": 1,
-          "unit": "cup",
+          "quantity": 250,
+          "unit": "ml",
           "steps": [
             5
           ]
@@ -214,8 +214,8 @@
       "ingredients": [
         {
           "name": "oat flour",
-          "quantity": 3,
-          "unit": "cup",
+          "quantity": 270,
+          "unit": "g",
           "steps": [
             3
           ]
@@ -230,8 +230,8 @@
         },
         {
           "name": "soy milk",
-          "quantity": 0.5,
-          "unit": "cup",
+          "quantity": 120,
+          "unit": "ml",
           "steps": [
             2
           ]
@@ -275,12 +275,12 @@
         "In a separate bowl, combine oat flour, salt, baking powder, and bicarbonate.",
         "Fold the wet ingredients into the dry ingredients until just combined.",
         "Pour the batter into a greased loaf pan.",
-        "Bake at 350°F for 50-60 minutes until a toothpick inserted in the center comes out clean.",
+        "Bake at 180°C for 50-60 minutes until a toothpick inserted in the center comes out clean.",
         "Cool in the pan for 10 minutes, then turn out onto a wire rack to cool completely."
       ],
       "notes": [
         "From Alex, modified from original source",
-        "Start with 1/4 cup soy milk and add more as needed for desired texture"
+        "Start with 60 ml soy milk and add more as needed for desired texture"
       ]
     },
     {
@@ -445,7 +445,7 @@
         }
       ],
       "methods": [
-        "Preheat oven to 180°C and line an 8×8 inch baking dish with parchment paper.",
+        "Preheat oven to 180°C and line a 20×20 cm baking dish with parchment paper.",
         "Cook sweet potato until tender by baking, boiling, or steaming. Combine with black beans, tahini, maple syrup, milk, and vanilla extract in a blender until smooth. Transfer to a mixing bowl.",
         "Fold in cacao powder, maca powder, Lions Mane, Chaga, sea salt, baking powder, hemp seeds, chia seeds, and chocolate chips.",
         "Stir in olive oil and transfer batter to the lined tin. Top with chopped hazelnuts and pumpkin seeds.",
@@ -667,8 +667,8 @@
         },
         {
           "name": "extra virgin olive oil",
-          "quantity": 0.25,
-          "unit": "cup",
+          "quantity": 60,
+          "unit": "ml",
           "steps": [
             2
           ]
@@ -707,9 +707,9 @@
           ]
         },
         {
-          "name": "cannellini beans",
-          "quantity": 4,
-          "unit": "cup",
+          "name": "cannellini beans, drained",
+          "quantity": 3,
+          "unit": "can",
           "steps": [
             4
           ]
@@ -732,16 +732,16 @@
         },
         {
           "name": "dried porcini mushrooms",
-          "quantity": 1,
-          "unit": "cup",
+          "quantity": 30,
+          "unit": "g",
           "steps": [
             4
           ]
         },
         {
           "name": "white wine",
-          "quantity": 1,
-          "unit": "cup",
+          "quantity": 250,
+          "unit": "ml",
           "steps": [
             4
           ]
@@ -873,8 +873,8 @@
       "ingredients": [
         {
           "name": "warm vegetable stock, made with Marigold bouillon powder and water",
-          "quantity": 3.5,
-          "unit": "cups",
+          "quantity": 850,
+          "unit": "ml",
           "steps": [
             1,
             4,
@@ -930,16 +930,16 @@
         },
         {
           "name": "shallot, thinly sliced",
-          "quantity": 0.75,
-          "unit": "cup",
+          "quantity": 100,
+          "unit": "g",
           "steps": [
             3
           ]
         },
         {
           "name": "arborio rice",
-          "quantity": 1,
-          "unit": "cup",
+          "quantity": 200,
+          "unit": "g",
           "steps": [
             4,
             5
@@ -947,16 +947,16 @@
         },
         {
           "name": "dry white wine, or extra vegetable stock",
-          "quantity": 0.25,
-          "unit": "cup",
+          "quantity": 60,
+          "unit": "ml",
           "steps": [
             4
           ]
         },
         {
           "name": "vegan parmesan, plus extra to serve",
-          "quantity": 0.25,
-          "unit": "cup",
+          "quantity": 25,
+          "unit": "g",
           "steps": [
             6,
             7
@@ -1059,8 +1059,8 @@
         },
         {
           "name": "of water",
-          "quantity": 0.5,
-          "unit": "cup",
+          "quantity": 120,
+          "unit": "ml",
           "steps": [
             4
           ]
@@ -1368,8 +1368,8 @@
         },
         {
           "name": "of pasta water",
-          "quantity": 1,
-          "unit": "cup",
+          "quantity": 250,
+          "unit": "ml",
           "steps": [
             8
           ]
@@ -1461,7 +1461,7 @@
         "Remove the stem of the red peppers and cut the onion(s) in quarters.",
         "Add the red peppers to a roasting tray and roast for 15 minutes.",
         "Remove the tray from the oven. Add the quartered onions and garlic cloves and return to the oven for another 15 minutes.",
-        "Cook the pasta in boiling salted water as per packet instructions and make sure you reserve some pasta water (1 cup for every 4 servings of this dish).",
+        "Cook the pasta in boiling salted water as per packet instructions and make sure you reserve some pasta water (250 ml for every 4 servings of this dish).",
         "Leave the roasted veggies to cool for 5 minutes. Then peel the onion and garlic, and remove any skin and any remaining stalks or seeds from the red peppers. Transfer them to a blender.",
         "Drain the cashews and add them to the blender, along with the plant-based milk and pasta water you reserved earlier, dried mixed herbs, sun-dried tomatoes (drain as much oil as possible), balsamic vinegar, nutritional yeast, and very generous pinches of salt and pepper",
         "Blend until smooth.",
@@ -1507,7 +1507,7 @@
         {
           "name": "fresh ginger",
           "quantity": 2,
-          "unit": "tbsps",
+          "unit": "tbsp",
           "steps": [
             1,
             4
@@ -1516,7 +1516,7 @@
         {
           "name": "garam masala",
           "quantity": 2,
-          "unit": "teaspoons",
+          "unit": "tsp",
           "steps": [
             2,
             5
@@ -1525,7 +1525,7 @@
         {
           "name": "ground cinnamon",
           "quantity": 0.5,
-          "unit": "teaspoon",
+          "unit": "tsp",
           "steps": [
             2,
             5
@@ -1569,8 +1569,8 @@
         },
         {
           "name": "of water",
-          "quantity": 3,
-          "unit": "cups",
+          "quantity": 750,
+          "unit": "ml",
           "steps": [
             6
           ]
@@ -1738,24 +1738,24 @@
         },
         {
           "name": "onion or shallot",
-          "quantity": 0.75,
-          "unit": "cup",
+          "quantity": 100,
+          "unit": "g",
           "steps": [
             1
           ]
         },
         {
           "name": "shiitake mushrooms, minced",
-          "quantity": 1,
-          "unit": "cup",
+          "quantity": 75,
+          "unit": "g",
           "steps": [
             2
           ]
         },
         {
           "name": "tempeh",
-          "quantity": 8,
-          "unit": "oz",
+          "quantity": 200,
+          "unit": "g",
           "steps": [
             2
           ]
@@ -1794,16 +1794,16 @@
         },
         {
           "name": "dry red wine",
-          "quantity": 0.25,
-          "unit": "cup",
+          "quantity": 60,
+          "unit": "ml",
           "steps": [
             3
           ]
         },
         {
           "name": "crushed tomatoes",
-          "quantity": 28,
-          "unit": "oz",
+          "quantity": 2,
+          "unit": "can",
           "steps": [
             3
           ]
@@ -1842,8 +1842,8 @@
         },
         {
           "name": "water",
-          "quantity": 0.25,
-          "unit": "cup",
+          "quantity": 60,
+          "unit": "ml",
           "steps": [
             3
           ]
@@ -1903,8 +1903,8 @@
         },
         {
           "name": "of tahini",
-          "quantity": 0.75,
-          "unit": "cup",
+          "quantity": 180,
+          "unit": "g",
           "steps": [
             5
           ]
@@ -1919,8 +1919,8 @@
         },
         {
           "name": "chickpea brine",
-          "quantity": 0.33,
-          "unit": "cup",
+          "quantity": 80,
+          "unit": "ml",
           "steps": [
             1,
             3
@@ -2059,8 +2059,8 @@
         },
         {
           "name": "water",
-          "quantity": 6,
-          "unit": "cups",
+          "quantity": 1400,
+          "unit": "ml",
           "steps": [
             6
           ]
@@ -2101,8 +2101,8 @@
         },
         {
           "name": "of lime juice",
-          "quantity": 0.5,
-          "unit": "cup",
+          "quantity": 120,
+          "unit": "ml",
           "steps": [
             9,
             12

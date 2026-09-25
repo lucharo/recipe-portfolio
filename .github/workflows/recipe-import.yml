@@ -77,7 +77,7 @@ jobs:
                - Optional: `creator` (Instagram handle, YouTube channel, blog author name), `notes`.
                - Ingredients MUST include `steps: [N, ...]` with 1-indexed step numbers — read the methods and decide which ingredients each step uses. Do not output `steps: []`.
                - Use clean names (`chickpeas`, not `of chickpeas`).
-               - Units must be one of: tsp, tbsp, cup, can, clove, handful, g, ml, oz, lb — or `''` when unitless.
+               - Units must be one of: tsp, tbsp, can, clove, handful, g, ml — or `''` when unitless. Metric only: convert cups, oz and lb to g (solids) or ml (liquids), °F to °C and inches to cm, and round to sensible numbers (e.g. 1 cup water → 250 ml). Keep tsp/tbsp for small amounts.
             6. Generate 3 candidate photos: `node scripts/generate-recipe-images.mjs "$SLUG" "$DISH_DESC"`. This writes to `public/images/candidates/$SLUG-{1,2,3}.jpg`.
             7. Create branch `recipe-import/$SLUG` off `main`, add the new YAML + the 3 candidate images, commit (`Draft: add $NAME`), and push.
             8. Post this comment on issue #${{ env.ISSUE_NUMBER }} via `gh issue comment`:
