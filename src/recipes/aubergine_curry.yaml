@@ -41,8 +41,8 @@ ingredients:
   steps:
   - 4
 - name: water
-  quantity: 1.0
-  unit: cup
+  quantity: 250
+  unit: ml
   steps:
   - 5
 - name: of peanut/almond butter

@@ -8,16 +8,16 @@ ingredients:
     unit: tbsp
     steps: [1]
   - name: onion or shallot
-    quantity: 0.75
-    unit: cup
+    quantity: 100
+    unit: g
     steps: [1]
   - name: shiitake mushrooms, minced
-    quantity: 1
-    unit: cup
+    quantity: 75
+    unit: g
     steps: [2]
   - name: tempeh
-    quantity: 8
-    unit: oz
+    quantity: 200
+    unit: g
     steps: [2]
   - name: garlic
     quantity: 3
@@ -36,12 +36,12 @@ ingredients:
     unit: tsp
     steps: [2]
   - name: dry red wine
-    quantity: 0.25
-    unit: cup
+    quantity: 60
+    unit: ml
     steps: [3]
   - name: crushed tomatoes
-    quantity: 28
-    unit: oz
+    quantity: 2
+    unit: can
     steps: [3]
   - name: tomato paste
     quantity: 3
@@ -60,8 +60,8 @@ ingredients:
     unit: tbsp
     steps: [3]
   - name: water
-    quantity: 0.25
-    unit: cup
+    quantity: 60
+    unit: ml
     steps: [3]
   - name: cooked pasta
     quantity: 1

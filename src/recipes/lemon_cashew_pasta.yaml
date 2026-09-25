@@ -46,8 +46,8 @@ ingredients:
   steps:
   - 4
 - name: of water
-  quantity: 0.5
-  unit: cup
+  quantity: 120
+  unit: ml
   steps:
   - 4
 - name: of nutritional yeast

@@ -18,8 +18,8 @@ ingredients:
   - 2
   - 3
 - name: of tahini
-  quantity: 0.75
-  unit: cup
+  quantity: 180
+  unit: g
   steps:
   - 5
 - name: lemon
@@ -28,8 +28,8 @@ ingredients:
   steps:
   - 6
 - name: chickpea brine
-  quantity: 0.33
-  unit: cup
+  quantity: 80
+  unit: ml
   steps:
   - 1
   - 3

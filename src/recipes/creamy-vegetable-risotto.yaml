@@ -4,8 +4,8 @@ image: creamy-vegetable-risotto.jpg
 servings: 4
 ingredients:
   - name: warm vegetable stock, made with Marigold bouillon powder and water
-    quantity: 3.5
-    unit: cups
+    quantity: 850
+    unit: ml
     steps: [1, 4, 5]
   - name: water or oil, divided
     quantity: 2
@@ -28,20 +28,20 @@ ingredients:
     unit: tsp
     steps: [2, 6]
   - name: shallot, thinly sliced
-    quantity: 0.75
-    unit: cup
+    quantity: 100
+    unit: g
     steps: [3]
   - name: arborio rice
-    quantity: 1
-    unit: cup
+    quantity: 200
+    unit: g
     steps: [4, 5]
   - name: dry white wine, or extra vegetable stock
-    quantity: 0.25
-    unit: cup
+    quantity: 60
+    unit: ml
     steps: [4]
   - name: vegan parmesan, plus extra to serve
-    quantity: 0.25
-    unit: cup
+    quantity: 25
+    unit: g
     steps: [6, 7]
   - name: parsley, chopped (optional)
     quantity: 1

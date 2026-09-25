@@ -19,8 +19,8 @@ servings: 4                         # Integer
 ingredients:
   - name: onion
     quantity: 1.0
-    unit: ''            # Allowed: tsp, tbsp, cup, can, clove, handful,
-                        # g, ml, oz, lb. Empty string when unitless.
+    unit: ''            # Allowed: tsp, tbsp, can, clove, handful,
+                        # g, ml. Empty string when unitless.
     steps: [1]          # 1-indexed; every number must match a step below
 
   - name: chickpeas
